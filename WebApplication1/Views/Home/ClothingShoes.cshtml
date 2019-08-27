@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Giyim-Ayakkabı";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="col-md-4 productCard">
+                <div class="productImage">
+                    <div class="productMainImage">
+                        <img src="~/img/elbise1.jpg" class="resim-wrap" id="product1" alt="">
+                    </div>
+                    @for (int i = 0; i < length; i++)
+                    {
+                        <img src="@i" onclick="get_id('product1'); change_img(this);" id="" alt="">
+                    }
+                    <div class="productImages">
+                        <img src="~/img/elbise1.jpg" onclick="get_id('product1'); change_img(this);" id="" alt="">
+                        <img src="~/img/elbise2.jpg" onclick="get_id('product1'); change_img(this);" id="" alt="">
+                        <img src="~/img/elbise3.jpg" onclick="get_id('product1'); change_img(this);" id="" alt="">
+                    </div>
+                </div>
+                <div class="productInformation">
+                    <div class="productName">Abiye Elbise</div>
+                    <div class="productDescription">Siyah Bel Dekolteli TPRSS19UT0095</div>
+                    <div class="productPrice">159,99 TL</div>
+                    <a href="#" class="productBuy">Sepete Ekle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="productCard">
+                <div class="productImage">
+                    <div class="productMainImage">
+                        <img src="~/img/abiye1.jpg" class="resim-wrap" id="product2" alt="">
+                    </div>
+                    <div class="productImages">
+                        <img src="~/img/abiye1.jpg" onclick="get_id('product2'); change_img(this);" id="" alt="">
+                        <img src="~/img/abiye2.jpg" onclick="get_id('product2'); change_img(this);" id="" alt="">
+                        <img src="~/img/abiye3.jpg" onclick="get_id('product2'); change_img(this);" id="" alt="">
+                    </div>
+                </div>
+                <div class="productInformation">
+                    <div class="productName">Abiye Elbise</div>
+                    <div class="productDescription">Saks Yırtmaç Dekolteli TPRSS19FZ0511</div>
+                    <div class="productPrice">179,99 TL</div>
+                    <a href="#" class="productBuy">Sepete Ekle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="productCard">
+                <div class="productImage">
+                    <div class="productMainImage">
+                        <img src="~/img/t1.jpg" class="resim-wrap" id="product3" alt="">
+                    </div>
+                    <div class="productImages">
+                        <img src="~/img/t1.jpg" onclick="get_id('product3'); change_img(this);" id="" alt="">
+                        <img src="~/img/t2.jpg" onclick="get_id('product3'); change_img(this);" id="" alt="">
+                        <img src="~/img/t3.jpg" onclick="get_id('product3'); change_img(this);" id="" alt="">
+                    </div>
+                </div>
+                <div class="productInformation">
+                    <div class="productName">Kokteyl Elbisesi</div>
+                    <div class="productDescription">Tarçın Kuşak Detaylı TPRSS19BB0283</div>
+                    <div class="productPrice">179.99 TL</div>
+                    <a href="#" class="productBuy">Sepete Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var container;
+    function get_id(product) {
+        container = document.getElementById(product);
+    }
+    function change_img(image) {
+        container.src = image.src;
+    }
+</script>

@@ -1,0 +1,515 @@
+﻿html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+header {
+    background-color: white;
+}
+body {
+    font-family: Helvetica, sans-serif;
+    margin-right: 2px;
+    padding: 0;
+    width: auto;
+    background-color: #ececec;
+}
+
+/********************************************* N A V B A R ************************************************/
+.navbar-top {
+    max-height: 100%;
+    font-size: 11px;
+    background-color: white;
+    border-bottom: solid;
+    border-bottom-color: dimgrey;
+    border-bottom-width: 1px;
+}
+.languageSet {
+    padding: 0 0 0 0;
+    margin-right: 1px !important;
+}
+.navbar-middle {
+    height: 100%;
+    text-align: center !important;
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 16px;
+    background-color: white;
+    
+}
+div.col-md-2.navbar-middle {
+    width: auto;
+    height: auto;
+}
+div.col-md-6.navbar-middle {
+    width: 585px;
+    height: 100%;
+    padding-top: 29px;
+    padding-bottom: 29px;
+    padding-left: 15px;
+}
+div.col-md-4.navbar-middle {
+    width: 400px;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 29px;
+    font-weight:600;
+}
+a.links.logo {
+    padding: 0;
+}
+.logo {
+    height: 90px;
+    width: 185px;
+}
+.searchBar {
+    height:40px;
+    width: 500px !important;
+}
+header > input.form-control.mr-sm-2.searchBar {
+    height:40px;
+    max-width:380px;
+}
+.searchButton {
+    padding: 10px;
+    height: 41px;
+    width: 60px;
+    text-align: center !important;
+}
+.regesterLink {
+    margin-left: 20px;
+    margin-right: 3px;
+}
+.loginLink {
+    margin-left: 3px;
+    margin-right: 15px;
+}
+.basket {
+    margin-left: 23px;
+    margin-right: 20px;
+}
+.navbar-end {
+    height: 100%;
+    padding: 3px 0 2px 0;
+    text-align:center !important;
+    color:white !important;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgba(85, 65, 122, 0.88);
+}
+div.row.navbar-end {
+    margin: 0 0 0 0;
+}
+li.navbar-link{
+    left: 120px;
+}
+div.nav {
+text-align: inherit;
+}
+a, a:focus, a:hover{
+    color: black;
+}
+.main{
+    background-color:white;
+}
+
+/********************************************* S L I D E R ************************************************/
+.carousel {
+    position: relative;
+    width: 1170px;
+    margin-top: 1px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.40);    
+}
+.carousel li {
+    display: inline-block;
+    width: 1170px;
+    height: 356px;
+    float: left;
+    position: relative;
+}
+.carousel ul {
+    position: relative;
+    left: 0;
+    width: 9000px;
+    list-style: none;
+    transition: left .3s linear;
+    -moz-transition: left .3s linear;
+    -o-transition: left .3s linear;
+    -webkit-transition: left .3s linear;
+    animation: slide-animation 5s infinite;
+}
+.carousel-container {
+    margin: 0 0;
+    padding: 0;
+    width: 1170px;
+    height: 356px;
+}
+.carousel-container img {
+    width: 1170px;
+    padding: 0;
+}
+.carousel ul:hover {
+    animation-play-state: paused;
+}
+@keyframes slide-animation {
+    20% {left: 0}
+    25% {left: -1170px}
+    45% {left: -1170px}
+    50% {left: -2340px}
+    70% {left: -2340px}
+    75% {left: -3680px}
+    95% {left: -3680px}
+    100% {left: 0}
+}
+
+
+
+/********************************************** L O G I N ******************************************************/
+.loginCard {
+    height: auto;
+    width: 550px;
+    margin: 15px 0 40px 0;
+    padding: 15px;
+    right: 25%;
+    left: 25%;
+    background: rgba(0, 0, 0, 0.25);
+}
+.loginCard h3 {
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    margin-bottom: 50px;
+    color: rgb(254, 200, 200);
+}
+.loginCard input {
+    width: 80%;
+    left: 5%;
+    position: relative;
+    padding: 10px;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid white;
+    margin-bottom: 15px;
+    color: rgba(246, 201, 253, 0.67);
+}
+.loginCard input:focus {
+    border-bottom: 1px solid rgb(181, 203, 243);
+}
+.loginCard label {
+    position: relative;
+    display: block;   
+    left: 29px;
+    pointer-events: none;
+    color: white;
+}
+.loginCard button {
+    width: 65%;
+    left: 10%;
+    position: relative;
+    padding: 10px;
+    background: rgb(206, 141, 141);
+    border: none;
+    border-radius: 15px;
+    color: black;
+}
+
+
+
+
+/**************************************** R E G İ S T E R *********************************************/
+.registerCard {
+    height: auto;
+    width: 550px;
+    margin: 15px 0 40px 0;
+    padding: 15px;
+    right: 25%;
+    left: 25%;
+    background: rgba(0, 0, 0, 0.25);
+}
+.registerCard h3 {
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    margin-bottom: 50px;
+    color: rgb(254, 200, 200);
+}
+
+.registerCard input {
+    width: 75%;
+    left: 5%;
+    position: relative;
+    padding: 10px;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid white;
+    margin-bottom: 15px;
+    color: rgba(246, 201, 253, 0.67);
+}
+.registerCard input:focus {
+    border-bottom: 1px solid rgb(181, 203, 243);
+}
+
+.registerCard label {
+    position: relative;
+    display: block;
+    left: 29px;
+    pointer-events: none;
+    color: white;
+}
+
+.registerCard button {
+    width: 65%;
+    left: 10%;
+    position: relative;
+    padding: 10px;
+    background: rgb(206, 141, 141);
+    border: none;
+    border-radius: 15px;
+    color: black;
+}
+
+
+
+
+
+/**************************************** P R O D U C T  C A R D *********************************************/
+
+.productCard {
+    height: 643px;
+    width: 310px;
+    padding: 5px 10px 0 10px;
+    margin: 20px;
+    background-color: white;
+}
+.productCard:hover {
+    border: 0.5px solid lightgrey;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.10);
+    transition: 0.10s;
+}
+.productImage {
+    height: 440px;
+    margin: 2px 0 0 0;
+}
+.productMainImage img {
+    margin: 0 10px 0 10px;
+    object-fit: fill;
+}
+.resim-wrap {
+    height: 340px;
+    width: 270px;
+}
+.productImages {
+    height: 95px;
+    padding: 0 1px 0 1px;
+    text-align: center;
+    object-fit: fill;
+}
+.productImages img {
+    height: 95px;
+    width: 72px;
+    margin: 0 4px 0 4px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.productImages img:hover {
+    border: 0.2px solid lightgrey;
+}
+.productInformation {
+   height: 190px;
+   margin-top:2px;
+   padding: 0 5px 0 5px;
+}
+.productName {
+    padding: 7px 5px 0 5px;
+    text-transform: uppercase;
+    font-size: 26px;
+    color: rgb(53, 23, 53);
+}
+.productDescription {
+    padding: 1px 5px 2px 5px;
+    font-size: 17px;
+    opacity: 0.7;
+}
+.productPrice {
+    padding: 2px 5px 2px 5px;
+    top: 20px;
+    right: 19px;
+    color: rgb(53, 23, 53);
+    font-size: 24px;
+}
+.productBuy {
+    height: 48px;
+    margin: 0 5px 5px 5px;
+    padding: 13px;
+    font-weight: 600;
+    display: block;
+    background: rgb(107, 58, 107);
+    text-align: center;
+    color: #fff;
+    transition: 0.3s;
+}
+.productBuy:hover {
+    background: #c4c4c4;
+}
+
+
+
+
+
+/********************************************* F O O T E R ************************************************/
+footer > p, li {
+    color: dimgrey;
+    line-height: 25px;
+}
+footer > h2 {
+    font-family:Courgette;
+    font-size: 18px;
+    color: black;
+    padding-bottom: 7px;
+}
+.footer-top {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    padding: 25px 230px;
+    margin: 0 -2px 0 0;
+}
+.segment-one segment-two segment-three segment-four{
+    width:25px;
+}
+.footer-bottom {
+    background-color: rgba(217, 216, 216, 0.25);
+    font-size: 100%;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+    margin-left: 0;
+}
+.footer-bottom-text {
+    text-align: center;
+    color: black;
+    line-height: 75px;
+    background-color: #ececec;
+}
+.segment-one, .segment-two, .segment-three, .segment-four {
+    margin: 15px 0 !important;
+}
+.segment-one h2 {
+    margin-bottom: 9px;
+    font-family: Poppins;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.segment-one h2::before {
+    content: '|';
+    color: black;
+    padding-right: 10px;
+}
+.segment-two h2 {
+    margin-bottom: 9px;
+    font-family: Poppins;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.segment-two h2::before {
+    content: '|';
+    color: black;
+    padding-right: 10px;
+}
+.segment-two ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.segment-two ul li {
+    border-bottom: 1px solid dimgrey;
+    line-height: 40px;
+}
+.segment-two ul li a {
+    color: rgb(102, 150, 215);
+    text-decoration: none;
+}
+.segment-three h2 {
+    margin-bottom: 9px;
+    font-family: Poppins;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.segment-three h2::before {
+    content: '|';
+    color: black;
+    padding-right: 10px;
+}
+.segment-three a {
+    background-color: #494848;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+}
+.segment-three a i {
+    font-size: 20px;
+    color: #fff;
+    padding: 10px 12px;
+}
+.segment-four h2 {
+    margin-bottom: 9px;
+    font-family: Poppins;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.segment-four h2::before {
+    content: '|';
+    color: black;
+    padding-right: 10px;
+}
+.segment-four form input [type=submit] {
+    background-color: #c65039;
+    border: none;
+    padding: 3px 15px;
+    margin-left: -5px;
+    color:red;
+    text-transform: uppercase;
+}
+.footer-email{
+    max-width: 181px;
+}
+.footer-button{
+    background-color: rgb(181, 203, 243);
+}
+/* ------------ */
+@media only screen and (min-width: 768 px) and (max-widht:991px) {
+    .md-mb-30 {
+        margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width: 767pz) {
+    .sm-mb-30 {
+        margin-bottom: 30px;
+    }
+
+    .footer-top {
+        padding: 50px 0;
+    }
+}
