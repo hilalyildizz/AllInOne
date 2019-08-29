@@ -4,67 +4,152 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <div class="col-md-4 productCard">
-                <div class="productImage">
-                    <div class="productMainImage">
-                        <img src="~/img/elbise1.jpg" class="resim-wrap" id="product1" alt="">
-                    </div>
-                    @for (int i = 0; i < length; i++)
-                    {
-                        <img src="@i" onclick="get_id('product1'); change_img(this);" id="" alt="">
-                    }
-                    <div class="productImages">
-                        <img src="~/img/elbise1.jpg" onclick="get_id('product1'); change_img(this);" id="" alt="">
-                        <img src="~/img/elbise2.jpg" onclick="get_id('product1'); change_img(this);" id="" alt="">
-                        <img src="~/img/elbise3.jpg" onclick="get_id('product1'); change_img(this);" id="" alt="">
+        <div class="col-md-2">
+            <div class="filterCard">
+                <div class="filterName">
+                    <p>Cinsiyet</p>
+                </div>
+                <div class="genderFilter">
+                    <div class="overflow-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label filterLine" for="defaultCheck1">Kadın</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label filterLine" for="defaultCheck2">Erkek</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label filterLine" for="defaultCheck2">Diğer</label>
+                        </div>
                     </div>
                 </div>
-                <div class="productInformation">
-                    <div class="productName">Abiye Elbise</div>
-                    <div class="productDescription">Siyah Bel Dekolteli TPRSS19UT0095</div>
-                    <div class="productPrice">159,99 TL</div>
-                    <a href="#" class="productBuy">Sepete Ekle</a>
+                <div class="filterName">
+                    <p>Ürün Grubu</p>
+                </div>
+                <div class="categoryFilter">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck1">Ayakkabı</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck2">Cüzdan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck2">Çanta</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck2">Elbise</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck2">Eşofman</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck2">Etek</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck2">Gömlek</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck2">Kartlık</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck2">Pantolon</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck2">Sweatshirt</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label filterLine" for="defaultCheck2">Takım Elbise</label>
+                    </div>
+                </div>
+                <div class="filterName">
+                    <p>Renk</p>
+                </div>
+                <div class="colorFilter">
+                    <div class="overflow-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label filterLine" for="defaultCheck1">Siyah</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label filterLine" for="defaultCheck2">Beyaz</label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="productCard">
-                <div class="productImage">
-                    <div class="productMainImage">
-                        <img src="~/img/abiye1.jpg" class="resim-wrap" id="product2" alt="">
+        <div class="col-md-10">
+            <div class="col-md-4">
+                <div class="productCard">
+                    <div class="productImage">
+                        <div class="productMainImage">
+                            <img src="~/img/elbise1.jpg" class="resim-wrap" id="product1" alt="">
+                        </div>
+                        <div class="productImages">
+                            <img src="~/img/elbise1.jpg" onclick="get_id('product1'); change_img(this);" id="" alt="">
+                            <img src="~/img/elbise2.jpg" onclick="get_id('product1'); change_img(this);" id="" alt="">
+                            <img src="~/img/elbise3.jpg" onclick="get_id('product1'); change_img(this);" id="" alt="">
+                        </div>
                     </div>
-                    <div class="productImages">
-                        <img src="~/img/abiye1.jpg" onclick="get_id('product2'); change_img(this);" id="" alt="">
-                        <img src="~/img/abiye2.jpg" onclick="get_id('product2'); change_img(this);" id="" alt="">
-                        <img src="~/img/abiye3.jpg" onclick="get_id('product2'); change_img(this);" id="" alt="">
+                    <div class="productInformation">
+                        <div class="productName">Abiye Elbise</div>
+                        <div class="productDescription">Siyah Bel Dekolteli TPRSS19UT0095</div>
+                        <div class="productPrice">159,99 TL</div>
+                        <a href="#" class="productBuy">Sepete Ekle</a>
                     </div>
-                </div>
-                <div class="productInformation">
-                    <div class="productName">Abiye Elbise</div>
-                    <div class="productDescription">Saks Yırtmaç Dekolteli TPRSS19FZ0511</div>
-                    <div class="productPrice">179,99 TL</div>
-                    <a href="#" class="productBuy">Sepete Ekle</a>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="productCard">
-                <div class="productImage">
-                    <div class="productMainImage">
-                        <img src="~/img/t1.jpg" class="resim-wrap" id="product3" alt="">
+            <div class="col-md-4">
+                <div class="productCard">
+                    <div class="productImage">
+                        <div class="productMainImage">
+                            <img src="~/img/abiye1.jpg" class="resim-wrap" id="product2" alt="">
+                        </div>
+                        <div class="productImages">
+                            <img src="~/img/abiye1.jpg" onclick="get_id('product2'); change_img(this);" id="" alt="">
+                            <img src="~/img/abiye2.jpg" onclick="get_id('product2'); change_img(this);" id="" alt="">
+                            <img src="~/img/abiye3.jpg" onclick="get_id('product2'); change_img(this);" id="" alt="">
+                        </div>
                     </div>
-                    <div class="productImages">
-                        <img src="~/img/t1.jpg" onclick="get_id('product3'); change_img(this);" id="" alt="">
-                        <img src="~/img/t2.jpg" onclick="get_id('product3'); change_img(this);" id="" alt="">
-                        <img src="~/img/t3.jpg" onclick="get_id('product3'); change_img(this);" id="" alt="">
+                    <div class="productInformation">
+                        <div class="productName">Abiye Elbise</div>
+                        <div class="productDescription">Saks Yırtmaç Dekolteli TPRSS19FZ0511</div>
+                        <div class="productPrice">179,99 TL</div>
+                        <a href="#" class="productBuy">Sepete Ekle</a>
                     </div>
                 </div>
-                <div class="productInformation">
-                    <div class="productName">Kokteyl Elbisesi</div>
-                    <div class="productDescription">Tarçın Kuşak Detaylı TPRSS19BB0283</div>
-                    <div class="productPrice">179.99 TL</div>
-                    <a href="#" class="productBuy">Sepete Ekle</a>
+            </div>
+            <div class="col-md-4">
+                <div class="productCard">
+                    <div class="productImage">
+                        <div class="productMainImage">
+                            <img src="~/img/t1.jpg" class="resim-wrap" id="product3" alt="">
+                        </div>
+                        <div class="productImages">
+                            <img src="~/img/t1.jpg" onclick="get_id('product3'); change_img(this);" id="" alt="">
+                            <img src="~/img/t2.jpg" onclick="get_id('product3'); change_img(this);" id="" alt="">
+                            <img src="~/img/t3.jpg" onclick="get_id('product3'); change_img(this);" id="" alt="">
+                        </div>
+                    </div>
+                    <div class="productInformation">
+                        <div class="productName">Kokteyl Elbisesi</div>
+                        <div class="productDescription">Tarçın Kuşak Detaylı TPRSS19BB0283</div>
+                        <div class="productPrice">179.99 TL</div>
+                        <a href="#" class="productBuy">Sepete Ekle</a>
+                    </div>
                 </div>
             </div>
         </div>

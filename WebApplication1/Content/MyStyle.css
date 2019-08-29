@@ -16,10 +16,11 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     background: transparent;
 }
 header {
+    font-family: 'MS Reference Sans Serif';
     background-color: white;
 }
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: 'MS Reference Sans Serif';
     margin-right: 2px;
     padding: 0;
     width: auto;
@@ -289,6 +290,51 @@ a, a:focus, a:hover{
 
 
 
+/**************************************** P R O D U C T   F I L T E R   C A R D *********************************************/
+.filterCard {
+    height: 500px;
+    width: 190px;
+    padding: 8px 8px 8px 8px;
+    background-color: white;
+}
+.filterLine {
+    font-family: 'MS Reference Sans Serif';
+    font-weight: 500;
+}
+.filterName {
+    height: 25px;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: rgb(102, 150, 215);
+}
+.genderFilter {
+    height: 125px;
+    padding: 5px;
+    margin-bottom: 8px;
+    border-bottom: 0.5px solid lightgrey;
+    overflow: auto;
+}
+.categoryFilter {
+    height: 125px;
+    padding: 5px;
+    margin-bottom: 8px;
+    border-bottom: 0.5px solid lightgrey;
+    overflow: auto;
+}
+.colorFilter {
+    height: 125px;
+    padding: 5px;
+    overflow: auto;
+}
+
+
+
+
+
+
+
+
 
 
 /**************************************** P R O D U C T  C A R D *********************************************/
@@ -297,7 +343,7 @@ a, a:focus, a:hover{
     height: 643px;
     width: 310px;
     padding: 5px 10px 0 10px;
-    margin: 20px;
+    margin-bottom:15px;
     background-color: white;
 }
 .productCard:hover {
@@ -341,7 +387,6 @@ a, a:focus, a:hover{
 }
 .productName {
     padding: 7px 5px 0 5px;
-    text-transform: uppercase;
     font-size: 26px;
     color: rgb(53, 23, 53);
 }
@@ -391,7 +436,7 @@ footer > h2 {
     background-color: white;
     height: 100%;
     width: 100%;
-    padding: 25px 230px;
+    padding: 15px 230px 60px 230px;
     margin: 0 -2px 0 0;
 }
 .segment-one segment-two segment-three segment-four{
@@ -417,9 +462,8 @@ footer > h2 {
 }
 .segment-one h2 {
     margin-bottom: 9px;
-    font-family: Poppins;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 .segment-one h2::before {
     content: '|';
@@ -428,9 +472,8 @@ footer > h2 {
 }
 .segment-two h2 {
     margin-bottom: 9px;
-    font-family: Poppins;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 .segment-two h2::before {
     content: '|';
@@ -452,9 +495,8 @@ footer > h2 {
 }
 .segment-three h2 {
     margin-bottom: 9px;
-    font-family: Poppins;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 .segment-three h2::before {
     content: '|';
@@ -462,11 +504,12 @@ footer > h2 {
     padding-right: 10px;
 }
 .segment-three a {
-    background-color: #494848;
     width: 40px;
     height: 40px;
+    margin-top: 8px;
     display: inline-block;
     border-radius: 50%;
+    background-color: #494848;
 }
 .segment-three a i {
     font-size: 20px;
@@ -475,9 +518,8 @@ footer > h2 {
 }
 .segment-four h2 {
     margin-bottom: 9px;
-    font-family: Poppins;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 .segment-four h2::before {
     content: '|';
@@ -494,9 +536,11 @@ footer > h2 {
 }
 .footer-email{
     max-width: 181px;
+    margin-top:8px;
 }
-.footer-button{
+.footer-button {
     background-color: rgb(181, 203, 243);
+    margin-top: 8px;
 }
 /* ------------ */
 @media only screen and (min-width: 768 px) and (max-widht:991px) {
