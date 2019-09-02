@@ -5,52 +5,61 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="AllInOneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cins">
+          <Key>
+            <PropertyRef Name="cinsID" />
+          </Key>
+          <Property Name="cinsID" Type="int" Nullable="false" />
+          <Property Name="cins" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cinsiyet">
+          <Key>
+            <PropertyRef Name="cinsiyetID" />
+          </Key>
+          <Property Name="cinsiyetID" Type="int" Nullable="false" />
+          <Property Name="cinsiyet" Type="char" MaxLength="10" Nullable="false" />
+        </EntityType>
         <EntityType Name="Fatura">
           <Key>
-            <PropertyRef Name="siparisNo" />
+            <PropertyRef Name="faturaID" />
           </Key>
-          <Property Name="siparisNo" Type="int" Nullable="false" />
+          <Property Name="faturaID" Type="int" Nullable="false" />
           <Property Name="siparisTarihi" Type="date" Nullable="false" />
-          <Property Name="toplamTutar" Type="real" Nullable="false" />
-          <Property Name="faturaNo" Type="int" Nullable="false" />
-          <Property Name="musteriNo" Type="int" Nullable="false" />
-          <Property Name="kargoTutari" Type="int" Nullable="false" />
+          <Property Name="musteriID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Katagori">
+        <EntityType Name="Kategori">
           <Key>
-            <PropertyRef Name="katagoriNo" />
+            <PropertyRef Name="kategoriID" />
           </Key>
-          <Property Name="katagoriNo" Type="int" Nullable="false" />
-          <Property Name="katagoriAdi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="kategoriID" Type="int" Nullable="false" />
+          <Property Name="kategoriAdi" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Musteri">
           <Key>
-            <PropertyRef Name="musteriNo" />
+            <PropertyRef Name="musteriID" />
           </Key>
-          <Property Name="musteriNo" Type="int" Nullable="false" />
+          <Property Name="musteriID" Type="int" Nullable="false" />
           <Property Name="ad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="soyad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="eposta" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="sepetNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <EntityType Name="Ozellik">
+        <EntityType Name="Renk">
           <Key>
-            <PropertyRef Name="ozellikNo" />
+            <PropertyRef Name="renkID" />
           </Key>
-          <Property Name="ozellikNo" Type="int" Nullable="false" />
-          <Property Name="cinsiyetGrubu" Type="char" MaxLength="10" />
-          <Property Name="urunRengi" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="cesit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="renkID" Type="int" Nullable="false" />
+          <Property Name="renk" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Sepet">
           <Key>
-            <PropertyRef Name="sepetNo" />
+            <PropertyRef Name="sepetID" />
           </Key>
-          <Property Name="sepetNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="musteriNo" Type="int" Nullable="false" />
-          <Property Name="siparisNo" Type="int" Nullable="false" />
-          <Property Name="urunKodu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sepetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="musteriID" Type="int" Nullable="false" />
+          <Property Name="faturaID" Type="int" Nullable="false" />
+          <Property Name="urunID" Type="int" Nullable="false" />
           <Property Name="urunAdedi" Type="int" Nullable="false" />
+          <Property Name="toplamTutar" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -62,50 +71,45 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="Url">
+          <Key>
+            <PropertyRef Name="urlID" />
+          </Key>
+          <Property Name="urlID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="url" Type="varchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="Urun">
           <Key>
-            <PropertyRef Name="urunKodu" />
+            <PropertyRef Name="urunID" />
           </Key>
+          <Property Name="urunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="urunKodu" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="adi" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="fiyat" Type="int" Nullable="false" />
+          <Property Name="adi" Type="varchar(max)" Nullable="false" />
+          <Property Name="aciklama" Type="varchar(max)" Nullable="false" />
+          <Property Name="fiyat" Type="float" Nullable="false" />
           <Property Name="stokMiktari" Type="int" Nullable="false" />
-          <Property Name="ozellikNo" Type="int" Nullable="false" />
-          <Property Name="katagoriNo" Type="int" Nullable="false" />
+          <Property Name="kategoriID" Type="int" Nullable="false" />
+          <Property Name="cinsID" Type="int" Nullable="false" />
+          <Property Name="cinsiyetID" Type="int" Nullable="false" />
+          <Property Name="renkID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UrunResmi">
+          <Key>
+            <PropertyRef Name="resimID" />
+          </Key>
+          <Property Name="resimID" Type="int" Nullable="false" />
+          <Property Name="urunID" Type="int" Nullable="false" />
+          <Property Name="urlID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Fatura_Musteri">
           <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
           <End Role="Fatura" Type="Self.Fatura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Musteri">
-              <PropertyRef Name="musteriNo" />
+              <PropertyRef Name="musteriID" />
             </Principal>
             <Dependent Role="Fatura">
-              <PropertyRef Name="musteriNo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Musteri_Sepet">
-          <End Role="Sepet" Type="Self.Sepet" Multiplicity="1" />
-          <End Role="Musteri" Type="Self.Musteri" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sepet">
-              <PropertyRef Name="sepetNo" />
-            </Principal>
-            <Dependent Role="Musteri">
-              <PropertyRef Name="sepetNo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sepet_Fatura">
-          <End Role="Fatura" Type="Self.Fatura" Multiplicity="1" />
-          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Fatura">
-              <PropertyRef Name="siparisNo" />
-            </Principal>
-            <Dependent Role="Sepet">
-              <PropertyRef Name="siparisNo" />
+              <PropertyRef Name="musteriID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -114,10 +118,10 @@
           <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Musteri">
-              <PropertyRef Name="musteriNo" />
+              <PropertyRef Name="musteriID" />
             </Principal>
             <Dependent Role="Sepet">
-              <PropertyRef Name="musteriNo" />
+              <PropertyRef Name="musteriID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -126,56 +130,100 @@
           <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Urun">
-              <PropertyRef Name="urunKodu" />
+              <PropertyRef Name="urunID" />
             </Principal>
             <Dependent Role="Sepet">
-              <PropertyRef Name="urunKodu" />
+              <PropertyRef Name="urunID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Urun_Katagori">
-          <End Role="Katagori" Type="Self.Katagori" Multiplicity="1" />
+        <Association Name="FK_Urun_Cins">
+          <End Role="Cins" Type="Self.Cins" Multiplicity="1" />
           <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Katagori">
-              <PropertyRef Name="katagoriNo" />
+            <Principal Role="Cins">
+              <PropertyRef Name="cinsID" />
             </Principal>
             <Dependent Role="Urun">
-              <PropertyRef Name="katagoriNo" />
+              <PropertyRef Name="cinsID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Urun_Ozellik">
-          <End Role="Ozellik" Type="Self.Ozellik" Multiplicity="1" />
+        <Association Name="FK_Urun_Cinsiyet">
+          <End Role="Cinsiyet" Type="Self.Cinsiyet" Multiplicity="1" />
           <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Ozellik">
-              <PropertyRef Name="ozellikNo" />
+            <Principal Role="Cinsiyet">
+              <PropertyRef Name="cinsiyetID" />
             </Principal>
             <Dependent Role="Urun">
-              <PropertyRef Name="ozellikNo" />
+              <PropertyRef Name="cinsiyetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Kategori">
+          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="kategoriID" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="kategoriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Renk">
+          <End Role="Renk" Type="Self.Renk" Multiplicity="1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Renk">
+              <PropertyRef Name="renkID" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="renkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UrunResmi_Url">
+          <End Role="Url" Type="Self.Url" Multiplicity="1" />
+          <End Role="UrunResmi" Type="Self.UrunResmi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Url">
+              <PropertyRef Name="urlID" />
+            </Principal>
+            <Dependent Role="UrunResmi">
+              <PropertyRef Name="urlID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UrunResmi_Urun">
+          <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
+          <End Role="UrunResmi" Type="Self.UrunResmi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="urunID" />
+            </Principal>
+            <Dependent Role="UrunResmi">
+              <PropertyRef Name="urunID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AllInOneModelStoreContainer">
+          <EntitySet Name="Cins" EntityType="Self.Cins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cinsiyet" EntityType="Self.Cinsiyet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fatura" EntityType="Self.Fatura" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Katagori" EntityType="Self.Katagori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Ozellik" EntityType="Self.Ozellik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Renk" EntityType="Self.Renk" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sepet" EntityType="Self.Sepet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Url" EntityType="Self.Url" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrunResmi" EntityType="Self.UrunResmi" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Fatura_Musteri" Association="Self.FK_Fatura_Musteri">
             <End Role="Musteri" EntitySet="Musteri" />
             <End Role="Fatura" EntitySet="Fatura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Musteri_Sepet" Association="Self.FK_Musteri_Sepet">
-            <End Role="Sepet" EntitySet="Sepet" />
-            <End Role="Musteri" EntitySet="Musteri" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sepet_Fatura" Association="Self.FK_Sepet_Fatura">
-            <End Role="Fatura" EntitySet="Fatura" />
-            <End Role="Sepet" EntitySet="Sepet" />
           </AssociationSet>
           <AssociationSet Name="FK_Sepet_Musteri" Association="Self.FK_Sepet_Musteri">
             <End Role="Musteri" EntitySet="Musteri" />
@@ -185,13 +233,29 @@
             <End Role="Urun" EntitySet="Urun" />
             <End Role="Sepet" EntitySet="Sepet" />
           </AssociationSet>
-          <AssociationSet Name="FK_Urun_Katagori" Association="Self.FK_Urun_Katagori">
-            <End Role="Katagori" EntitySet="Katagori" />
+          <AssociationSet Name="FK_Urun_Cins" Association="Self.FK_Urun_Cins">
+            <End Role="Cins" EntitySet="Cins" />
             <End Role="Urun" EntitySet="Urun" />
           </AssociationSet>
-          <AssociationSet Name="FK_Urun_Ozellik" Association="Self.FK_Urun_Ozellik">
-            <End Role="Ozellik" EntitySet="Ozellik" />
+          <AssociationSet Name="FK_Urun_Cinsiyet" Association="Self.FK_Urun_Cinsiyet">
+            <End Role="Cinsiyet" EntitySet="Cinsiyet" />
             <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Kategori" Association="Self.FK_Urun_Kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Renk" Association="Self.FK_Urun_Renk">
+            <End Role="Renk" EntitySet="Renk" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunResmi_Url" Association="Self.FK_UrunResmi_Url">
+            <End Role="Url" EntitySet="Url" />
+            <End Role="UrunResmi" EntitySet="UrunResmi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunResmi_Urun" Association="Self.FK_UrunResmi_Urun">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="UrunResmi" EntitySet="UrunResmi" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -199,62 +263,69 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AllInOneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cins">
+          <Key>
+            <PropertyRef Name="cinsID" />
+          </Key>
+          <Property Name="cinsID" Type="Int32" Nullable="false" />
+          <Property Name="cins1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Cins" FromRole="Cins" ToRole="Urun" />
+        </EntityType>
+        <EntityType Name="Cinsiyet">
+          <Key>
+            <PropertyRef Name="cinsiyetID" />
+          </Key>
+          <Property Name="cinsiyetID" Type="Int32" Nullable="false" />
+          <Property Name="cinsiyet1" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Cinsiyet" FromRole="Cinsiyet" ToRole="Urun" />
+        </EntityType>
         <EntityType Name="Fatura">
           <Key>
-            <PropertyRef Name="siparisNo" />
+            <PropertyRef Name="faturaID" />
           </Key>
-          <Property Name="siparisNo" Type="Int32" Nullable="false" />
+          <Property Name="faturaID" Type="Int32" Nullable="false" />
           <Property Name="siparisTarihi" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="toplamTutar" Type="Single" Nullable="false" />
-          <Property Name="faturaNo" Type="Int32" Nullable="false" />
-          <Property Name="musteriNo" Type="Int32" Nullable="false" />
-          <Property Name="kargoTutari" Type="Int32" Nullable="false" />
+          <Property Name="musteriID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Musteri" Relationship="Self.FK_Fatura_Musteri" FromRole="Fatura" ToRole="Musteri" />
-          <NavigationProperty Name="Sepet" Relationship="Self.FK_Sepet_Fatura" FromRole="Fatura" ToRole="Sepet" />
         </EntityType>
-        <EntityType Name="Katagori">
+        <EntityType Name="Kategori">
           <Key>
-            <PropertyRef Name="katagoriNo" />
+            <PropertyRef Name="kategoriID" />
           </Key>
-          <Property Name="katagoriNo" Type="Int32" Nullable="false" />
-          <Property Name="katagoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Katagori" FromRole="Katagori" ToRole="Urun" />
+          <Property Name="kategoriID" Type="Int32" Nullable="false" />
+          <Property Name="kategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Kategori" FromRole="Kategori" ToRole="Urun" />
         </EntityType>
         <EntityType Name="Musteri">
           <Key>
-            <PropertyRef Name="musteriNo" />
+            <PropertyRef Name="musteriID" />
           </Key>
-          <Property Name="musteriNo" Type="Int32" Nullable="false" />
+          <Property Name="musteriID" Type="Int32" Nullable="false" />
           <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="sepetNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Fatura" Relationship="Self.FK_Fatura_Musteri" FromRole="Musteri" ToRole="Fatura" />
-          <NavigationProperty Name="Sepet" Relationship="Self.FK_Musteri_Sepet" FromRole="Musteri" ToRole="Sepet" />
-          <NavigationProperty Name="Sepet1" Relationship="Self.FK_Sepet_Musteri" FromRole="Musteri" ToRole="Sepet" />
+          <NavigationProperty Name="Sepet" Relationship="Self.FK_Sepet_Musteri" FromRole="Musteri" ToRole="Sepet" />
         </EntityType>
-        <EntityType Name="Ozellik">
+        <EntityType Name="Renk">
           <Key>
-            <PropertyRef Name="ozellikNo" />
+            <PropertyRef Name="renkID" />
           </Key>
-          <Property Name="ozellikNo" Type="Int32" Nullable="false" />
-          <Property Name="cinsiyetGrubu" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="urunRengi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cesit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Ozellik" FromRole="Ozellik" ToRole="Urun" />
+          <Property Name="renkID" Type="Int32" Nullable="false" />
+          <Property Name="renk1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Renk" FromRole="Renk" ToRole="Urun" />
         </EntityType>
         <EntityType Name="Sepet">
           <Key>
-            <PropertyRef Name="sepetNo" />
+            <PropertyRef Name="sepetID" />
           </Key>
-          <Property Name="sepetNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="musteriNo" Type="Int32" Nullable="false" />
-          <Property Name="siparisNo" Type="Int32" Nullable="false" />
-          <Property Name="urunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sepetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="musteriID" Type="Int32" Nullable="false" />
+          <Property Name="faturaID" Type="Int32" Nullable="false" />
+          <Property Name="urunID" Type="Int32" Nullable="false" />
           <Property Name="urunAdedi" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Fatura" Relationship="Self.FK_Sepet_Fatura" FromRole="Sepet" ToRole="Fatura" />
-          <NavigationProperty Name="Musteri" Relationship="Self.FK_Musteri_Sepet" FromRole="Sepet" ToRole="Musteri" />
-          <NavigationProperty Name="Musteri1" Relationship="Self.FK_Sepet_Musteri" FromRole="Sepet" ToRole="Musteri" />
+          <Property Name="toplamTutar" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Musteri" Relationship="Self.FK_Sepet_Musteri" FromRole="Sepet" ToRole="Musteri" />
           <NavigationProperty Name="Urun" Relationship="Self.FK_Sepet_Urun" FromRole="Sepet" ToRole="Urun" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -267,65 +338,90 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="Url">
+          <Key>
+            <PropertyRef Name="urlID" />
+          </Key>
+          <Property Name="urlID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="url1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="UrunResmi" Relationship="Self.FK_UrunResmi_Url" FromRole="Url" ToRole="UrunResmi" />
+        </EntityType>
         <EntityType Name="Urun">
           <Key>
-            <PropertyRef Name="urunKodu" />
+            <PropertyRef Name="urunID" />
           </Key>
+          <Property Name="urunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="urunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fiyat" Type="Int32" Nullable="false" />
+          <Property Name="adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fiyat" Type="Double" Nullable="false" />
           <Property Name="stokMiktari" Type="Int32" Nullable="false" />
-          <Property Name="ozellikNo" Type="Int32" Nullable="false" />
-          <Property Name="katagoriNo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Katagori" Relationship="Self.FK_Urun_Katagori" FromRole="Urun" ToRole="Katagori" />
-          <NavigationProperty Name="Ozellik" Relationship="Self.FK_Urun_Ozellik" FromRole="Urun" ToRole="Ozellik" />
+          <Property Name="kategoriID" Type="Int32" Nullable="false" />
+          <Property Name="cinsID" Type="Int32" Nullable="false" />
+          <Property Name="cinsiyetID" Type="Int32" Nullable="false" />
+          <Property Name="renkID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cins" Relationship="Self.FK_Urun_Cins" FromRole="Urun" ToRole="Cins" />
+          <NavigationProperty Name="Cinsiyet" Relationship="Self.FK_Urun_Cinsiyet" FromRole="Urun" ToRole="Cinsiyet" />
+          <NavigationProperty Name="Kategori" Relationship="Self.FK_Urun_Kategori" FromRole="Urun" ToRole="Kategori" />
+          <NavigationProperty Name="Renk" Relationship="Self.FK_Urun_Renk" FromRole="Urun" ToRole="Renk" />
           <NavigationProperty Name="Sepet" Relationship="Self.FK_Sepet_Urun" FromRole="Urun" ToRole="Sepet" />
+          <NavigationProperty Name="UrunResmi" Relationship="Self.FK_UrunResmi_Urun" FromRole="Urun" ToRole="UrunResmi" />
         </EntityType>
+        <EntityType Name="UrunResmi">
+          <Key>
+            <PropertyRef Name="resimID" />
+          </Key>
+          <Property Name="resimID" Type="Int32" Nullable="false" />
+          <Property Name="urunID" Type="Int32" Nullable="false" />
+          <Property Name="urlID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Url" Relationship="Self.FK_UrunResmi_Url" FromRole="UrunResmi" ToRole="Url" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_UrunResmi_Urun" FromRole="UrunResmi" ToRole="Urun" />
+        </EntityType>
+        <Association Name="FK_Urun_Cins">
+          <End Role="Cins" Type="Self.Cins" Multiplicity="1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cins">
+              <PropertyRef Name="cinsID" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="cinsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Cinsiyet">
+          <End Role="Cinsiyet" Type="Self.Cinsiyet" Multiplicity="1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cinsiyet">
+              <PropertyRef Name="cinsiyetID" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="cinsiyetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Fatura_Musteri">
           <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
           <End Role="Fatura" Type="Self.Fatura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Musteri">
-              <PropertyRef Name="musteriNo" />
+              <PropertyRef Name="musteriID" />
             </Principal>
             <Dependent Role="Fatura">
-              <PropertyRef Name="musteriNo" />
+              <PropertyRef Name="musteriID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Sepet_Fatura">
-          <End Role="Fatura" Type="Self.Fatura" Multiplicity="1" />
-          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Fatura">
-              <PropertyRef Name="siparisNo" />
-            </Principal>
-            <Dependent Role="Sepet">
-              <PropertyRef Name="siparisNo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Urun_Katagori">
-          <End Role="Katagori" Type="Self.Katagori" Multiplicity="1" />
+        <Association Name="FK_Urun_Kategori">
+          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
           <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Katagori">
-              <PropertyRef Name="katagoriNo" />
+            <Principal Role="Kategori">
+              <PropertyRef Name="kategoriID" />
             </Principal>
             <Dependent Role="Urun">
-              <PropertyRef Name="katagoriNo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Musteri_Sepet">
-          <End Role="Sepet" Type="Self.Sepet" Multiplicity="1" />
-          <End Role="Musteri" Type="Self.Musteri" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sepet">
-              <PropertyRef Name="sepetNo" />
-            </Principal>
-            <Dependent Role="Musteri">
-              <PropertyRef Name="sepetNo" />
+              <PropertyRef Name="kategoriID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -334,22 +430,22 @@
           <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Musteri">
-              <PropertyRef Name="musteriNo" />
+              <PropertyRef Name="musteriID" />
             </Principal>
             <Dependent Role="Sepet">
-              <PropertyRef Name="musteriNo" />
+              <PropertyRef Name="musteriID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Urun_Ozellik">
-          <End Role="Ozellik" Type="Self.Ozellik" Multiplicity="1" />
+        <Association Name="FK_Urun_Renk">
+          <End Role="Renk" Type="Self.Renk" Multiplicity="1" />
           <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Ozellik">
-              <PropertyRef Name="ozellikNo" />
+            <Principal Role="Renk">
+              <PropertyRef Name="renkID" />
             </Principal>
             <Dependent Role="Urun">
-              <PropertyRef Name="ozellikNo" />
+              <PropertyRef Name="renkID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -358,48 +454,84 @@
           <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Urun">
-              <PropertyRef Name="urunKodu" />
+              <PropertyRef Name="urunID" />
             </Principal>
             <Dependent Role="Sepet">
-              <PropertyRef Name="urunKodu" />
+              <PropertyRef Name="urunID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AllInOneEntities1" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_UrunResmi_Url">
+          <End Role="Url" Type="Self.Url" Multiplicity="1" />
+          <End Role="UrunResmi" Type="Self.UrunResmi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Url">
+              <PropertyRef Name="urlID" />
+            </Principal>
+            <Dependent Role="UrunResmi">
+              <PropertyRef Name="urlID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UrunResmi_Urun">
+          <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
+          <End Role="UrunResmi" Type="Self.UrunResmi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="urunID" />
+            </Principal>
+            <Dependent Role="UrunResmi">
+              <PropertyRef Name="urunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AllInOneEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cins" EntityType="Self.Cins" />
+          <EntitySet Name="Cinsiyet" EntityType="Self.Cinsiyet" />
           <EntitySet Name="Fatura" EntityType="Self.Fatura" />
-          <EntitySet Name="Katagori" EntityType="Self.Katagori" />
+          <EntitySet Name="Kategori" EntityType="Self.Kategori" />
           <EntitySet Name="Musteri" EntityType="Self.Musteri" />
-          <EntitySet Name="Ozellik" EntityType="Self.Ozellik" />
+          <EntitySet Name="Renk" EntityType="Self.Renk" />
           <EntitySet Name="Sepet" EntityType="Self.Sepet" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Url" EntityType="Self.Url" />
           <EntitySet Name="Urun" EntityType="Self.Urun" />
+          <EntitySet Name="UrunResmi" EntityType="Self.UrunResmi" />
+          <AssociationSet Name="FK_Urun_Cins" Association="Self.FK_Urun_Cins">
+            <End Role="Cins" EntitySet="Cins" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Cinsiyet" Association="Self.FK_Urun_Cinsiyet">
+            <End Role="Cinsiyet" EntitySet="Cinsiyet" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
           <AssociationSet Name="FK_Fatura_Musteri" Association="Self.FK_Fatura_Musteri">
             <End Role="Musteri" EntitySet="Musteri" />
             <End Role="Fatura" EntitySet="Fatura" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sepet_Fatura" Association="Self.FK_Sepet_Fatura">
-            <End Role="Fatura" EntitySet="Fatura" />
-            <End Role="Sepet" EntitySet="Sepet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Urun_Katagori" Association="Self.FK_Urun_Katagori">
-            <End Role="Katagori" EntitySet="Katagori" />
+          <AssociationSet Name="FK_Urun_Kategori" Association="Self.FK_Urun_Kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
             <End Role="Urun" EntitySet="Urun" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Musteri_Sepet" Association="Self.FK_Musteri_Sepet">
-            <End Role="Sepet" EntitySet="Sepet" />
-            <End Role="Musteri" EntitySet="Musteri" />
           </AssociationSet>
           <AssociationSet Name="FK_Sepet_Musteri" Association="Self.FK_Sepet_Musteri">
             <End Role="Musteri" EntitySet="Musteri" />
             <End Role="Sepet" EntitySet="Sepet" />
           </AssociationSet>
-          <AssociationSet Name="FK_Urun_Ozellik" Association="Self.FK_Urun_Ozellik">
-            <End Role="Ozellik" EntitySet="Ozellik" />
+          <AssociationSet Name="FK_Urun_Renk" Association="Self.FK_Urun_Renk">
+            <End Role="Renk" EntitySet="Renk" />
             <End Role="Urun" EntitySet="Urun" />
           </AssociationSet>
           <AssociationSet Name="FK_Sepet_Urun" Association="Self.FK_Sepet_Urun">
             <End Role="Urun" EntitySet="Urun" />
             <End Role="Sepet" EntitySet="Sepet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunResmi_Url" Association="Self.FK_UrunResmi_Url">
+            <End Role="Url" EntitySet="Url" />
+            <End Role="UrunResmi" EntitySet="UrunResmi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunResmi_Urun" Association="Self.FK_UrunResmi_Urun">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="UrunResmi" EntitySet="UrunResmi" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -407,56 +539,67 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AllInOneModelStoreContainer" CdmEntityContainer="AllInOneEntities1">
-          <EntitySetMapping Name="Fatura">
-            <EntityTypeMapping TypeName="AllInOneModel.Fatura">
-              <MappingFragment StoreEntitySet="Fatura">
-                <ScalarProperty Name="siparisNo" ColumnName="siparisNo" />
-                <ScalarProperty Name="siparisTarihi" ColumnName="siparisTarihi" />
-                <ScalarProperty Name="toplamTutar" ColumnName="toplamTutar" />
-                <ScalarProperty Name="faturaNo" ColumnName="faturaNo" />
-                <ScalarProperty Name="musteriNo" ColumnName="musteriNo" />
-                <ScalarProperty Name="kargoTutari" ColumnName="kargoTutari" />
+        <EntityContainerMapping StorageEntityContainer="AllInOneModelStoreContainer" CdmEntityContainer="AllInOneEntities2">
+          <EntitySetMapping Name="Cins">
+            <EntityTypeMapping TypeName="AllInOneModel.Cins">
+              <MappingFragment StoreEntitySet="Cins">
+                <ScalarProperty Name="cinsID" ColumnName="cinsID" />
+                <ScalarProperty Name="cins1" ColumnName="cins" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Katagori">
-            <EntityTypeMapping TypeName="AllInOneModel.Katagori">
-              <MappingFragment StoreEntitySet="Katagori">
-                <ScalarProperty Name="katagoriNo" ColumnName="katagoriNo" />
-                <ScalarProperty Name="katagoriAdi" ColumnName="katagoriAdi" />
+          <EntitySetMapping Name="Cinsiyet">
+            <EntityTypeMapping TypeName="AllInOneModel.Cinsiyet">
+              <MappingFragment StoreEntitySet="Cinsiyet">
+                <ScalarProperty Name="cinsiyetID" ColumnName="cinsiyetID" />
+                <ScalarProperty Name="cinsiyet1" ColumnName="cinsiyet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fatura">
+            <EntityTypeMapping TypeName="AllInOneModel.Fatura">
+              <MappingFragment StoreEntitySet="Fatura">
+                <ScalarProperty Name="faturaID" ColumnName="faturaID" />
+                <ScalarProperty Name="siparisTarihi" ColumnName="siparisTarihi" />
+                <ScalarProperty Name="musteriID" ColumnName="musteriID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategori">
+            <EntityTypeMapping TypeName="AllInOneModel.Kategori">
+              <MappingFragment StoreEntitySet="Kategori">
+                <ScalarProperty Name="kategoriID" ColumnName="kategoriID" />
+                <ScalarProperty Name="kategoriAdi" ColumnName="kategoriAdi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Musteri">
             <EntityTypeMapping TypeName="AllInOneModel.Musteri">
               <MappingFragment StoreEntitySet="Musteri">
-                <ScalarProperty Name="musteriNo" ColumnName="musteriNo" />
+                <ScalarProperty Name="musteriID" ColumnName="musteriID" />
                 <ScalarProperty Name="ad" ColumnName="ad" />
                 <ScalarProperty Name="soyad" ColumnName="soyad" />
                 <ScalarProperty Name="eposta" ColumnName="eposta" />
-                <ScalarProperty Name="sepetNo" ColumnName="sepetNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Ozellik">
-            <EntityTypeMapping TypeName="AllInOneModel.Ozellik">
-              <MappingFragment StoreEntitySet="Ozellik">
-                <ScalarProperty Name="ozellikNo" ColumnName="ozellikNo" />
-                <ScalarProperty Name="cinsiyetGrubu" ColumnName="cinsiyetGrubu" />
-                <ScalarProperty Name="urunRengi" ColumnName="urunRengi" />
-                <ScalarProperty Name="cesit" ColumnName="cesit" />
+          <EntitySetMapping Name="Renk">
+            <EntityTypeMapping TypeName="AllInOneModel.Renk">
+              <MappingFragment StoreEntitySet="Renk">
+                <ScalarProperty Name="renkID" ColumnName="renkID" />
+                <ScalarProperty Name="renk1" ColumnName="renk" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sepet">
             <EntityTypeMapping TypeName="AllInOneModel.Sepet">
               <MappingFragment StoreEntitySet="Sepet">
-                <ScalarProperty Name="sepetNo" ColumnName="sepetNo" />
-                <ScalarProperty Name="musteriNo" ColumnName="musteriNo" />
-                <ScalarProperty Name="siparisNo" ColumnName="siparisNo" />
-                <ScalarProperty Name="urunKodu" ColumnName="urunKodu" />
+                <ScalarProperty Name="sepetID" ColumnName="sepetID" />
+                <ScalarProperty Name="musteriID" ColumnName="musteriID" />
+                <ScalarProperty Name="faturaID" ColumnName="faturaID" />
+                <ScalarProperty Name="urunID" ColumnName="urunID" />
                 <ScalarProperty Name="urunAdedi" ColumnName="urunAdedi" />
+                <ScalarProperty Name="toplamTutar" ColumnName="toplamTutar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -471,15 +614,36 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Url">
+            <EntityTypeMapping TypeName="AllInOneModel.Url">
+              <MappingFragment StoreEntitySet="Url">
+                <ScalarProperty Name="urlID" ColumnName="urlID" />
+                <ScalarProperty Name="url1" ColumnName="url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Urun">
             <EntityTypeMapping TypeName="AllInOneModel.Urun">
               <MappingFragment StoreEntitySet="Urun">
+                <ScalarProperty Name="urunID" ColumnName="urunID" />
                 <ScalarProperty Name="urunKodu" ColumnName="urunKodu" />
                 <ScalarProperty Name="adi" ColumnName="adi" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
                 <ScalarProperty Name="fiyat" ColumnName="fiyat" />
                 <ScalarProperty Name="stokMiktari" ColumnName="stokMiktari" />
-                <ScalarProperty Name="ozellikNo" ColumnName="ozellikNo" />
-                <ScalarProperty Name="katagoriNo" ColumnName="katagoriNo" />
+                <ScalarProperty Name="kategoriID" ColumnName="kategoriID" />
+                <ScalarProperty Name="cinsID" ColumnName="cinsID" />
+                <ScalarProperty Name="cinsiyetID" ColumnName="cinsiyetID" />
+                <ScalarProperty Name="renkID" ColumnName="renkID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrunResmi">
+            <EntityTypeMapping TypeName="AllInOneModel.UrunResmi">
+              <MappingFragment StoreEntitySet="UrunResmi">
+                <ScalarProperty Name="resimID" ColumnName="resimID" />
+                <ScalarProperty Name="urunID" ColumnName="urunID" />
+                <ScalarProperty Name="urlID" ColumnName="urlID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

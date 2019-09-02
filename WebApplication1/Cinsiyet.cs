@@ -12,16 +12,16 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Katagori
+    public partial class Cinsiyet
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Katagori()
+        public Cinsiyet()
         {
             this.Urun = new HashSet<Urun>();
         }
     
-        public int katagoriNo { get; set; }
-        public string katagoriAdi { get; set; }
+        public int cinsiyetID { get; set; }
+        public string cinsiyet1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Urun> Urun { get; set; }

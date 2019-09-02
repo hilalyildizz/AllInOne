@@ -18,18 +18,27 @@ namespace WebApplication1
         public Urun()
         {
             this.Sepet = new HashSet<Sepet>();
+            this.UrunResmi = new HashSet<UrunResmi>();
         }
     
+        public int urunID { get; set; }
         public string urunKodu { get; set; }
         public string adi { get; set; }
-        public int fiyat { get; set; }
+        public string aciklama { get; set; }
+        public double fiyat { get; set; }
         public int stokMiktari { get; set; }
-        public int ozellikNo { get; set; }
-        public int katagoriNo { get; set; }
+        public int kategoriID { get; set; }
+        public int cinsID { get; set; }
+        public int cinsiyetID { get; set; }
+        public int renkID { get; set; }
     
-        public virtual Katagori Katagori { get; set; }
-        public virtual Ozellik Ozellik { get; set; }
+        public virtual Cins Cins { get; set; }
+        public virtual Cinsiyet Cinsiyet { get; set; }
+        public virtual Kategori Kategori { get; set; }
+        public virtual Renk Renk { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sepet> Sepet { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UrunResmi> UrunResmi { get; set; }
     }
 }

@@ -14,22 +14,14 @@ namespace WebApplication1
     
     public partial class Sepet
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sepet()
-        {
-            this.Musteri = new HashSet<Musteri>();
-        }
-    
-        public int sepetNo { get; set; }
-        public int musteriNo { get; set; }
-        public int siparisNo { get; set; }
-        public string urunKodu { get; set; }
+        public int sepetID { get; set; }
+        public int musteriID { get; set; }
+        public int faturaID { get; set; }
+        public int urunID { get; set; }
         public int urunAdedi { get; set; }
+        public int toplamTutar { get; set; }
     
-        public virtual Fatura Fatura { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Musteri> Musteri { get; set; }
-        public virtual Musteri Musteri1 { get; set; }
+        public virtual Musteri Musteri { get; set; }
         public virtual Urun Urun { get; set; }
     }
 }
