@@ -1,8 +1,8 @@
 ﻿@{
     ViewBag.Title = "Elektronik";
 
-    AllInOneEntities2 db = new AllInOneEntities2();
-    List<Urun> urunler = db.Urun.Where(x => x.urunID > 1 && x.urunID < 23).ToList();
+    AllInOneEntities db = new AllInOneEntities();
+    List<Urun> urunler = db.Urun.Where(x => x.urunID > 1 && x.urunID < 13).ToList();
     List<UrunResmi> resimler = db.UrunResmi.Where(x => x.urunID > 1 && x.urunID < 53).ToList();
 
 }
@@ -10,8 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10">
-            <div class="col-md-4">
-                <div class="productCard">
+                <div class="col-md-4 productCard">
                     @foreach (var x in urunler)
                     {
                         <div class="productImage">
@@ -35,7 +34,6 @@
                         </div>
                      }
                 </div>
-            </div>
         </div>
     </div>
 </div>

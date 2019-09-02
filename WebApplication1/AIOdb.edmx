@@ -485,7 +485,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AllInOneEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AllInOneEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cins" EntityType="Self.Cins" />
           <EntitySet Name="Cinsiyet" EntityType="Self.Cinsiyet" />
           <EntitySet Name="Fatura" EntityType="Self.Fatura" />
@@ -539,7 +539,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AllInOneModelStoreContainer" CdmEntityContainer="AllInOneEntities2">
+        <EntityContainerMapping StorageEntityContainer="AllInOneModelStoreContainer" CdmEntityContainer="AllInOneEntities">
           <EntitySetMapping Name="Cins">
             <EntityTypeMapping TypeName="AllInOneModel.Cins">
               <MappingFragment StoreEntitySet="Cins">

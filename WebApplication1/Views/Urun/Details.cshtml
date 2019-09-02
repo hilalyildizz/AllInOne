@@ -1,0 +1,90 @@
+﻿@model WebApplication1.Urun
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Urun</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.urunKodu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urunKodu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stokMiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stokMiktari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cins.cins1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cins.cins1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cinsiyet.cinsiyet1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cinsiyet.cinsiyet1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori.kategoriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori.kategoriAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Renk.renk1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Renk.renk1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.urunID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

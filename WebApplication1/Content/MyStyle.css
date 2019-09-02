@@ -422,6 +422,11 @@ a, a:focus, a:hover{
 
 
 /********************************************* F O O T E R ************************************************/
+footer {
+    position: page;
+    bottom: 0;
+    top: 100%;
+}
 footer > p, li {
     color: dimgrey;
     line-height: 25px;

@@ -13,10 +13,10 @@ namespace WebApplication1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AllInOneEntities2 : DbContext
+    public partial class AllInOneEntities : DbContext
     {
-        public AllInOneEntities2()
-            : base("name=AllInOneEntities2")
+        public AllInOneEntities()
+            : base("name=AllInOneEntities")
         {
         }
     
@@ -32,7 +32,7 @@ namespace WebApplication1
         public virtual DbSet<Musteri> Musteri { get; set; }
         public virtual DbSet<Renk> Renk { get; set; }
         public virtual DbSet<Sepet> Sepet { get; set; }
-        //public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Url> Url { get; set; }
         public virtual DbSet<Urun> Urun { get; set; }
         public virtual DbSet<UrunResmi> UrunResmi { get; set; }
