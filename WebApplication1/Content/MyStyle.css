@@ -294,7 +294,7 @@ a, a:focus, a:hover{
 .filterCard {
     height: 500px;
     width: 190px;
-    padding: 8px 8px 8px 8px;
+    padding: 8px 6px 8px 6px;
     background-color: white;
 }
 .filterLine {
@@ -340,10 +340,10 @@ a, a:focus, a:hover{
 /**************************************** P R O D U C T  C A R D *********************************************/
 
 .productCard {
-    height: 643px;
+    height: 650px;
     width: 310px;
-    padding: 5px 10px 0 10px;
-    margin-bottom:15px;
+    padding: 5px 6px 5px 6px;
+    margin: 0 5px 15px 5px;
     background-color: white;
 }
 .productCard:hover {
@@ -381,7 +381,7 @@ a, a:focus, a:hover{
     border: 0.2px solid lightgrey;
 }
 .productInformation {
-   height: 190px;
+   height: 195px;
    margin-top:2px;
    padding: 0 5px 0 5px;
 }
