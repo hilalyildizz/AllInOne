@@ -13,10 +13,10 @@ namespace WebApplication1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AllInOneEntities1 : DbContext
+    public partial class AllInOneEntities2 : DbContext
     {
-        public AllInOneEntities1()
-            : base("name=AllInOneEntities1")
+        public AllInOneEntities2()
+            : base("name=AllInOneEntities2")
         {
         }
     
@@ -25,12 +25,16 @@ namespace WebApplication1
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Cins> Cins { get; set; }
+        public virtual DbSet<Cinsiyet> Cinsiyet { get; set; }
         public virtual DbSet<Fatura> Fatura { get; set; }
-        public virtual DbSet<Katagori> Katagori { get; set; }
+        public virtual DbSet<Kategori> Kategori { get; set; }
         public virtual DbSet<Musteri> Musteri { get; set; }
-        public virtual DbSet<Ozellik> Ozellik { get; set; }
+        public virtual DbSet<Renk> Renk { get; set; }
         public virtual DbSet<Sepet> Sepet { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        //public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Url> Url { get; set; }
         public virtual DbSet<Urun> Urun { get; set; }
+        public virtual DbSet<UrunResmi> UrunResmi { get; set; }
     }
 }

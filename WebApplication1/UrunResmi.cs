@@ -12,12 +12,13 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Fatura
+    public partial class UrunResmi
     {
-        public int faturaID { get; set; }
-        public System.DateTime siparisTarihi { get; set; }
-        public int musteriID { get; set; }
+        public int resimID { get; set; }
+        public int urunID { get; set; }
+        public int urlID { get; set; }
     
-        public virtual Musteri Musteri { get; set; }
+        public virtual Url Url { get; set; }
+        public virtual Urun Urun { get; set; }
     }
 }

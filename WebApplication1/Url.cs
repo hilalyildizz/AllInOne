@@ -12,20 +12,18 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Ozellik
+    public partial class Url
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ozellik()
+        public Url()
         {
-            this.Urun = new HashSet<Urun>();
+            this.UrunResmi = new HashSet<UrunResmi>();
         }
     
-        public int ozellikNo { get; set; }
-        public string cinsiyetGrubu { get; set; }
-        public string urunRengi { get; set; }
-        public string cesit { get; set; }
+        public int urlID { get; set; }
+        public string url1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Urun> Urun { get; set; }
+        public virtual ICollection<UrunResmi> UrunResmi { get; set; }
     }
 }

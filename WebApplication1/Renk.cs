@@ -12,12 +12,18 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Fatura
+    public partial class Renk
     {
-        public int faturaID { get; set; }
-        public System.DateTime siparisTarihi { get; set; }
-        public int musteriID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Renk()
+        {
+            this.Urun = new HashSet<Urun>();
+        }
     
-        public virtual Musteri Musteri { get; set; }
+        public int renkID { get; set; }
+        public string renk1 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Urun> Urun { get; set; }
     }
 }

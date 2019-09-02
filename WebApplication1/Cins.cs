@@ -12,12 +12,18 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class Cins
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cins()
+        {
+            this.Urun = new HashSet<Urun>();
+        }
+    
+        public int cinsID { get; set; }
+        public string cins1 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Urun> Urun { get; set; }
     }
 }

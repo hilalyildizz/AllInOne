@@ -12,23 +12,18 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Musteri
+    public partial class Kategori
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Musteri()
+        public Kategori()
         {
-            this.Fatura = new HashSet<Fatura>();
-            this.Sepet = new HashSet<Sepet>();
+            this.Urun = new HashSet<Urun>();
         }
     
-        public int musteriID { get; set; }
-        public string ad { get; set; }
-        public string soyad { get; set; }
-        public string eposta { get; set; }
+        public int kategoriID { get; set; }
+        public string kategoriAdi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Fatura> Fatura { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sepet> Sepet { get; set; }
+        public virtual ICollection<Urun> Urun { get; set; }
     }
 }
