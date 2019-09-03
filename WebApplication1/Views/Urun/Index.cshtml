@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h3>Ürün Listesi</h3>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Yeni Kayıt", "Create")
 </p>
 <table class="table">
     <tr>
@@ -45,6 +45,7 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.urunKodu)
+            
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.adi)
@@ -71,9 +72,9 @@
             @Html.DisplayFor(modelItem => item.Renk.renk1)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.urunID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.urunID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.urunID })
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.urunID }  ) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.urunID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.urunID })
         </td>
     </tr>
 }

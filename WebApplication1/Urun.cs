@@ -11,7 +11,8 @@ namespace WebApplication1
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Urun
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,21 +21,33 @@ namespace WebApplication1
             this.Sepet = new HashSet<Sepet>();
             this.UrunResmi = new HashSet<UrunResmi>();
         }
-    
+        
+        [Display(Name="Ürün")]
         public int urunID { get; set; }
+        [Display(Name = "Ürün Kodu")]
         public string urunKodu { get; set; }
+
+        [Display(Name = "Ürün Adý")]
         public string adi { get; set; }
+        [Display(Name = "Açýklama")]
         public string aciklama { get; set; }
+        [Display(Name = "Ürün Fiyatý")]
         public double fiyat { get; set; }
+        [Display(Name = "Stok Miktarý")]
         public int stokMiktari { get; set; }
+        [Display(Name = "Kategori")]
         public int kategoriID { get; set; }
+        [Display(Name = "Cins")]
         public int cinsID { get; set; }
+        [Display(Name = "Cinsiyet")]
         public int cinsiyetID { get; set; }
+        [Display(Name = "Renk")]
         public int renkID { get; set; }
     
         public virtual Cins Cins { get; set; }
         public virtual Cinsiyet Cinsiyet { get; set; }
         public virtual Kategori Kategori { get; set; }
+        
         public virtual Renk Renk { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sepet> Sepet { get; set; }
