@@ -7,6 +7,7 @@
     List<Renk> renkler = db.Renk.OrderBy(x => x.renk1).ToList();
     List<Urun> urunler = db.Urun.Where(x => x.urunID > 1 && x.urunID < 8).ToList();
     List<UrunResmi> resimler = db.UrunResmi.Where(x => x.urunID > 1 && x.urunID < 53).ToList();
+    int index = 0;
 
 }
 
@@ -57,37 +58,37 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-10"> 
-            @foreach (var k in urunler)
-            {
-                <div class="col-md-4 productCard">
-                    <div class="productImage">
-                        <div class="productMainImage">
-                            <img src="@(k.UrunResmi.First().Url.url1)" class="resim-wrap" id="main_img" alt="">
-                        </div>
-                        <div class="productImages">
-                            @foreach (var r in k.UrunResmi)
-                            {
-                                <img src="@(r.Url.url1)" onclick="change_img(this);" id="thumb_img" alt="">
-                            }
-                        </div>
+        </div>        
+        <div class="col-md-10 productCardArea">  
+             @foreach (var k in urunler)
+             {
+            <div class="col-md-4 productCard">
+                <div class="productCardImage">
+                    <div class="productCardMainImage">
+                        <img src="@(k.UrunResmi.First().Url.url1)" class="resim-wrap" id="main_img@(index)" alt="">
                     </div>
-                    <div class="productInformation">
-                        <div class="productName">@(k.adi)</div>
-                        <div class="productDescription">@(k.aciklama)@(k.urunKodu)</div>
-                        <div class="productPrice">@(k.fiyat) TL</div>
-                        <a href="#" class="productBuy">Sepete Ekle</a>
+                    <div class="productCardImages">
+                        @foreach (var r in k.UrunResmi)
+                        {
+                            <img src="@(r.Url.url1)" onclick="change_img(this,'main_img@(index)'); " id="thumb_img" alt="">
+                        }
                     </div>
                 </div>
+                <div class="productCardInformation">
+                    <div class="productCardName">@(k.adi)</div>
+                    <div class="productCardDescription">@(k.aciklama)</div>
+                    <div class="productCardPrice">@(k.fiyat) TL</div>
+                    <a href="#" class="productCardBuy">Sepete Ekle</a>
+                </div>
+            </div>
+                 index++;
              }
-        </div>
+        </div>         
     </div>
 </div>
 
 <script type="text/javascript">
-    var image = document.getElementById('main_img');
-    function change_img(imgName) {
-        image.src = imgName;
+    function change_img(a,mainctl){
+        $('#' + mainctl).attr('src', a.src)
     }
 </script>
