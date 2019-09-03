@@ -294,7 +294,8 @@ a, a:focus, a:hover{
 .filterCard {
     height: 500px;
     width: 190px;
-    padding: 8px 6px 8px 6px;
+    padding: 8px 20px 8px 8px;
+    margin-right: 5px;
     background-color: white;
 }
 .filterLine {
@@ -309,41 +310,38 @@ a, a:focus, a:hover{
     color: rgb(102, 150, 215);
 }
 .genderFilter {
-    height: 125px;
+    height: 80px;
     padding: 5px;
     margin-bottom: 8px;
-    border-bottom: 0.5px solid lightgrey;
+    border-top: 0.5px solid lightgrey;
     overflow: auto;
 }
 .categoryFilter {
-    height: 125px;
-    padding: 5px;
+    height: 145px;
+    padding: 7px;
     margin-bottom: 8px;
-    border-bottom: 0.5px solid lightgrey;
+    border-top: 0.5px solid lightgrey;
     overflow: auto;
 }
 .colorFilter {
-    height: 125px;
+    height: 140px;
     padding: 5px;
+    border-top: 0.5px solid lightgrey;
     overflow: auto;
 }
-
-
-
-
-
-
 
 
 
 
 /**************************************** P R O D U C T  C A R D *********************************************/
-
+.productCardArea {
+    padding: 0 0 0 15.7px;
+}
 .productCard {
     height: 650px;
-    width: 310px;
-    padding: 5px 6px 5px 6px;
-    margin: 0 5px 15px 5px;
+    width: 312px;
+    padding: 5px 4px 5px 4px;
+    margin: 0 3px 12px 4px;
     background-color: white;
 }
 .productCard:hover {
@@ -351,11 +349,11 @@ a, a:focus, a:hover{
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.10);
     transition: 0.10s;
 }
-.productImage {
+.productCardImage {
     height: 440px;
     margin: 2px 0 0 0;
 }
-.productMainImage img {
+.productCardMainImage img {
     margin: 0 10px 0 10px;
     object-fit: fill;
 }
@@ -363,13 +361,13 @@ a, a:focus, a:hover{
     height: 340px;
     width: 270px;
 }
-.productImages {
+.productCardImages {
     height: 95px;
     padding: 0 1px 0 1px;
     text-align: center;
     object-fit: fill;
 }
-.productImages img {
+.productCardImages img {
     height: 95px;
     width: 72px;
     margin: 0 4px 0 4px;
@@ -377,43 +375,53 @@ a, a:focus, a:hover{
     cursor: pointer;
     transition: 0.2s;
 }
-.productImages img:hover {
+.productCardImages img:hover {
     border: 0.2px solid lightgrey;
 }
-.productInformation {
-   height: 195px;
-   margin-top:2px;
-   padding: 0 5px 0 5px;
-}
-.productName {
-    padding: 7px 5px 0 5px;
-    font-size: 26px;
-    color: rgb(53, 23, 53);
-}
-.productDescription {
-    padding: 1px 5px 2px 5px;
+.productCardInformation {
+    height: 195px;
+    margin-top: 2px;
+    margin: 3px 0 3px 0;
+    padding: 4px 5px 0 5px;
     font-size: 17px;
-    opacity: 0.7;
 }
-.productPrice {
-    padding: 2px 5px 2px 5px;
-    top: 20px;
-    right: 19px;
+.productCardName {
+    height: 40px;
+    margin: 4px 0 3px 0;
+    padding: 0 0 0 5px;
+    font-size: 23px;
+    color: rgb(53, 23, 53);
+    position: sticky;
+}
+.productCardDescription {
+    height: 50px;
+    padding: 0 0 0 5px;
+    font-size: 16px;
+    opacity: 0.7;
+    position: sticky;
+}
+.productCardPrice {
+    height: 25px;
+    margin: 3px 0 3px 0;
+    padding: 0 5px 35px 5px;
+    right: 20px;
     color: rgb(53, 23, 53);
     font-size: 24px;
+    position: sticky;
 }
-.productBuy {
-    height: 48px;
-    margin: 0 5px 5px 5px;
-    padding: 13px;
+.productCardBuy {
+    height: 45px;
+    margin: 0 5px 0 5px;
+    padding-top: 10px;
+    text-align:center;
     font-weight: 600;
     display: block;
     background: rgb(107, 58, 107);
-    text-align: center;
     color: #fff;
     transition: 0.3s;
+    position: sticky;
 }
-.productBuy:hover {
+.productCardBuy:hover {
     background: #c4c4c4;
 }
 
