@@ -25,16 +25,16 @@ namespace WebApplication1
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Cins> Cins { get; set; }
-        public virtual DbSet<Cinsiyet> Cinsiyet { get; set; }
-        public virtual DbSet<Fatura> Fatura { get; set; }
-        public virtual DbSet<Kategori> Kategori { get; set; }
-        public virtual DbSet<Musteri> Musteri { get; set; }
-        public virtual DbSet<Renk> Renk { get; set; }
-        public virtual DbSet<Sepet> Sepet { get; set; }
+        public virtual DbSet<Basket> Basket { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Color> Color { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Gender> Gender { get; set; }
+        public virtual DbSet<Genus> Genus { get; set; }
+        public virtual DbSet<Invoice> Invoice { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductImg> ProductImg { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Url> Url { get; set; }
-        public virtual DbSet<Urun> Urun { get; set; }
-        public virtual DbSet<UrunResmi> UrunResmi { get; set; }
     }
 }

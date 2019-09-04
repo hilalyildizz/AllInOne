@@ -12,18 +12,13 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Cins
+    public partial class ProductImg
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cins()
-        {
-            this.Urun = new HashSet<Urun>();
-        }
+        public int ImageId { get; set; }
+        public int ProductId { get; set; }
+        public int UrlId { get; set; }
     
-        public int cinsID { get; set; }
-        public string cins1 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Urun> Urun { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Url Url { get; set; }
     }
 }

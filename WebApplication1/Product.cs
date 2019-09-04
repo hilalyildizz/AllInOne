@@ -12,23 +12,33 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Musteri
+    public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Musteri()
+        public Product()
         {
-            this.Fatura = new HashSet<Fatura>();
-            this.Sepet = new HashSet<Sepet>();
+            this.Basket = new HashSet<Basket>();
+            this.ProductImg = new HashSet<ProductImg>();
         }
     
-        public int musteriID { get; set; }
-        public string ad { get; set; }
-        public string soyad { get; set; }
-        public string eposta { get; set; }
+        public int ProductId { get; set; }
+        public string ProductCode { get; set; }
+        public string Name { get; set; }
+        public string Explanation { get; set; }
+        public double Price { get; set; }
+        public int Stock { get; set; }
+        public int CategoryId { get; set; }
+        public int GenusId { get; set; }
+        public int GenderId { get; set; }
+        public int ColorId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Fatura> Fatura { get; set; }
+        public virtual ICollection<Basket> Basket { get; set; }
+        public virtual Category Category { get; set; }
+        public virtual Color Color { get; set; }
+        public virtual Gender Gender { get; set; }
+        public virtual Genus Genus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sepet> Sepet { get; set; }
+        public virtual ICollection<ProductImg> ProductImg { get; set; }
     }
 }
