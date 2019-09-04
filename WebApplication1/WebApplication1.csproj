@@ -331,6 +331,7 @@
     <Content Include="Views\Urun\Details.cshtml" />
     <Content Include="Views\Urun\Edit.cshtml" />
     <Content Include="Views\Urun\Index.cshtml" />
+    <Content Include="Views\Home\UrunDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

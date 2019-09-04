@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Ürün Detay";
+    AllInOneEntities db = new AllInOneEntities();
+    List<Cinsiyet> cinsiyetler = db.Cinsiyet.OrderBy(x => x.cinsiyet1).ToList();
+    List<Cins> cinsler = db.Cins.OrderBy(x => x.cins1).ToList();
+    List<Renk> renkler = db.Renk.OrderBy(x => x.renk1).ToList();
+    List<Urun> urunler = db.Urun.Where(x => x.urunID > 1 && x.urunID < 3).ToList();
+    List<UrunResmi> resimler = db.UrunResmi.Where(x => x.urunID > 1 && x.urunID < 3).ToList();
+    int index = 0;
+}
+
+
+<div class="row">
+    @foreach (var k in urunler)
+    {
+        <div class="productDetailArea">
+          
+                <div class="col-md-7 productCardImage">
+                    <div class="productCardMainImage">
+                        <img src="@(k.UrunResmi.First().Url.url1)" class="resim-wrap" id="main_img@(index)" alt="">
+                    </div>
+                    <div class="productCardImages">
+                        @foreach (var r in k.UrunResmi)
+                        {
+                            <img src="@(r.Url.url1)" onclick="change_img(this,'main_img@(index)'); " id="thumb_img" alt="">
+                        }
+                    </div>
+                </div>
+
+           
+                <div class="col-md-5 productDetailInformation">
+                    <p class="newarrival text-center">YENİ</p>
+                    <div class="productDetailName">@(k.adi)</div>
+                    <br><br />
+                    <div class="productDetailDescription">@(k.aciklama)</div>
+                    <div class="productDetailPrice">@(k.urunKodu)</div>
+                    <div class="productStars">
+                        <a class="fa fa-star productStar" href=""></a>
+                        <a class="fa fa-star productStar" href=""></a>
+                        <a class="fa fa-star productStar" href=""></a>
+                        <a class="fa fa-star productStar" href=""></a>
+                        <a class="fa fa-star productStar" href=""></a>
+                    </div>
+                    <div class="productDetailCardPrice">@(k.fiyat) TL</div>
+                    <br><br />
+                    <a href="#" class="productDetailBuy">Sepete Ekle</a>
+                </div>
+        </div>
+     }
+</div>
+<script type="text/javascript">
+    function change_img(a, mainctl) {
+        $('#' + mainctl).attr('src', a.src)
+    }
+</script>
