@@ -5,7 +5,7 @@
     List<Cinsiyet> cinsiyetler = db.Cinsiyet.OrderBy(x => x.cinsiyet1).ToList();
     List<Cins> cinsler = db.Cins.OrderBy(x => x.cins1).ToList();
     List<Renk> renkler = db.Renk.OrderBy(x => x.renk1).ToList();
-    List<Urun> urunler = db.Urun.Where(x => x.urunID > 1 && x.urunID < 8).ToList();
+    List<Urun> urunler = db.Urun.Where(x => x.urunID > 1 && x.urunID < 53).ToList();
     List<UrunResmi> resimler = db.UrunResmi.Where(x => x.urunID > 1 && x.urunID < 53).ToList();
     int index = 0;
 

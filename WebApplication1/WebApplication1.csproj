@@ -197,6 +197,7 @@
       <DependentUpon>AIOdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
@@ -301,8 +302,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\HomeLife.cshtml" />
-    <Content Include="Views\Home\ClothingShoes.cshtml" />
+    <Content Include="Views\Category\HomeLife.cshtml" />
+    <Content Include="Views\Category\ClothingShoes.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -325,7 +326,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Basket.cshtml" />
-    <Content Include="Views\Home\Electronic.cshtml" />
+    <Content Include="Views\Category\Electronic.cshtml" />
     <Content Include="Views\Urun\Create.cshtml" />
     <Content Include="Views\Urun\Delete.cshtml" />
     <Content Include="Views\Urun\Details.cshtml" />

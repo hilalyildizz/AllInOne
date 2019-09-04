@@ -1,12 +1,12 @@
 ﻿@{
-    ViewBag.Title = "Giyim-Ayakkabı";
+    ViewBag.Title = "Ev-Yaşam";
 
     AllInOneEntities db = new AllInOneEntities();
     List<Cinsiyet> cinsiyetler = db.Cinsiyet.OrderBy(x => x.cinsiyet1).ToList();
     List<Cins> cinsler = db.Cins.OrderBy(x => x.cins1).ToList();
     List<Renk> renkler = db.Renk.OrderBy(x => x.renk1).ToList();
-    List<Urun> giyimurunler = db.Urun.Where(x => x.urunID > 56 && x.urunID < 72).ToList();
-    List<UrunResmi> resimler = db.UrunResmi.Where(x => x.urunID > 56 && x.urunID < 72).ToList();
+    List<Urun> giyimurunler = db.Urun.Where(x => x.urunID > 129 && x.urunID < 169).ToList();
+    List<UrunResmi> resimler = db.UrunResmi.Where(x => x.urunID > 129 && x.urunID < 169).ToList();
     int index = 0;
 
 }
