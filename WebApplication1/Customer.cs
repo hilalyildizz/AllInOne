@@ -12,18 +12,24 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Url
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Url()
+        public Customer()
         {
-            this.ProductImg = new HashSet<ProductImg>();
+            this.Basket = new HashSet<Basket>();
+            this.Invoice = new HashSet<Invoice>();
         }
     
-        public int UrlId { get; set; }
-        public string Url1 { get; set; }
+        public int CustomerId { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public int GenderId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductImg> ProductImg { get; set; }
+        public virtual ICollection<Basket> Basket { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoice { get; set; }
     }
 }

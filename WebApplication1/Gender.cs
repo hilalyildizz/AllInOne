@@ -12,18 +12,18 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Kategori
+    public partial class Gender
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Kategori()
+        public Gender()
         {
-            this.Urun = new HashSet<Urun>();
+            this.Product = new HashSet<Product>();
         }
     
-        public int kategoriID { get; set; }
-        public string kategoriAdi { get; set; }
+        public int GenderId { get; set; }
+        public string GenderName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Urun> Urun { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

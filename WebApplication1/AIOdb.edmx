@@ -5,61 +5,85 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="AllInOneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Cins">
+        <EntityType Name="Basket">
           <Key>
-            <PropertyRef Name="cinsID" />
+            <PropertyRef Name="BasketId" />
           </Key>
-          <Property Name="cinsID" Type="int" Nullable="false" />
-          <Property Name="cins" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BasketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="ProductPiece" Type="int" Nullable="false" />
+          <Property Name="TotalPrice" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Cinsiyet">
+        <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="cinsiyetID" />
+            <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="cinsiyetID" Type="int" Nullable="false" />
-          <Property Name="cinsiyet" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Fatura">
+        <EntityType Name="Color">
           <Key>
-            <PropertyRef Name="faturaID" />
+            <PropertyRef Name="ColorId" />
           </Key>
-          <Property Name="faturaID" Type="int" Nullable="false" />
-          <Property Name="siparisTarihi" Type="date" Nullable="false" />
-          <Property Name="musteriID" Type="int" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+          <Property Name="ColorName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Kategori">
+        <EntityType Name="Customer">
           <Key>
-            <PropertyRef Name="kategoriID" />
+            <PropertyRef Name="CustomerId" />
           </Key>
-          <Property Name="kategoriID" Type="int" Nullable="false" />
-          <Property Name="kategoriAdi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Musteri">
+        <EntityType Name="Gender">
           <Key>
-            <PropertyRef Name="musteriID" />
+            <PropertyRef Name="GenderId" />
           </Key>
-          <Property Name="musteriID" Type="int" Nullable="false" />
-          <Property Name="ad" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="soyad" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="eposta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
+          <Property Name="GenderName" Type="char" MaxLength="10" Nullable="false" />
         </EntityType>
-        <EntityType Name="Renk">
+        <EntityType Name="Genus">
           <Key>
-            <PropertyRef Name="renkID" />
+            <PropertyRef Name="GenusId" />
           </Key>
-          <Property Name="renkID" Type="int" Nullable="false" />
-          <Property Name="renk" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GenusId" Type="int" Nullable="false" />
+          <Property Name="GenusName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Sepet">
+        <EntityType Name="Invoice">
           <Key>
-            <PropertyRef Name="sepetID" />
+            <PropertyRef Name="InvoiceId" />
           </Key>
-          <Property Name="sepetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="musteriID" Type="int" Nullable="false" />
-          <Property Name="faturaID" Type="int" Nullable="false" />
-          <Property Name="urunID" Type="int" Nullable="false" />
-          <Property Name="urunAdedi" Type="int" Nullable="false" />
-          <Property Name="toplamTutar" Type="int" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="date" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Explanation" Type="varchar(max)" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="GenusId" Type="int" Nullable="false" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductImg">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="UrlId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -73,189 +97,166 @@
         </EntityType>
         <EntityType Name="Url">
           <Key>
-            <PropertyRef Name="urlID" />
+            <PropertyRef Name="UrlId" />
           </Key>
-          <Property Name="urlID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="url" Type="varchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Urun">
-          <Key>
-            <PropertyRef Name="urunID" />
-          </Key>
-          <Property Name="urunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="urunKodu" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="adi" Type="varchar(max)" Nullable="false" />
-          <Property Name="aciklama" Type="varchar(max)" Nullable="false" />
-          <Property Name="fiyat" Type="float" Nullable="false" />
-          <Property Name="stokMiktari" Type="int" Nullable="false" />
-          <Property Name="kategoriID" Type="int" Nullable="false" />
-          <Property Name="cinsID" Type="int" Nullable="false" />
-          <Property Name="cinsiyetID" Type="int" Nullable="false" />
-          <Property Name="renkID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="UrunResmi">
-          <Key>
-            <PropertyRef Name="resimID" />
-          </Key>
-          <Property Name="resimID" Type="int" Nullable="false" />
-          <Property Name="urunID" Type="int" Nullable="false" />
-          <Property Name="urlID" Type="int" Nullable="false" />
+          <Property Name="UrlId" Type="int" Nullable="false" />
+          <Property Name="Url" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <Association Name="FK_Fatura_Musteri">
-          <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
-          <End Role="Fatura" Type="Self.Fatura" Multiplicity="*" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Musteri">
-              <PropertyRef Name="musteriID" />
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
             </Principal>
-            <Dependent Role="Fatura">
-              <PropertyRef Name="musteriID" />
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sepet_Musteri">
-          <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
-          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Musteri">
-              <PropertyRef Name="musteriID" />
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
             </Principal>
-            <Dependent Role="Sepet">
-              <PropertyRef Name="musteriID" />
+            <Dependent Role="Basket">
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sepet_Urun">
-          <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
-          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Urun">
-              <PropertyRef Name="urunID" />
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
             </Principal>
-            <Dependent Role="Sepet">
-              <PropertyRef Name="urunID" />
+            <Dependent Role="Basket">
+              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Urun_Cins">
-          <End Role="Cins" Type="Self.Cins" Multiplicity="1" />
-          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <End Role="Genus" Type="Self.Genus" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cins">
-              <PropertyRef Name="cinsID" />
+            <Principal Role="Genus">
+              <PropertyRef Name="GenusId" />
             </Principal>
-            <Dependent Role="Urun">
-              <PropertyRef Name="cinsID" />
+            <Dependent Role="Product">
+              <PropertyRef Name="GenusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Urun_Cinsiyet">
-          <End Role="Cinsiyet" Type="Self.Cinsiyet" Multiplicity="1" />
-          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cinsiyet">
-              <PropertyRef Name="cinsiyetID" />
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
             </Principal>
-            <Dependent Role="Urun">
-              <PropertyRef Name="cinsiyetID" />
+            <Dependent Role="Product">
+              <PropertyRef Name="GenderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Urun_Kategori">
-          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
-          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kategori">
-              <PropertyRef Name="kategoriID" />
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
             </Principal>
-            <Dependent Role="Urun">
-              <PropertyRef Name="kategoriID" />
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Urun_Renk">
-          <End Role="Renk" Type="Self.Renk" Multiplicity="1" />
-          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Renk">
-              <PropertyRef Name="renkID" />
+            <Principal Role="Color">
+              <PropertyRef Name="ColorId" />
             </Principal>
-            <Dependent Role="Urun">
-              <PropertyRef Name="renkID" />
+            <Dependent Role="Product">
+              <PropertyRef Name="ColorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UrunResmi_Url">
           <End Role="Url" Type="Self.Url" Multiplicity="1" />
-          <End Role="UrunResmi" Type="Self.UrunResmi" Multiplicity="*" />
+          <End Role="ProductImg" Type="Self.ProductImg" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Url">
-              <PropertyRef Name="urlID" />
+              <PropertyRef Name="UrlId" />
             </Principal>
-            <Dependent Role="UrunResmi">
-              <PropertyRef Name="urlID" />
+            <Dependent Role="ProductImg">
+              <PropertyRef Name="UrlId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UrunResmi_Urun">
-          <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
-          <End Role="UrunResmi" Type="Self.UrunResmi" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductImg" Type="Self.ProductImg" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Urun">
-              <PropertyRef Name="urunID" />
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
             </Principal>
-            <Dependent Role="UrunResmi">
-              <PropertyRef Name="urunID" />
+            <Dependent Role="ProductImg">
+              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AllInOneModelStoreContainer">
-          <EntitySet Name="Cins" EntityType="Self.Cins" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Cinsiyet" EntityType="Self.Cinsiyet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Fatura" EntityType="Self.Fatura" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Renk" EntityType="Self.Renk" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sepet" EntityType="Self.Sepet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Basket" EntityType="Self.Basket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genus" EntityType="Self.Genus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductImg" EntityType="Self.ProductImg" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Url" EntityType="Self.Url" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UrunResmi" EntityType="Self.UrunResmi" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Fatura_Musteri" Association="Self.FK_Fatura_Musteri">
-            <End Role="Musteri" EntitySet="Musteri" />
-            <End Role="Fatura" EntitySet="Fatura" />
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Invoice" EntitySet="Invoice" />
           </AssociationSet>
           <AssociationSet Name="FK_Sepet_Musteri" Association="Self.FK_Sepet_Musteri">
-            <End Role="Musteri" EntitySet="Musteri" />
-            <End Role="Sepet" EntitySet="Sepet" />
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Basket" EntitySet="Basket" />
           </AssociationSet>
           <AssociationSet Name="FK_Sepet_Urun" Association="Self.FK_Sepet_Urun">
-            <End Role="Urun" EntitySet="Urun" />
-            <End Role="Sepet" EntitySet="Sepet" />
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Basket" EntitySet="Basket" />
           </AssociationSet>
           <AssociationSet Name="FK_Urun_Cins" Association="Self.FK_Urun_Cins">
-            <End Role="Cins" EntitySet="Cins" />
-            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Genus" EntitySet="Genus" />
+            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_Urun_Cinsiyet" Association="Self.FK_Urun_Cinsiyet">
-            <End Role="Cinsiyet" EntitySet="Cinsiyet" />
-            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_Urun_Kategori" Association="Self.FK_Urun_Kategori">
-            <End Role="Kategori" EntitySet="Kategori" />
-            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_Urun_Renk" Association="Self.FK_Urun_Renk">
-            <End Role="Renk" EntitySet="Renk" />
-            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_UrunResmi_Url" Association="Self.FK_UrunResmi_Url">
             <End Role="Url" EntitySet="Url" />
-            <End Role="UrunResmi" EntitySet="UrunResmi" />
+            <End Role="ProductImg" EntitySet="ProductImg" />
           </AssociationSet>
           <AssociationSet Name="FK_UrunResmi_Urun" Association="Self.FK_UrunResmi_Urun">
-            <End Role="Urun" EntitySet="Urun" />
-            <End Role="UrunResmi" EntitySet="UrunResmi" />
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductImg" EntitySet="ProductImg" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -263,70 +264,102 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AllInOneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Cins">
+        <EntityType Name="Basket">
           <Key>
-            <PropertyRef Name="cinsID" />
+            <PropertyRef Name="BasketId" />
           </Key>
-          <Property Name="cinsID" Type="Int32" Nullable="false" />
-          <Property Name="cins1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Cins" FromRole="Cins" ToRole="Urun" />
+          <Property Name="BasketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ProductPiece" Type="Int32" Nullable="false" />
+          <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Sepet_Musteri" FromRole="Basket" ToRole="Customer" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Sepet_Urun" FromRole="Basket" ToRole="Product" />
         </EntityType>
-        <EntityType Name="Cinsiyet">
+        <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="cinsiyetID" />
+            <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="cinsiyetID" Type="Int32" Nullable="false" />
-          <Property Name="cinsiyet1" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Cinsiyet" FromRole="Cinsiyet" ToRole="Urun" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Urun_Kategori" FromRole="Category" ToRole="Product" />
         </EntityType>
-        <EntityType Name="Fatura">
+        <EntityType Name="Color">
           <Key>
-            <PropertyRef Name="faturaID" />
+            <PropertyRef Name="ColorId" />
           </Key>
-          <Property Name="faturaID" Type="Int32" Nullable="false" />
-          <Property Name="siparisTarihi" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="musteriID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Musteri" Relationship="Self.FK_Fatura_Musteri" FromRole="Fatura" ToRole="Musteri" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Urun_Renk" FromRole="Color" ToRole="Product" />
         </EntityType>
-        <EntityType Name="Kategori">
+        <EntityType Name="Customer">
           <Key>
-            <PropertyRef Name="kategoriID" />
+            <PropertyRef Name="CustomerId" />
           </Key>
-          <Property Name="kategoriID" Type="Int32" Nullable="false" />
-          <Property Name="kategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Kategori" FromRole="Kategori" ToRole="Urun" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Basket" Relationship="Self.FK_Sepet_Musteri" FromRole="Customer" ToRole="Basket" />
+          <NavigationProperty Name="Invoice" Relationship="Self.FK_Fatura_Musteri" FromRole="Customer" ToRole="Invoice" />
         </EntityType>
-        <EntityType Name="Musteri">
+        <EntityType Name="Gender">
           <Key>
-            <PropertyRef Name="musteriID" />
+            <PropertyRef Name="GenderId" />
           </Key>
-          <Property Name="musteriID" Type="Int32" Nullable="false" />
-          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Fatura" Relationship="Self.FK_Fatura_Musteri" FromRole="Musteri" ToRole="Fatura" />
-          <NavigationProperty Name="Sepet" Relationship="Self.FK_Sepet_Musteri" FromRole="Musteri" ToRole="Sepet" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="GenderName" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Urun_Cinsiyet" FromRole="Gender" ToRole="Product" />
         </EntityType>
-        <EntityType Name="Renk">
+        <EntityType Name="Genus">
           <Key>
-            <PropertyRef Name="renkID" />
+            <PropertyRef Name="GenusId" />
           </Key>
-          <Property Name="renkID" Type="Int32" Nullable="false" />
-          <Property Name="renk1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Renk" FromRole="Renk" ToRole="Urun" />
+          <Property Name="GenusId" Type="Int32" Nullable="false" />
+          <Property Name="GenusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Urun_Cins" FromRole="Genus" ToRole="Product" />
         </EntityType>
-        <EntityType Name="Sepet">
+        <EntityType Name="Invoice">
           <Key>
-            <PropertyRef Name="sepetID" />
+            <PropertyRef Name="InvoiceId" />
           </Key>
-          <Property Name="sepetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="musteriID" Type="Int32" Nullable="false" />
-          <Property Name="faturaID" Type="Int32" Nullable="false" />
-          <Property Name="urunID" Type="Int32" Nullable="false" />
-          <Property Name="urunAdedi" Type="Int32" Nullable="false" />
-          <Property Name="toplamTutar" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Musteri" Relationship="Self.FK_Sepet_Musteri" FromRole="Sepet" ToRole="Musteri" />
-          <NavigationProperty Name="Urun" Relationship="Self.FK_Sepet_Urun" FromRole="Sepet" ToRole="Urun" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Fatura_Musteri" FromRole="Invoice" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Explanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="GenusId" Type="Int32" Nullable="false" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Basket" Relationship="Self.FK_Sepet_Urun" FromRole="Product" ToRole="Basket" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Urun_Kategori" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_Urun_Renk" FromRole="Product" ToRole="Color" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Urun_Cinsiyet" FromRole="Product" ToRole="Gender" />
+          <NavigationProperty Name="Genus" Relationship="Self.FK_Urun_Cins" FromRole="Product" ToRole="Genus" />
+          <NavigationProperty Name="ProductImg" Relationship="Self.FK_UrunResmi_Urun" FromRole="Product" ToRole="ProductImg" />
+        </EntityType>
+        <EntityType Name="ProductImg">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="UrlId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_UrunResmi_Urun" FromRole="ProductImg" ToRole="Product" />
+          <NavigationProperty Name="Url" Relationship="Self.FK_UrunResmi_Url" FromRole="ProductImg" ToRole="Url" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -340,198 +373,167 @@
         </EntityType>
         <EntityType Name="Url">
           <Key>
-            <PropertyRef Name="urlID" />
+            <PropertyRef Name="UrlId" />
           </Key>
-          <Property Name="urlID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="url1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="UrunResmi" Relationship="Self.FK_UrunResmi_Url" FromRole="Url" ToRole="UrunResmi" />
+          <Property Name="UrlId" Type="Int32" Nullable="false" />
+          <Property Name="Url1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ProductImg" Relationship="Self.FK_UrunResmi_Url" FromRole="Url" ToRole="ProductImg" />
         </EntityType>
-        <EntityType Name="Urun">
-          <Key>
-            <PropertyRef Name="urunID" />
-          </Key>
-          <Property Name="urunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="urunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fiyat" Type="Double" Nullable="false" />
-          <Property Name="stokMiktari" Type="Int32" Nullable="false" />
-          <Property Name="kategoriID" Type="Int32" Nullable="false" />
-          <Property Name="cinsID" Type="Int32" Nullable="false" />
-          <Property Name="cinsiyetID" Type="Int32" Nullable="false" />
-          <Property Name="renkID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cins" Relationship="Self.FK_Urun_Cins" FromRole="Urun" ToRole="Cins" />
-          <NavigationProperty Name="Cinsiyet" Relationship="Self.FK_Urun_Cinsiyet" FromRole="Urun" ToRole="Cinsiyet" />
-          <NavigationProperty Name="Kategori" Relationship="Self.FK_Urun_Kategori" FromRole="Urun" ToRole="Kategori" />
-          <NavigationProperty Name="Renk" Relationship="Self.FK_Urun_Renk" FromRole="Urun" ToRole="Renk" />
-          <NavigationProperty Name="Sepet" Relationship="Self.FK_Sepet_Urun" FromRole="Urun" ToRole="Sepet" />
-          <NavigationProperty Name="UrunResmi" Relationship="Self.FK_UrunResmi_Urun" FromRole="Urun" ToRole="UrunResmi" />
-        </EntityType>
-        <EntityType Name="UrunResmi">
-          <Key>
-            <PropertyRef Name="resimID" />
-          </Key>
-          <Property Name="resimID" Type="Int32" Nullable="false" />
-          <Property Name="urunID" Type="Int32" Nullable="false" />
-          <Property Name="urlID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Url" Relationship="Self.FK_UrunResmi_Url" FromRole="UrunResmi" ToRole="Url" />
-          <NavigationProperty Name="Urun" Relationship="Self.FK_UrunResmi_Urun" FromRole="UrunResmi" ToRole="Urun" />
-        </EntityType>
-        <Association Name="FK_Urun_Cins">
-          <End Role="Cins" Type="Self.Cins" Multiplicity="1" />
-          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cins">
-              <PropertyRef Name="cinsID" />
-            </Principal>
-            <Dependent Role="Urun">
-              <PropertyRef Name="cinsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Urun_Cinsiyet">
-          <End Role="Cinsiyet" Type="Self.Cinsiyet" Multiplicity="1" />
-          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cinsiyet">
-              <PropertyRef Name="cinsiyetID" />
-            </Principal>
-            <Dependent Role="Urun">
-              <PropertyRef Name="cinsiyetID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Fatura_Musteri">
-          <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
-          <End Role="Fatura" Type="Self.Fatura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Musteri">
-              <PropertyRef Name="musteriID" />
-            </Principal>
-            <Dependent Role="Fatura">
-              <PropertyRef Name="musteriID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Urun_Kategori">
-          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
-          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Kategori">
-              <PropertyRef Name="kategoriID" />
-            </Principal>
-            <Dependent Role="Urun">
-              <PropertyRef Name="kategoriID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Sepet_Musteri">
-          <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
-          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Musteri">
-              <PropertyRef Name="musteriID" />
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
             </Principal>
-            <Dependent Role="Sepet">
-              <PropertyRef Name="musteriID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Urun_Renk">
-          <End Role="Renk" Type="Self.Renk" Multiplicity="1" />
-          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Renk">
-              <PropertyRef Name="renkID" />
-            </Principal>
-            <Dependent Role="Urun">
-              <PropertyRef Name="renkID" />
+            <Dependent Role="Basket">
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sepet_Urun">
-          <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
-          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Urun">
-              <PropertyRef Name="urunID" />
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
             </Principal>
-            <Dependent Role="Sepet">
-              <PropertyRef Name="urunID" />
+            <Dependent Role="Basket">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Kategori">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Renk">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ColorId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fatura_Musteri">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Cinsiyet">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Cins">
+          <End Role="Genus" Type="Self.Genus" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genus">
+              <PropertyRef Name="GenusId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="GenusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UrunResmi_Urun">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductImg" Type="Self.ProductImg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="ProductImg">
+              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UrunResmi_Url">
           <End Role="Url" Type="Self.Url" Multiplicity="1" />
-          <End Role="UrunResmi" Type="Self.UrunResmi" Multiplicity="*" />
+          <End Role="ProductImg" Type="Self.ProductImg" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Url">
-              <PropertyRef Name="urlID" />
+              <PropertyRef Name="UrlId" />
             </Principal>
-            <Dependent Role="UrunResmi">
-              <PropertyRef Name="urlID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UrunResmi_Urun">
-          <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
-          <End Role="UrunResmi" Type="Self.UrunResmi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Urun">
-              <PropertyRef Name="urunID" />
-            </Principal>
-            <Dependent Role="UrunResmi">
-              <PropertyRef Name="urunID" />
+            <Dependent Role="ProductImg">
+              <PropertyRef Name="UrlId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AllInOneEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cins" EntityType="Self.Cins" />
-          <EntitySet Name="Cinsiyet" EntityType="Self.Cinsiyet" />
-          <EntitySet Name="Fatura" EntityType="Self.Fatura" />
-          <EntitySet Name="Kategori" EntityType="Self.Kategori" />
-          <EntitySet Name="Musteri" EntityType="Self.Musteri" />
-          <EntitySet Name="Renk" EntityType="Self.Renk" />
-          <EntitySet Name="Sepet" EntityType="Self.Sepet" />
+          <EntitySet Name="Basket" EntityType="Self.Basket" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="Color" EntityType="Self.Color" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" />
+          <EntitySet Name="Genus" EntityType="Self.Genus" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="ProductImg" EntityType="Self.ProductImg" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Url" EntityType="Self.Url" />
-          <EntitySet Name="Urun" EntityType="Self.Urun" />
-          <EntitySet Name="UrunResmi" EntityType="Self.UrunResmi" />
-          <AssociationSet Name="FK_Urun_Cins" Association="Self.FK_Urun_Cins">
-            <End Role="Cins" EntitySet="Cins" />
-            <End Role="Urun" EntitySet="Urun" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Urun_Cinsiyet" Association="Self.FK_Urun_Cinsiyet">
-            <End Role="Cinsiyet" EntitySet="Cinsiyet" />
-            <End Role="Urun" EntitySet="Urun" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Fatura_Musteri" Association="Self.FK_Fatura_Musteri">
-            <End Role="Musteri" EntitySet="Musteri" />
-            <End Role="Fatura" EntitySet="Fatura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Urun_Kategori" Association="Self.FK_Urun_Kategori">
-            <End Role="Kategori" EntitySet="Kategori" />
-            <End Role="Urun" EntitySet="Urun" />
-          </AssociationSet>
           <AssociationSet Name="FK_Sepet_Musteri" Association="Self.FK_Sepet_Musteri">
-            <End Role="Musteri" EntitySet="Musteri" />
-            <End Role="Sepet" EntitySet="Sepet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Urun_Renk" Association="Self.FK_Urun_Renk">
-            <End Role="Renk" EntitySet="Renk" />
-            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Basket" EntitySet="Basket" />
           </AssociationSet>
           <AssociationSet Name="FK_Sepet_Urun" Association="Self.FK_Sepet_Urun">
-            <End Role="Urun" EntitySet="Urun" />
-            <End Role="Sepet" EntitySet="Sepet" />
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Kategori" Association="Self.FK_Urun_Kategori">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Renk" Association="Self.FK_Urun_Renk">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fatura_Musteri" Association="Self.FK_Fatura_Musteri">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Cinsiyet" Association="Self.FK_Urun_Cinsiyet">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Cins" Association="Self.FK_Urun_Cins">
+            <End Role="Genus" EntitySet="Genus" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunResmi_Urun" Association="Self.FK_UrunResmi_Urun">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductImg" EntitySet="ProductImg" />
           </AssociationSet>
           <AssociationSet Name="FK_UrunResmi_Url" Association="Self.FK_UrunResmi_Url">
             <End Role="Url" EntitySet="Url" />
-            <End Role="UrunResmi" EntitySet="UrunResmi" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UrunResmi_Urun" Association="Self.FK_UrunResmi_Urun">
-            <End Role="Urun" EntitySet="Urun" />
-            <End Role="UrunResmi" EntitySet="UrunResmi" />
+            <End Role="ProductImg" EntitySet="ProductImg" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -540,66 +542,92 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AllInOneModelStoreContainer" CdmEntityContainer="AllInOneEntities">
-          <EntitySetMapping Name="Cins">
-            <EntityTypeMapping TypeName="AllInOneModel.Cins">
-              <MappingFragment StoreEntitySet="Cins">
-                <ScalarProperty Name="cinsID" ColumnName="cinsID" />
-                <ScalarProperty Name="cins1" ColumnName="cins" />
+          <EntitySetMapping Name="Basket">
+            <EntityTypeMapping TypeName="AllInOneModel.Basket">
+              <MappingFragment StoreEntitySet="Basket">
+                <ScalarProperty Name="BasketId" ColumnName="BasketId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductPiece" ColumnName="ProductPiece" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cinsiyet">
-            <EntityTypeMapping TypeName="AllInOneModel.Cinsiyet">
-              <MappingFragment StoreEntitySet="Cinsiyet">
-                <ScalarProperty Name="cinsiyetID" ColumnName="cinsiyetID" />
-                <ScalarProperty Name="cinsiyet1" ColumnName="cinsiyet" />
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="AllInOneModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Fatura">
-            <EntityTypeMapping TypeName="AllInOneModel.Fatura">
-              <MappingFragment StoreEntitySet="Fatura">
-                <ScalarProperty Name="faturaID" ColumnName="faturaID" />
-                <ScalarProperty Name="siparisTarihi" ColumnName="siparisTarihi" />
-                <ScalarProperty Name="musteriID" ColumnName="musteriID" />
+          <EntitySetMapping Name="Color">
+            <EntityTypeMapping TypeName="AllInOneModel.Color">
+              <MappingFragment StoreEntitySet="Color">
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Kategori">
-            <EntityTypeMapping TypeName="AllInOneModel.Kategori">
-              <MappingFragment StoreEntitySet="Kategori">
-                <ScalarProperty Name="kategoriID" ColumnName="kategoriID" />
-                <ScalarProperty Name="kategoriAdi" ColumnName="kategoriAdi" />
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="AllInOneModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Musteri">
-            <EntityTypeMapping TypeName="AllInOneModel.Musteri">
-              <MappingFragment StoreEntitySet="Musteri">
-                <ScalarProperty Name="musteriID" ColumnName="musteriID" />
-                <ScalarProperty Name="ad" ColumnName="ad" />
-                <ScalarProperty Name="soyad" ColumnName="soyad" />
-                <ScalarProperty Name="eposta" ColumnName="eposta" />
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="AllInOneModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Renk">
-            <EntityTypeMapping TypeName="AllInOneModel.Renk">
-              <MappingFragment StoreEntitySet="Renk">
-                <ScalarProperty Name="renkID" ColumnName="renkID" />
-                <ScalarProperty Name="renk1" ColumnName="renk" />
+          <EntitySetMapping Name="Genus">
+            <EntityTypeMapping TypeName="AllInOneModel.Genus">
+              <MappingFragment StoreEntitySet="Genus">
+                <ScalarProperty Name="GenusId" ColumnName="GenusId" />
+                <ScalarProperty Name="GenusName" ColumnName="GenusName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sepet">
-            <EntityTypeMapping TypeName="AllInOneModel.Sepet">
-              <MappingFragment StoreEntitySet="Sepet">
-                <ScalarProperty Name="sepetID" ColumnName="sepetID" />
-                <ScalarProperty Name="musteriID" ColumnName="musteriID" />
-                <ScalarProperty Name="faturaID" ColumnName="faturaID" />
-                <ScalarProperty Name="urunID" ColumnName="urunID" />
-                <ScalarProperty Name="urunAdedi" ColumnName="urunAdedi" />
-                <ScalarProperty Name="toplamTutar" ColumnName="toplamTutar" />
+          <EntitySetMapping Name="Invoice">
+            <EntityTypeMapping TypeName="AllInOneModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="AllInOneModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Explanation" ColumnName="Explanation" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="GenusId" ColumnName="GenusId" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductImg">
+            <EntityTypeMapping TypeName="AllInOneModel.ProductImg">
+              <MappingFragment StoreEntitySet="ProductImg">
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UrlId" ColumnName="UrlId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -617,33 +645,8 @@
           <EntitySetMapping Name="Url">
             <EntityTypeMapping TypeName="AllInOneModel.Url">
               <MappingFragment StoreEntitySet="Url">
-                <ScalarProperty Name="urlID" ColumnName="urlID" />
-                <ScalarProperty Name="url1" ColumnName="url" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Urun">
-            <EntityTypeMapping TypeName="AllInOneModel.Urun">
-              <MappingFragment StoreEntitySet="Urun">
-                <ScalarProperty Name="urunID" ColumnName="urunID" />
-                <ScalarProperty Name="urunKodu" ColumnName="urunKodu" />
-                <ScalarProperty Name="adi" ColumnName="adi" />
-                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
-                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
-                <ScalarProperty Name="stokMiktari" ColumnName="stokMiktari" />
-                <ScalarProperty Name="kategoriID" ColumnName="kategoriID" />
-                <ScalarProperty Name="cinsID" ColumnName="cinsID" />
-                <ScalarProperty Name="cinsiyetID" ColumnName="cinsiyetID" />
-                <ScalarProperty Name="renkID" ColumnName="renkID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UrunResmi">
-            <EntityTypeMapping TypeName="AllInOneModel.UrunResmi">
-              <MappingFragment StoreEntitySet="UrunResmi">
-                <ScalarProperty Name="resimID" ColumnName="resimID" />
-                <ScalarProperty Name="urunID" ColumnName="urunID" />
-                <ScalarProperty Name="urlID" ColumnName="urlID" />
+                <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+                <ScalarProperty Name="Url1" ColumnName="Url" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

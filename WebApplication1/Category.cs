@@ -12,18 +12,18 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Renk
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Renk()
+        public Category()
         {
-            this.Urun = new HashSet<Urun>();
+            this.Product = new HashSet<Product>();
         }
     
-        public int renkID { get; set; }
-        public string renk1 { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Urun> Urun { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

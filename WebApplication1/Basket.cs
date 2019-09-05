@@ -12,12 +12,16 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Fatura
+    public partial class Basket
     {
-        public int faturaID { get; set; }
-        public System.DateTime siparisTarihi { get; set; }
-        public int musteriID { get; set; }
+        public int BasketId { get; set; }
+        public int CustomerId { get; set; }
+        public int InvoiceId { get; set; }
+        public int ProductId { get; set; }
+        public int ProductPiece { get; set; }
+        public int TotalPrice { get; set; }
     
-        public virtual Musteri Musteri { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

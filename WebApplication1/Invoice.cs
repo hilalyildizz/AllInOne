@@ -12,16 +12,12 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Sepet
+    public partial class Invoice
     {
-        public int sepetID { get; set; }
-        public int musteriID { get; set; }
-        public int faturaID { get; set; }
-        public int urunID { get; set; }
-        public int urunAdedi { get; set; }
-        public int toplamTutar { get; set; }
+        public int InvoiceId { get; set; }
+        public System.DateTime OrderDate { get; set; }
+        public int CustomerId { get; set; }
     
-        public virtual Musteri Musteri { get; set; }
-        public virtual Urun Urun { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

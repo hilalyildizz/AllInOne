@@ -12,18 +12,18 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Cinsiyet
+    public partial class Genus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cinsiyet()
+        public Genus()
         {
-            this.Urun = new HashSet<Urun>();
+            this.Product = new HashSet<Product>();
         }
     
-        public int cinsiyetID { get; set; }
-        public string cinsiyet1 { get; set; }
+        public int GenusId { get; set; }
+        public string GenusName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Urun> Urun { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

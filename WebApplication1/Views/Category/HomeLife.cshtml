@@ -1,12 +1,12 @@
 ﻿@{
-    ViewBag.Title = "Giyim-Ayakkabı";
+    ViewBag.Title = "Ev-Yaşam";
 
     AllInOneEntities db = new AllInOneEntities();
-    List<Cinsiyet> cinsiyetler = db.Cinsiyet.OrderBy(x => x.cinsiyet1).ToList();
-    List<Cins> cinsler = db.Cins.OrderBy(x => x.cins1).ToList();
-    List<Renk> renkler = db.Renk.OrderBy(x => x.renk1).ToList();
-    List<Urun> giyimurunler = db.Urun.Where(x => x.urunID > 56 && x.urunID < 72).ToList();
-    List<UrunResmi> resimler = db.UrunResmi.Where(x => x.urunID > 56 && x.urunID < 72).ToList();
+    List<Gender> cinsiyetler = db.Gender.OrderBy(x => x.GenderName).ToList();
+    List<Genus> cinsler = db.Genus.OrderBy(x => x.GenusName).ToList();
+    List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();
+    List<Product> urunler = db.Product.Where(x => x.ProductId > 1 && x.ProductId < 53).ToList();
+    List<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 1 && x.ProductId < 53).ToList();
     int index = 0;
 
 }
@@ -24,7 +24,7 @@
                         {
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="">
-                                <label class="form-check-label filterLine" for="defaultCheck1">@(x.cinsiyet1)</label>
+                                <label class="form-check-label filterLine" for="defaultCheck1">@(x.GenderName)</label>
                             </div>
                         }
                     </div>
@@ -38,7 +38,7 @@
                         {
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="">
-                                <label class="form-check-label filterLine" for="defaultCheck1">@(y.cins1)</label>
+                                <label class="form-check-label filterLine" for="defaultCheck1">@(y.GenusName)</label>
                             </div>
                         }
                     </div>
@@ -52,7 +52,7 @@
                         {
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="">
-                                <label class="form-check-label filterLine" for="defaultCheck1">@(z.renk1)</label>
+                                <label class="form-check-label filterLine" for="defaultCheck1">@(z.ColorName)</label>
                             </div>
                         }
                     </div>
@@ -60,24 +60,24 @@
             </div>
         </div>
         <div class="col-md-10 productCardArea">
-            @foreach (var k in giyimurunler)
+            @foreach (var k in urunler)
             {
                 <div class="col-md-4 productCard">
                     <div class="productCardImage">
                         <div class="productCardMainImage">
-                            <img src="@(k.UrunResmi.First().Url.url1)" class="resim-wrap" id="main_img@(index)" alt="">
+                            <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
                         </div>
                         <div class="productCardImages">
-                            @foreach (var r in k.UrunResmi)
+                            @foreach (var r in k.ProductImg)
                             {
-                                <img src="@(r.Url.url1)" onclick="change_img(this,'main_img@(index)'); " id="thumb_img" alt="">
+                                <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)'); " id="thumb_img" alt="">
                             }
                         </div>
                     </div>
                     <div class="productCardInformation">
-                        <div class="productCardName">@(k.adi)</div>
-                        <div class="productCardDescription">@(k.aciklama)</div>
-                        <div class="productCardPrice">@(k.fiyat) TL</div>
+                        <div class="productCardName">@(k.Name)</div>
+                        <div class="productCardDescription">@(k.Explanation)</div>
+                        <div class="productCardPrice">@(k.Price) TL</div>
                         <a href="#" class="productCardBuy">Sepete Ekle</a>
                     </div>
                 </div>

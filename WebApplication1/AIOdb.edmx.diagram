@@ -4,27 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="be46e60888ed4bcea8271bcc0355dd34" Name="Diagram1">
-        <EntityTypeShape EntityType="AllInOneModel.Cins" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="AllInOneModel.Cinsiyet" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AllInOneModel.Fatura" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AllInOneModel.Kategori" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AllInOneModel.Musteri" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AllInOneModel.Renk" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AllInOneModel.Sepet" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+      <Diagram DiagramId="ed076159499b43b3b2488aa35361e0d3" Name="Diagram1">
+        <EntityTypeShape EntityType="AllInOneModel.Basket" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllInOneModel.Category" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllInOneModel.Color" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllInOneModel.Customer" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllInOneModel.Gender" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllInOneModel.Genus" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllInOneModel.Invoice" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllInOneModel.Product" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllInOneModel.ProductImg" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AllInOneModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AllInOneModel.Url" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AllInOneModel.Urun" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AllInOneModel.UrunResmi" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="AllInOneModel.FK_Urun_Cins" ManuallyRouted="false" />
-        <AssociationConnector Association="AllInOneModel.FK_Urun_Cinsiyet" ManuallyRouted="false" />
-        <AssociationConnector Association="AllInOneModel.FK_Fatura_Musteri" ManuallyRouted="false" />
-        <AssociationConnector Association="AllInOneModel.FK_Urun_Kategori" ManuallyRouted="false" />
         <AssociationConnector Association="AllInOneModel.FK_Sepet_Musteri" ManuallyRouted="false" />
-        <AssociationConnector Association="AllInOneModel.FK_Urun_Renk" ManuallyRouted="false" />
         <AssociationConnector Association="AllInOneModel.FK_Sepet_Urun" ManuallyRouted="false" />
-        <AssociationConnector Association="AllInOneModel.FK_UrunResmi_Url" ManuallyRouted="false" />
+        <AssociationConnector Association="AllInOneModel.FK_Urun_Kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="AllInOneModel.FK_Urun_Renk" ManuallyRouted="false" />
+        <AssociationConnector Association="AllInOneModel.FK_Fatura_Musteri" ManuallyRouted="false" />
+        <AssociationConnector Association="AllInOneModel.FK_Urun_Cinsiyet" ManuallyRouted="false" />
+        <AssociationConnector Association="AllInOneModel.FK_Urun_Cins" ManuallyRouted="false" />
         <AssociationConnector Association="AllInOneModel.FK_UrunResmi_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="AllInOneModel.FK_UrunResmi_Url" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

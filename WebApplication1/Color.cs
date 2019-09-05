@@ -12,18 +12,18 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Url
+    public partial class Color
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Url()
+        public Color()
         {
-            this.ProductImg = new HashSet<ProductImg>();
+            this.Product = new HashSet<Product>();
         }
     
-        public int UrlId { get; set; }
-        public string Url1 { get; set; }
+        public int ColorId { get; set; }
+        public string ColorName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductImg> ProductImg { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

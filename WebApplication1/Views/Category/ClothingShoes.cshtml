@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Giyim-Ayakkabı";
+
+    AllInOneEntities db = new AllInOneEntities();
+    List<Gender> cinsiyetler = db.Gender.OrderBy(x => x.GenderName).ToList();
+    List<Genus> cinsler = db.Genus.OrderBy(x => x.GenusName).ToList();
+    List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();
+    List<Product> urunler = db.Product.Where(x => x.ProductId > 1 && x.ProductId < 53).ToList();
+    List<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 1 && x.ProductId < 53).ToList();
+    int index = 0;
+
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="filterCard">
+                <div class="filterName">
+                    <p>Cinsiyet</p>
+                </div>
+                <div class="genderFilter">
+                    <div class="overflow-auto">
+                        @foreach (var x in cinsiyetler)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="">
+                                <label class="form-check-label filterLine" for="defaultCheck1">@(x.GenderName)</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="filterName">
+                    <p>Ürün Grubu</p>
+                </div>
+                <div class="categoryFilter">
+                    <div class="overflow-auto">
+                        @foreach (var y in cinsler)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="">
+                                <label class="form-check-label filterLine" for="defaultCheck1">@(y.GenusName)</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="filterName">
+                    <p>Renk</p>
+                </div>
+                <div class="colorFilter">
+                    <div class="overflow-auto">
+                        @foreach (var z in renkler)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="">
+                                <label class="form-check-label filterLine" for="defaultCheck1">@(z.ColorName)</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 productCardArea">
+            @foreach (var k in urunler)
+            {
+                <div class="col-md-4 productCard">
+                    <div class="productCardImage">
+                        <div class="productCardMainImage">
+                            <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
+                        </div>
+                        <div class="productCardImages">
+                            @foreach (var r in k.ProductImg)
+                            {
+                                <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)'); " id="thumb_img" alt="">
+                            }
+                        </div>
+                    </div>
+                    <div class="productCardInformation">
+                        <div class="productCardName">@(k.Name)</div>
+                        <div class="productCardDescription">@(k.Explanation)</div>
+                        <div class="productCardPrice">@(k.Price) TL</div>
+                        <a href="#" class="productCardBuy">Sepete Ekle</a>
+                    </div>
+                </div>
+                index++;
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function change_img(a, mainctl) {
+        $('#' + mainctl).attr('src', a.src)
+    }
+</script>
