@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="pageTitle">Ürünler</div>
+<div class="col-md-offset-2 col-md-10 btn btn-default indexCreateButton">
+    @Html.ActionLink("Yeni Ürün EKle", "Create")
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -71,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.Genus.GenusName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.ProductId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.ProductId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.ProductId })
         </td>
     </tr>
 }

@@ -11,7 +11,8 @@ namespace WebApplication1
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,23 +21,37 @@ namespace WebApplication1
             this.Basket = new HashSet<Basket>();
             this.ProductImg = new HashSet<ProductImg>();
         }
-    
+
+        [Display(Name = "Ürün ID")]
         public int ProductId { get; set; }
+        [Display(Name = "Ürün Kodu")]
         public string ProductCode { get; set; }
+        [Display(Name="Ýsim")]
         public string Name { get; set; }
+        [Display(Name = "Açýklama")]
         public string Explanation { get; set; }
+        [Display(Name = "Fiyat")]
         public double Price { get; set; }
+        [Display(Name = "Stok Miktarý")]
         public int Stock { get; set; }
+        [Display(Name = "Kategori")]
         public int CategoryId { get; set; }
+        [Display(Name = "Tür")]
         public int GenusId { get; set; }
+        [Display(Name = "Cinsiyet")]
         public int GenderId { get; set; }
+        [Display(Name = "Renk")]
         public int ColorId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Basket> Basket { get; set; }
+        [Display(Name = "Kategori")]
         public virtual Category Category { get; set; }
+        [Display(Name = "Renk")]
         public virtual Color Color { get; set; }
+        [Display(Name = "Cinsiyet")]
         public virtual Gender Gender { get; set; }
+        [Display(Name = "Tür")]
         public virtual Genus Genus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductImg> ProductImg { get; set; }

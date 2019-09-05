@@ -4,12 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<p class="pageTitle">Ürün Detay</p>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
+<div class="pageDetail">  
+    <dl class="dl-horizontal pageDetail">
         <dt>
             @Html.DisplayNameFor(model => model.ProductCode)
         </dt>
@@ -80,11 +78,15 @@
 
         <dd>
             @Html.DisplayFor(model => model.Genus.GenusName)
-        </dd>
-
+        </dd> 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Düzenle" class="btn btn-default pageButtonTop" />
+    </div>
+    <div class="col-md-offset-2 col-md-10 btn btn-default pageButtonBack">
+        @Html.ActionLink("Listeye Geri Dön", "Index")
+    </div>
+</div>

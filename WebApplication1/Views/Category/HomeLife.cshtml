@@ -5,8 +5,8 @@
     List<Gender> cinsiyetler = db.Gender.OrderBy(x => x.GenderName).ToList();
     List<Genus> cinsler = db.Genus.OrderBy(x => x.GenusName).ToList();
     List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();
-    List<Product> urunler = db.Product.Where(x => x.ProductId > 1 && x.ProductId < 53).ToList();
-    List<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 1 && x.ProductId < 53).ToList();
+    List<Product> urunler = db.Product.Where(x => x.ProductId > 129 && x.ProductId < 169).ToList();
+    List<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 129 && x.ProductId < 169).ToList();
     int index = 0;
 
 }
