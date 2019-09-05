@@ -1,16 +1,14 @@
-﻿@using PagedList
-@using PagedList.Mvc
+﻿@model WebApplication1.Product
 @{
     ViewBag.Title = "Elektronik";
 
     AllInOneEntities db = new AllInOneEntities();
     List<Gender> cinsiyetler = db.Gender.OrderBy(x => x.GenderName).ToList();
     List<Genus> cinsler = db.Genus.OrderBy(x => x.GenusName).ToList();
-    List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();    
-    PagedList.IPagedList<Product> urunler = db.Product.Where(x => x.ProductId > 1 && x.ProductId < 53).ToList().ToPagedList(1, 12);
-    PagedList.IPagedList<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 1 && x.ProductId < 53).ToList().ToPagedList(1, 12);
+    List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();
+    List<Product> urunler = db.Product.Where(x => x.ProductId > 1 && x.ProductId < 23).ToList();
+    List<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 1 && x.ProductId < 23).ToList();
     int index = 0;
-
 }
 
 <div class="container">
@@ -64,9 +62,9 @@
         <div class="col-md-10 productCardArea">
             @foreach (var k in urunler)
             {
-                <div class="col-md-4 productCard" onclick="click_product(@(k.ProductId).toInteger)">
+                <div class="col-md-4 productCard">
                     <div class="productCardImage">
-                        <div class="productCardMainImage">
+                        <div class="productCardMainImage" onclick="click_product(@(k.ProductId))">
                             <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
                         </div>
                         <div class="productCardImages">
@@ -77,9 +75,17 @@
                         </div>
                     </div>
                     <div class="productCardInformation">
-                        <div class="productCardName">@(k.Name)</div>
-                        <div class="productCardDescription">@(k.Explanation)</div>
-                        <div class="productCardPrice">@(k.Price) TL</div>
+                        <div class="productCardName" onclick="click_product(@(k.ProductId))">@(k.Name)</div>
+                        <div class="rating">
+                            <input type="radio" class="fa-star" name="star" id="star1" /><label class="far fa-star glyphicon-star" for="star1"></label>
+                            <i class="far fa-star" style="color:black;"></i>
+                            <input type="radio" name="star" id="star2" /><label for="star2"></label>
+                            <input type="radio" name="star" id="star3" /><label for="star3"></label>
+                            <input type="radio" name="star" id="star4" /><label for="star4"></label>
+                            <input type="radio" name="star" id="star5" /><label for="star5"></label>
+                        </div>
+                        <div class="productCardDescription" onclick="click_product(@(k.ProductId))">@(k.Explanation)</div>
+                        <div class="productCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>
                         <a href="#" class="productCardBuy">Sepete Ekle</a>
                     </div>
                 </div>
@@ -94,7 +100,7 @@
     function change_img(a, mainctl) {
         $('#' + mainctl).attr('src', a.src)
     }
-    function click_product(int a) {
-        @Html.ActionLink("", "ProductDetail", new { id = a });
+    function click_product(a) {
+        window.location = "/category/ProductDetail?id=" + a;
     }
 </script>
