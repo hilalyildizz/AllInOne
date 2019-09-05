@@ -18,9 +18,6 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public ActionResult UrunDetay()
-        {
-            return View();
-        }
+        
     }
 }
