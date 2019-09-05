@@ -6,7 +6,7 @@
     AllInOneEntities db = new AllInOneEntities();
     List<Gender> cinsiyetler = db.Gender.OrderBy(x => x.GenderName).ToList();
     List<Genus> cinsler = db.Genus.OrderBy(x => x.GenusName).ToList();
-    List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();
+    List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();    
     PagedList.IPagedList<Product> urunler = db.Product.Where(x => x.ProductId > 1 && x.ProductId < 53).ToList().ToPagedList(1, 12);
     PagedList.IPagedList<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 1 && x.ProductId < 53).ToList().ToPagedList(1, 12);
     int index = 0;
@@ -64,7 +64,7 @@
         <div class="col-md-10 productCardArea">
             @foreach (var k in urunler)
             {
-                <div class="col-md-4 productCard">
+                <div class="col-md-4 productCard" onclick="click_product(@(k.ProductId).toInteger)">
                     <div class="productCardImage">
                         <div class="productCardMainImage">
                             <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
@@ -94,8 +94,7 @@
     function change_img(a, mainctl) {
         $('#' + mainctl).attr('src', a.src)
     }
-    function change_page() {
-        
-
+    function click_product(int a) {
+        @Html.ActionLink("", "ProductDetail", new { id = a });
     }
 </script>

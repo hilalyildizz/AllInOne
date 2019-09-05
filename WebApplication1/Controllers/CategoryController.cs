@@ -13,6 +13,7 @@ namespace WebApplication1.Controllers
 {
     public class CategoryController : Controller
     {
+        AllInOneEntities db = new AllInOneEntities();
         public ActionResult Electronic()
         {
             ViewBag.Message = "Electronic Page";
@@ -34,10 +35,18 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-
-        public ActionResult ProductDetail()
-        { 
-            return View();
+        public ActionResult ProductDetail(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Product.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
         }
     }
 }
