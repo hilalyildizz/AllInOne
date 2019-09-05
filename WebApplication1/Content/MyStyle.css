@@ -425,6 +425,132 @@ a, a:focus, a:hover{
 }
 
 
+/******************************************** P R O D U C T  D E T A I L *******************************************/
+.productDetailArea {
+    height: 800px;
+    background-color: white !important;
+}
+.productDetailImage {
+    height: 300px;
+}
+.newarrival {
+    background: purple;
+    width: 50px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+.productStars {
+    background-color: white;
+    height: 20px;
+}
+.productStar {
+    height: 15px;
+    background-color: #fff;
+}
+.productStar > a :hover {
+    background-color: yellow;
+}
+
+.productStar > a :active {
+    background-color: yellow;
+}
+.productDetailName {
+    height: 50px;
+    font-size: 30px;
+    font-weight: 600;
+}
+.productDetailDescription {
+    height: 30px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.productDetailCardPrice {
+    color: purple;
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.cart {
+    background: purple !important;
+    color: white !important;
+    font-size: 15px;
+    margin-left: 20px;
+}
+.productDetailBuy {
+    height: 45px;
+    margin: 0 5px 0 5px;
+    padding-top: 10px;
+    text-align: center;
+    font-weight: 600;
+    display: block;
+    background: rgb(107, 58, 107);
+    color: #fff;
+    transition: 0.3s;
+    position: sticky;
+}
+.productDetailBuy:hover {
+    background: #c4c4c4;
+}
+.img.resim-wrap {
+    height: 500px;
+    background-color: white;
+}
+.productCardImages {
+    position: absolute;
+    left: 35px;
+}
+
+
+
+/************************************** P R O D U C T  C O N T R O L L E R ****************************************/
+.pageTitle {
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 5px;
+}
+.pageButtonTop {
+    height: 40px;
+    width: 110px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+.pageButtonTop:hover {
+    background: #c4c4c4;
+}
+
+.pageButtonBack {
+    height: 40px;
+    width: 140px;
+    text-align: center;
+    top: -10px;
+    left: 15px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: palegreen;
+    transition: 0.3s;
+}
+.pageButtonBack:hover {
+    background: #c4c4c4;
+}
+.pageDetail {
+    left: 20px;
+}
+.indexCreateButton {
+    height: 40px;
+    width: 130px;
+    margin-bottom: 8px;
+    left: 815px;
+    background-color: lightcoral;
+}
+.indexCreateButton:hover {
+    background: rgb(254, 200, 200);
+}
+
+
+
 /********************************************* F O O T E R ************************************************/
 footer {
     position: page;
@@ -565,94 +691,4 @@ footer > h2 {
     .footer-top {
         padding: 50px 0;
     }
-}
-/******************************************** P R O D U C T  D E T A I L *******************************************/
-.productDetailArea {
-    height: 800px;
-    background-color: white !important;
-}
-
-.productDetailImage {
-    height: 300px;
-}
-
-.newarrival {
-    background: purple;
-    width: 50px;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.productStars {
-    background-color: white;
-    height: 20px;
-}
-
-.productStar {
-    height: 15px;
-    background-color: #fff;
-}
-
-    .productStar > a :hover {
-        background-color: yellow;
-    }
-
-    .productStar > a :active {
-        background-color: yellow;
-    }
-
-
-.productDetailName {
-    height: 50px;
-    font-size: 30px;
-    font-weight: 600;
-}
-
-.productDetailDescription {
-    height: 30px;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.productDetailCardPrice {
-    color: purple;
-    font-size: 26px;
-    font-weight: bold;
-    padding-top: 20px;
-}
-
-
-.cart {
-    background: purple !important;
-    color: white !important;
-    font-size: 15px;
-    margin-left: 20px;
-}
-
-.productDetailBuy {
-    height: 45px;
-    margin: 0 5px 0 5px;
-    padding-top: 10px;
-    text-align: center;
-    font-weight: 600;
-    display: block;
-    background: rgb(107, 58, 107);
-    color: #fff;
-    transition: 0.3s;
-    position: sticky;
-}
-
-    .productDetailBuy:hover {
-        background: #c4c4c4;
-    }
-
-.img.resim-wrap {
-    height: 500px;
-    background-color: white;
-}
-
-.productCardImages {
-    position: absolute;
-    left: 35px;
 }
