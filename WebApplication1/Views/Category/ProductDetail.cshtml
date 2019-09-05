@@ -8,11 +8,11 @@
 }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="row productDetailArea">
+<div class="productDetailArea">
     @foreach (var k in urunler)
     {
         <div class="col-md-7 productDetailImage">
-            <div class="productDetalMainImage">
+            <div class="productDetailMainImage">
                 <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
             </div>
             <div class="productCardImages">
