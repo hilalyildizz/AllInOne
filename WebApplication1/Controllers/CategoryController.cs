@@ -35,6 +35,9 @@ namespace WebApplication1.Controllers
         }
 
 
-
+        public ActionResult ProductDetail()
+        { 
+            return View();
+        }
     }
 }
