@@ -427,59 +427,83 @@ a, a:focus, a:hover{
 
 /******************************************** P R O D U C T  D E T A I L *******************************************/
 .productDetailArea{
-    background-color:white;
+    height:600px;
+    margin: 10px 0 20px 0;
+    padding: 0;
+    background-color: lightblue;
 }
-.newarrival text-center {
-    background: purple;
+.productDetailImage{
+    height: 430px;
+    width: 650px;
+    background-color: lightcoral;
+}
+.productDetailMainImage{
+    height: 430px;
+    object-fit: fill;
+}
+.mainImgWrap {
+    height: 430px;
+    width: 400px;
+}
+.productDetailImages{
+    height: 120px;
+    width: 450px;
+    background-color: lightgray;
+}
+.productDetailImages img{
+    height: 120px;
+    width: 95px;
+}
+.productDetailInformation{
+    height: 550px;
+    width: 490px;
+    background-color:bisque;
+}
+.productDetailStatus {
+    height: 12px;
     width: 50px;
     color: white;
     font-size: 12px;
     font-weight: bold;
+    background-color: lightgreen;
 }
-
-.col-md-7 h2 {
-    color: #555;
+.productDetailName {
+    height: 35px;
+    background-color: lightsalmon;
 }
-
+.productDetailDescription {
+    height: 35px;
+    background-color: lightseagreen;
+}
 .productStars {
-    background-color: white;
-    height: 20px;
+    height: 35px;
+    background-color: lightgoldenrodyellow;
 }
-
-.productStar {
-    height: 15px;
-    background-color: #fff;
-}
-
-    .productStar > a :hover {
-        background-color: yellow;
-    }
-
-    .productStar > a :active {
-        background-color: yellow;
-    }
-
 .productDetailPrice {
-    color: purple;
+    height: 35px;
     font-size: 26px;
     font-weight: bold;
-    padding-top: 20px;
+    background-color: lightsteelblue;
 }
-
-input {
-    border: 1px solid #ccc;
-    font-weight: bold;
-    height: 33px;
-    text-align: center;
-    width: 30px;
-}
-
 .productDetailBuy {
-    background: purple !important;
-    color: white !important;
+    height: 35px;
+    padding-top: 10px;
+    color: white;
+    text-align: center;
     font-size: 15px;
-    margin-left: 20px;
+    font-weight: 600;
+    display: block;
+    background-color: mediumpurple;
+    transition: 0.3s;
+    position: sticky;
 }
+.productDetailBuy:hover {
+    background: #c4c4c4;
+}
+
+
+
+
 /************************************** P R O D U C T  C O N T R O L L E R ****************************************/
 .pageTitle {
     font-size: 25px;

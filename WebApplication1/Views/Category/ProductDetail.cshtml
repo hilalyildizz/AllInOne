@@ -7,47 +7,40 @@
     int index = 0; 
 }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="productDetailArea">
+<div class="row productDetailArea">
     @foreach (var k in urunler)
     {
         <div class="col-md-7 productDetailImage">
             <div class="productDetailMainImage">
-                <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
+                <img src="@(k.ProductImg.First().Url.Url1)" class="mainImgWrap" id="main_img@(index)" alt="">
             </div>
-            <div class="productCardImages">
+            <div class="productDetailImages">
                 @foreach (var r in k.ProductImg)
                 {
-                    <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)'); " id="thumb_img" alt="">
+                    <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)');" id="thumb_img">
                 }
             </div>
         </div>
-        <div class="col-md-5">
-            <p class="newarrival text-center">YENİ</p>
-            <div class="productCardInformation">
-                <div class="productDetailName">@(k.Name)</div>
-                <div class="productDetailDescription">@(k.Explanation)</div>
-                <div class="productStars">
-                    <a class="fa fa-star productStar" href=""></a>
-                    <a class="fa fa-star productStar" href=""></a>
-                    <a class="fa fa-star productStar" href=""></a>
-                    <a class="fa fa-star productStar" href=""></a>
-                    <a class="fa fa-star productStar" href=""></a>
-                </div>
-                <br><br />
-                <div class="productDetailPrice">@(k.Price) </div>
-                <br><br />
-                <br><br />
-                <a href="#" class="productDetailBuy">Sepete Ekle</a>
+        <div class="col-md-5 productDetailInformation">
+            <p class="newarrival text-center productDetailStatus">YENİ</p>
+            <div class="productDetailName">@(k.Name)</div>
+            <div class="productDetailDescription">@(k.Explanation)</div>
+            <div class="productStars">
+                <span id="rateMe1"></span>
             </div>
-
+            <div class="productDetailPrice">@(k.Price) </div>
+            <a href="#" class="productDetailBuy">Sepete Ekle</a>
         </div>
-        }
+    }
     
 </div>
 <script type="text/javascript">
     function change_img(a, mainctl) {
         $('#' + mainctl).attr('src', a.src)
-    }
-    
+    }    
+
+    // Rating Initialization
+    $(document).ready(function () {
+        $('#rateMe1').mdbRate();
+    });
 </script>
