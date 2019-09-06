@@ -37,8 +37,16 @@ namespace WebApplication1.Controllers
 
         public ActionResult ProductDetail(int? id)
         {
-            
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Product.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
         }
     }
 }

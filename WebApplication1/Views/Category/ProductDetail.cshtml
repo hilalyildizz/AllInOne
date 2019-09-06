@@ -1,30 +1,24 @@
-﻿@{AllInOneEntities db = new AllInOneEntities();
-    List<Gender> cinsiyetler = db.Gender.OrderBy(x => x.GenderName).ToList();
-    List<Genus> cinsler = db.Genus.OrderBy(x => x.GenusName).ToList();
-    List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();
-    List<Product> urunler = db.Product.Where(x => x.ProductId > 1 && x.ProductId < 3).ToList();
-    List<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 1 && x.ProductId < 3).ToList();
-    int index = 0; 
+﻿@model WebApplication1.Product
+@{
+    int index = 0;     
 }
 
-<div class="row productDetailArea">
-    @foreach (var k in urunler)
-    {
+<div class="row productDetailArea">    
         <div class="col-md-7 productDetailImage">
             <div class="productDetailMainImage">
-                <img src="@(k.ProductImg.First().Url.Url1)" class="mainImgWrap" id="main_img@(index)" alt="">
-            </div>
-            <div class="productDetailImages">
-                @foreach (var r in k.ProductImg)
+                <img src="@(Model.ProductImg.First().Url.Url1)" class="mainImgWrap" id="main_img@(index)" alt="">
+            </div>            
+            <div class="productDetailImages"> 
+                @foreach (var r in Model.ProductImg)
                 {
-                    <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)');" id="thumb_img">
+                <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)');" id="thumb_img">                
                 }
             </div>
         </div>
         <div class="col-md-5 productDetailInformation">
             <p class="newarrival text-center productDetailStatus">YENİ</p>
-            <div class="productDetailName">@(k.Name)</div>
-            <div class="productDetailDescription">@(k.Explanation)</div>
+            <div class="productDetailName">@(Model.Name)</div>
+            <div class="productDetailDescription">@(Model.Explanation)</div>
             <div class="rating">
                 <input type="radio" name="star" id="star1" /><label for="star1"></label>
                 <input type="radio" name="star" id="star2" /><label for="star2"></label>
@@ -32,22 +26,17 @@
                 <input type="radio" name="star" id="star4" /><label for="star4"></label>
                 <input type="radio" name="star" id="star5" /><label for="star5"></label>
             </div>
-            <div class="productDetailPrice">@(k.Price) TL </div>
+            <div class="productDetailPrice">@(Model.Price) TL </div>
             <a href="#" class="productDetailBuy">Sepete Ekle</a>
-
             <h2>15 gün içinde ücretsiz iade.</h2>
             <h2>3 iş günü içinde kargoda!</h2>
-
             <img class="kargoImg" src="~/img/kargo.png" alt="" style="" />
         </div>
-    }
-    
 </div>
 <script type="text/javascript">
     function change_img(a, mainctl) {
         $('#' + mainctl).attr('src', a.src)
-    }    
-
+    }
     // Rating Initialization
     $(document).ready(function () {
         $('#rateMe1').mdbRate();

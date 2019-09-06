@@ -6,8 +6,8 @@
     List<Gender> cinsiyetler = db.Gender.OrderBy(x => x.GenderName).ToList();
     List<Genus> cinsler = db.Genus.OrderBy(x => x.GenusName).ToList();
     List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();
-    List<Product> urunler = db.Product.Where(x => x.ProductId > 1 && x.ProductId < 23).ToList();
-    List<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 1 && x.ProductId < 23).ToList();
+    List<Product> urunler = db.Product.Where(x => x.ProductId > 1 && x.ProductId < 13).ToList();
+    List<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 1 && x.ProductId < 13).ToList();
     int index = 0;
 }
 
@@ -75,15 +75,7 @@
                         </div>
                     </div>
                     <div class="productCardInformation">
-                        <div class="productCardName" onclick="click_product(@(k.ProductId))">@(k.Name)</div>
-                        <div class="rating">
-                            <input type="radio" class="fa-star" name="star" id="star1" /><label class="far fa-star glyphicon-star" for="star1"></label>
-                            <i class="far fa-star" style="color:black;"></i>
-                            <input type="radio" name="star" id="star2" /><label for="star2"></label>
-                            <input type="radio" name="star" id="star3" /><label for="star3"></label>
-                            <input type="radio" name="star" id="star4" /><label for="star4"></label>
-                            <input type="radio" name="star" id="star5" /><label for="star5"></label>
-                        </div>
+                        <div class="productCardName" onclick="click_product(@(k.ProductId))">@(k.Name)</div>                        
                         <div class="productCardDescription" onclick="click_product(@(k.ProductId))">@(k.Explanation)</div>
                         <div class="productCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>
                         <a href="#" class="productCardBuy">Sepete Ekle</a>

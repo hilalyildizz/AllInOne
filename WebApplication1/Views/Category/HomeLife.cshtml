@@ -5,8 +5,8 @@
     List<Gender> cinsiyetler = db.Gender.OrderBy(x => x.GenderName).ToList();
     List<Genus> cinsler = db.Genus.OrderBy(x => x.GenusName).ToList();
     List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();
-    List<Product> urunler = db.Product.Where(x => x.ProductId > 129 && x.ProductId < 169).ToList();
-    List<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 129 && x.ProductId < 169).ToList();
+    List<Product> urunler = db.Product.Where(x => x.ProductId > 129 && x.ProductId < 139).ToList();
+    List<ProductImg> resimler = db.ProductImg.Where(x => x.ProductId > 129 && x.ProductId < 139).ToList();
     int index = 0;
 
 }
@@ -64,7 +64,7 @@
             {
                 <div class="col-md-4 productCard">
                     <div class="productCardImage">
-                        <div class="productCardMainImage">
+                        <div class="productCardMainImage" onclick="click_product(@(k.ProductId))">
                             <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
                         </div>
                         <div class="productCardImages">
@@ -75,9 +75,9 @@
                         </div>
                     </div>
                     <div class="productCardInformation">
-                        <div class="productCardName">@(k.Name)</div>
-                        <div class="productCardDescription">@(k.Explanation)</div>
-                        <div class="productCardPrice">@(k.Price) TL</div>
+                        <div class="productCardName" onclick="click_product(@(k.ProductId))">@(k.Name)</div>
+                        <div class="productCardDescription" onclick="click_product(@(k.ProductId))">@(k.Explanation)</div>
+                        <div class="productCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>
                         <a href="#" class="productCardBuy">Sepete Ekle</a>
                     </div>
                 </div>
@@ -90,5 +90,8 @@
 <script type="text/javascript">
     function change_img(a, mainctl) {
         $('#' + mainctl).attr('src', a.src)
+    }
+    function click_product(a) {
+        window.location = "/category/ProductDetail?id=" + a;
     }
 </script>
