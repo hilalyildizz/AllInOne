@@ -427,38 +427,42 @@ a, a:focus, a:hover{
 
 /******************************************** P R O D U C T  D E T A I L *******************************************/
 .productDetailArea{
-    height:600px;
+    height:650px;
     margin: 10px 0 20px 0;
     padding: 0;
     background-color: white;
+    position:page;
 }
-.productDetailImage{
+.productDetailImage {
     height: 500px;
     width: 500px;
     background-color: white;
+    position: page;
 }
 .productDetailMainImage{
     height: 400px;
     object-fit: fill;
 }
 .mainImgWrap {
-    height: 530px;
-    width: 470px;
+    height: 450px;
+    width: 400px;
 }
-.productDetailImages{
+.productDetailImages {
     height: 120px;
     width: 450px;
     padding: 70px;
     background-color: white;
+    position: page;
 }
 .productDetailImages img{
     height: 120px;
     width: 95px;
 }
-.productDetailInformation{
+.productDetailInformation {
     height: 550px;
     width: 490px;
-    background-color:white; 
+    background-color: white;
+    position: page;
 }
 .productDetailStatus {
     height: 20px;
@@ -474,19 +478,21 @@ a, a:focus, a:hover{
     background-color: white;
     color: black;
     font-size: 40px;
+    position: page;
 }
 .productDetailDescription {
     height: 35px;
     background-color: white;
     color: black;
     margin-top: 20px;
+    position: page;
 }
-.rating {
-    position: absolute;
+.rating {    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotateY(180deg);
     display: flex;
+    position: page;
 }
 .rating input {
     display: none;
@@ -524,6 +530,7 @@ a, a:focus, a:hover{
     font-weight: bold;
     background-color: white;
     color: purple;
+    position: page;
 }
 .productDetailBuy {
     height: 50px;
@@ -533,11 +540,12 @@ a, a:focus, a:hover{
     font-size: 15px;
     font-weight: 600;
     display: block;
-    background-color:purple;
+    background-color: purple;
     transition: 0.3s;
     position: sticky;
     margin-top: 30px;
     margin-bottom: 40px;
+    position: page;
 }
 .productDetailBuy:hover {
     background: #c4c4c4;
