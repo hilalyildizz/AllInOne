@@ -28,8 +28,8 @@ namespace WebApplication1
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/MyStyle.css").Include(
-                      "~/Content/font-awesome-4.0.3/css/font-awesome.css", new CssRewriteUrlTransform()));
+                      "~/Content/MyStyle.css",
+                      "~/Content/font-awesome.min.css"));
         }
     }
 }
