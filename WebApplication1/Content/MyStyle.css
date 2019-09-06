@@ -430,50 +430,61 @@ a, a:focus, a:hover{
     height:600px;
     margin: 10px 0 20px 0;
     padding: 0;
-    background-color: lightblue;
+    background-color: white;
 }
 .productDetailImage{
-    height: 430px;
-    width: 650px;
-    background-color: lightcoral;
+    height: 500px;
+    width: 500px;
+    background-color: white;
 }
 .productDetailMainImage{
-    height: 430px;
+    height: 400px;
     object-fit: fill;
+    
+
 }
 .mainImgWrap {
-    height: 430px;
-    width: 400px;
+    height: 530px;
+    width: 470px;
 }
 .productDetailImages{
     height: 120px;
     width: 450px;
-    background-color: lightgray;
+    padding: 70px;
+    background-color: white;
+
 }
 .productDetailImages img{
     height: 120px;
     width: 95px;
+
 }
 .productDetailInformation{
     height: 550px;
     width: 490px;
-    background-color:bisque;
+    background-color:white;
+ 
 }
 .productDetailStatus {
-    height: 12px;
+    height: 20px;
     width: 50px;
     color: white;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
-    background-color: lightgreen;
+    background-color: purple;
+    margin-top:20px;
 }
 .productDetailName {
-    height: 35px;
-    background-color: lightsalmon;
+    height: 50px;
+    background-color: white;
+    color: black;
+    font-size: 40px;
 }
 .productDetailDescription {
     height: 35px;
-    background-color: lightseagreen;
+    background-color: white;
+    color: black;
+    margin-top: 20px;
 }
 .rating {
     position: absolute;
@@ -516,24 +527,32 @@ a, a:focus, a:hover{
     height: 35px;
     font-size: 26px;
     font-weight: bold;
-    background-color: lightsteelblue;
+    background-color: white;
+    color: purple;
 }
 .productDetailBuy {
-    height: 35px;
-    padding-top: 10px;
+    height: 50px;
+    padding-top: 15px;
     color: white;
     text-align: center;
     font-size: 15px;
     font-weight: 600;
     display: block;
-    background-color: mediumpurple;
+    background-color:purple;
     transition: 0.3s;
     position: sticky;
+    margin-top: 30px;
+    margin-bottom: 40px;
 }
 .productDetailBuy:hover {
     background: #c4c4c4;
 }
-
+.kargoImg {
+    height: 60px;
+    width: 250px;
+    background-color: blue;
+    margin-top:40px;
+}
 
 
 
