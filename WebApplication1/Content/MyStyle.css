@@ -440,8 +440,6 @@ a, a:focus, a:hover{
 .productDetailMainImage{
     height: 400px;
     object-fit: fill;
-    
-
 }
 .mainImgWrap {
     height: 530px;
@@ -452,18 +450,15 @@ a, a:focus, a:hover{
     width: 450px;
     padding: 70px;
     background-color: white;
-
 }
 .productDetailImages img{
     height: 120px;
     width: 95px;
-
 }
 .productDetailInformation{
     height: 550px;
     width: 490px;
-    background-color:white;
- 
+    background-color:white; 
 }
 .productDetailStatus {
     height: 20px;
