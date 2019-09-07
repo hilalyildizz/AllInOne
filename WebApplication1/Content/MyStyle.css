@@ -385,15 +385,14 @@ a, a:focus, a:hover{
     font-size: 17px;
 }
 .productCardName {
-    height: 40px;
-    margin: 4px 0 3px 0;
+    height: auto;
     padding: 0 0 0 5px;
     font-size: 23px;
     color: rgb(53, 23, 53);
     position: sticky;
 }
 .productCardDescription {
-    height: 50px;
+    height: auto;
     padding: 0 0 0 5px;
     font-size: 16px;
     opacity: 0.7;
@@ -401,8 +400,8 @@ a, a:focus, a:hover{
 }
 .productCardPrice {
     height: 25px;
-    margin: 3px 0 3px 0;
-    padding: 0 5px 35px 5px;
+    padding: 0 0 0 5px;
+    margin-bottom: 10px;
     right: 20px;
     color: rgb(53, 23, 53);
     font-size: 24px;
@@ -426,42 +425,46 @@ a, a:focus, a:hover{
 
 
 /******************************************** P R O D U C T  D E T A I L *******************************************/
-.productDetailArea{
-    height:650px;
+.productDetailArea {
+    height: auto;
     margin: 10px 0 20px 0;
     padding: 0;
-    background-color: white;
-    position:page;
+    background-color: #f5f5f5;
+    position: page;
 }
 .productDetailImage {
-    height: 500px;
-    width: 500px;
+    height: 615px;
+    width: 635px;
+    padding-top: 8px;
     background-color: white;
     position: page;
 }
-.productDetailMainImage{
-    height: 400px;
+.productDetailMainImage {
+    height: 455px;
+    width: 410px;
+    margin-bottom: 10px;
+    padding-left: 12%;
     object-fit: fill;
 }
 .mainImgWrap {
-    height: 450px;
-    width: 400px;
+    height: 455px;
+    width: 410px;
 }
 .productDetailImages {
     height: 120px;
-    width: 450px;
-    padding: 70px;
+    width: 370px;
+    margin-left: 15%;
+    padding-left: 30px;
     background-color: white;
-    position: page;
 }
 .productDetailImages img{
     height: 120px;
     width: 95px;
 }
 .productDetailInformation {
-    height: 550px;
-    width: 490px;
-    background-color: white;
+    height: 615px;
+    width: 504px;
+    background-color: #f5f5f5;
     position: page;
 }
 .productDetailStatus {
@@ -474,25 +477,26 @@ a, a:focus, a:hover{
     margin-top:20px;
 }
 .productDetailName {
-    height: 50px;
-    background-color: white;
+    height: auto;
+    margin-bottom: 6px;
+    background-color: #f5f5f5;
     color: black;
-    font-size: 40px;
+    font-size: 35px;
     position: page;
 }
 .productDetailDescription {
-    height: 35px;
-    background-color: white;
+    height: auto;
+    margin-bottom: 12px;
+    background-color: #f5f5f5;
     color: black;
-    margin-top: 20px;
     position: page;
 }
-.rating {    
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotateY(180deg);
+.rating {
+    width: 110px;
+    margin-bottom: 5px;
+    transform: rotateY(180deg);
     display: flex;
-    position: page;
+    background-color: #f5f5f5;
 }
 .rating input {
     display: none;
@@ -500,20 +504,23 @@ a, a:focus, a:hover{
 .rating label {
     display: block;
     cursor: pointer;
-    width: 50px;
-    background: #ccc;
+    width: 25px;
 }
 .rating label:before {
+    content: '\f005';
+    font-family: fontAwesome;
     position: relative;
     display: block;
-    font-size: 40px;
-    color: #101010;
+    font-size: 20px;
+    color: white;    
 }
 .rating label:after {
+    content: '\f005';
+    font-family: fontAwesome;
     position: absolute;
     display: block;
-    font-size: 40px;
-    color: #1f9cff;
+    font-size: 20px;
+    color: yellow;
     top: 0;
     opacity: 0;
     transition: .5s;
@@ -525,36 +532,44 @@ a, a:focus, a:hover{
     opacity: 1;
 }
 .productDetailPrice {
-    height: 35px;
+    height: auto;
+    margin-bottom: 7px;
     font-size: 26px;
     font-weight: bold;
-    background-color: white;
+    background-color: #f5f5f5;
     color: purple;
     position: page;
 }
 .productDetailBuy {
     height: 50px;
+    margin-bottom: 7px;
     padding-top: 15px;
     color: white;
     text-align: center;
     font-size: 15px;
     font-weight: 600;
     display: block;
-    background-color: purple;
+    background-color: rgba(85, 65, 122, 0.88);
     transition: 0.3s;
     position: sticky;
-    margin-top: 30px;
-    margin-bottom: 40px;
     position: page;
 }
 .productDetailBuy:hover {
-    background: #c4c4c4;
+    background: rgb(181, 203, 243);
+}
+.productDetailText {
+    height: auto;
+    margin-bottom: 15px;
+    background-color: #f5f5f5;
 }
 .kargoImg {
-    height: 60px;
-    width: 250px;
-    background-color: blue;
-    margin-top:40px;
+    height: 75px;
+    width: 245px;
+    background-color: white;
+}
+.kargoImgWrap {
+    height: 75px;
+    width: 245px;
 }
 
 
