@@ -620,50 +620,43 @@ a, a:focus, a:hover{
     background: rgb(254, 200, 200);
 }
 /*********************************************B A S K E T************************************************/
-.container {
-    margin-top: 50px;
+body {
+    margin-top: 20px;
 }
-
-.col-md-8 h1 {
-    color: #555;
+.panelAlan{
+    height:500px;
+    width: 1000px;
 }
-
-.productImg {
-    object-fit: fill;
-    height: 300px;
-    width: 50px
+.panel-body{
+    width:950px;
+    height:200px;
+    position:center;
 }
-
-.productwrap {
-    height: 250px;
+panel-footer{
+    background-color:white;
+    border-top: 1px solid #ddd;
 }
-
-.yazilar {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 15px;
-}
-
-.fiyat {
-    color: purple;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 16px;
-    margin: 7px 0px 0px;
-    font-weight: bold;
-}
-
-.basketTitle {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-}
-
-.btn {
-    color: white;
-    font: 15px;
+.basketButton {
     background-color: purple;
-    padding: 13px 3px;
+    color: white;
+}
+
+.img-responsive {
+    height: 150px;
+    width: 150px;
+}
+
+.fiyatSepet {
+    color: purple;
+}
+
+.sepetKargo {
+    height: 80px;
+    width: 100px;
+}
+
+.sepetDevam {
+    color: white;
 }
 
 .adet {
@@ -672,6 +665,20 @@ a, a:focus, a:hover{
     height: 33px;
     text-align: center;
     width: 30px;
+}
+
+.siparisOzet {
+    background-color: purple;
+    color: white;
+    height: 20px;
+    padding: 5px;
+}
+
+.sepetOnay {
+    background-color: purple;
+    color: white;
+    height: 20px;
+    padding: 5px;
 }
 
 /********************************************* F O O T E R ************************************************/
