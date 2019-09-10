@@ -626,67 +626,176 @@ a, a:focus, a:hover{
     background: rgb(254, 200, 200);
 }
 /*********************************************B A S K E T************************************************/
-body {
-    margin-top: 20px;
+.basketArea {
+    height: auto;
+    width: 100%;
+    padding: 0;
+    background-color: #ececec;
 }
-.panelAlan{
-    height:500px;
-    width: 1000px;
+
+.basketTitleArea {
+    height: 40px;
+    width: auto;
+    padding: 6px;
+    margin-bottom: 17px;
+    background-color: rgb(107, 58, 107);
 }
-.panel-body{
-    width:950px;
-    height:200px;
-    position:center;
-}
-panel-footer{
-    background-color:white;
-    border-top: 1px solid #ddd;
-}
-.basketButton {
-    background-color: purple;
+
+.basketTitle {
+    text-align: left;
+    font-weight: 700;
     color: white;
+    font-size: 20px;
 }
 
-.img-responsive {
-    height: 150px;
-    width: 150px;
+.panelBody {
+    width: 800px;
+    height: auto;
+    margin: 0 10px 6px 0;
+    padding: 0;
+    position: center;
+    background-color: #ececec;
 }
 
-.fiyatSepet {
-    color: purple;
+.basketProduct {
+    height: auto;
+    width: auto;
+    padding: 0;
+    background-color: white;
 }
 
-.sepetKargo {
-    height: 80px;
-    width: 100px;
+.basketProductImage {
+    height: 220px;
+    width: 190px;
+    padding: 0;
+    object-fit: fill;
+    background-color: white;
 }
 
-.sepetDevam {
-    color: white;
+.basketImageWrap {
+    height: 220px;
+    width: 190px;
 }
 
-.adet {
-    border: 1px solid #ccc;
-    font-weight: bold;
-    height: 33px;
+.basketProductInformationArea {
+    height: auto;
+    width: 400px;
+    padding: 3px 2px 5px 8px;
+    text-align: left;
+    background-color: white;
+}
+
+.informationTitle {
+    height: auto;
+    width: auto;
+    margin-bottom: 3px;
     text-align: center;
-    width: 30px;
+    font-weight: 600;
 }
 
-.siparisOzet {
-    background-color: purple;
+.basketProductName {
+    height: auto;
+    width: auto;
+    background-color: white;
+    font-weight: bold;
+}
+
+.basketProductExplanation {
+    height: auto;
+    width: auto;
+    background-color: white;
+}
+
+.basketProductCode {
+    height: auto;
+    width: auto;
+    background-color: white;
+}
+
+.basketProductTextArea {
+    height: auto;
+    width: auto;
+    background-color: white;
+    margin-top: 15px;
+    font-size: small;
+}
+
+.basketProductText {
+    font-weight: 700;
+}
+
+.basketProductPieceArea {
+    width: 105px;
+    height: auto;
+    background-color: white;
+}
+
+.basketProductPieceDropDown {
+    width: 75px;
+    padding-left: 18px;
+}
+
+.basketProductPriceArea {
+    height: auto;
+    width: 105px;
+    background-color: white;
+}
+
+.basketProductPrice {
+    text-align: center;
+}
+
+.continueShopping {
     color: white;
-    height: 20px;
-    padding: 5px;
+    background-color: rgb(107, 58, 107);
+    position: absolute;
+    left: 0px;
 }
 
-.sepetOnay {
-    background-color: purple;
+.orderSummary {
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.basketButton {
+    background-color: rgb(107, 58, 107);
     color: white;
-    height: 20px;
-    padding: 5px;
 }
 
+.basketOptionArea {
+    height: auto;
+    width: 350px;
+    background-color: white;
+}
+
+.productNumber {
+    text-align: right;
+}
+
+.orderSum {
+    font-weight: bold;
+}
+
+.orderPrice {
+    text-align: right;
+}
+
+.cargoPrice {
+    font-weight: bold;
+}
+
+.totalPriceTitle {
+    font-weight: bold;
+}
+
+.totalPrice {
+    text-align: right;
+}
+
+.basketConfirmButton {
+    color: white;
+    background-color: rgb(107, 58, 107);
+}
 /********************************************* F O O T E R ************************************************/
 footer {
     position: page;
