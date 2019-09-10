@@ -1,0 +1,92 @@
+﻿@model IEnumerable<WebApplication1.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="listPage">
+    <div class="pageTitle">Ürünler</div>
+    <div class="col-md-offset-2 col-md-10 btn btn-default indexCreateButton">
+        @Html.ActionLink("Yeni Ürün EKle", "Create")
+    </div>
+
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>@Html.Label("Resim")</th>
+            <th></th>
+            <th>
+                @Html.Label("Ürün Kodu")
+            </th>
+            <th>
+                @Html.Label("Ürün")
+            </th>
+            <th>
+                @Html.Label("Açıklama")
+            </th>
+            <th>
+                @Html.Label("Fiyat")
+            </th>
+            <th>
+                @Html.Label("Stok")
+            </th>
+            <th>
+                @Html.Label("Kategori")
+            </th>
+            <th>
+                @Html.Label("Cinsiyet")
+            </th>
+            <th>
+                @Html.Label("Tür")
+            </th>
+            <th>
+                @Html.Label("Renk")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @foreach (var x in item.ProductImg)
+                {
+                    <td>
+                        <img src="@(x.Url.Url1)" class="pageImage" alt="">
+                    </td>
+                }
+                <td>
+                    @item.ProductCode
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Explanation
+                </td>
+                <td>
+                    @item.Price.ToString()
+                </td>
+                <td>
+                    @item.Stock.ToString()
+                </td>
+                <td>
+                    @item.Category.CategoryName
+                </td>
+                <td>
+                    @item.Gender.GenderName
+                </td>
+                <td>
+                    @item.Genus.GenusName
+                </td>
+                <td>
+                    @item.Color.ColorName
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.ProductId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.ProductId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.ProductId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

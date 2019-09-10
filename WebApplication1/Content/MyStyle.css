@@ -575,6 +575,9 @@ a, a:focus, a:hover{
 
 
 /************************************** P R O D U C T  C O N T R O L L E R ****************************************/
+.listPage{
+    right: 70px;
+}
 .pageTitle {
     font-size: 25px;
     font-weight: 500;
@@ -591,7 +594,10 @@ a, a:focus, a:hover{
 .pageButtonTop:hover {
     background: #c4c4c4;
 }
-
+.pageImage{
+    height: 75px;
+    width: 50px;
+}
 .pageButtonBack {
     height: 40px;
     width: 140px;

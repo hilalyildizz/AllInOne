@@ -1,113 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
     public class ProductController : Controller
     {
-        private AllInOneEntities db = new AllInOneEntities();
+        AllInOneEntities db = new AllInOneEntities();
 
-        // GET: Product
-        public ActionResult Index()
-        {
-            var product = db.Product.Include(p => p.Category).Include(p => p.Color).Include(p => p.Gender).Include(p => p.Genus);
-            return View(product.ToList());
+        // GET: Product/ProductCategory
+        public ActionResult ProductCategory(int id)
+        {            
+            var products = from s in db.Product select s;
+            products = products.Where(x => x.CategoryId == id);
+            
+            return View(products.ToList());
         }
 
-        // GET: Product/Details/5
-        public ActionResult Details(int? id)
+        //GET: Product/ProductFilter
+        public ActionResult ProductFilter()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = db.Product.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-            return View(product);
-        }
+            var filter = from d in db.Product select d;
 
-        // GET: Product/Create
-        public ActionResult Create()
-        {
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "CategoryName");
-            ViewBag.ColorId = new SelectList(db.Color, "ColorId", "ColorName");
-            ViewBag.GenderId = new SelectList(db.Gender, "GenderId", "GenderName");
-            ViewBag.GenusId = new SelectList(db.Genus, "GenusId", "GenusName");
             return View();
         }
 
-        // POST: Product/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductId,ProductCode,Name,Explanation,Price,Stock,CategoryId,GenusId,GenderId,ColorId")] Product product)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Product.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "CategoryName", product.CategoryId);
-            ViewBag.ColorId = new SelectList(db.Color, "ColorId", "ColorName", product.ColorId);
-            ViewBag.GenderId = new SelectList(db.Gender, "GenderId", "GenderName", product.GenderId);
-            ViewBag.GenusId = new SelectList(db.Genus, "GenusId", "GenusName", product.GenusId);
-            return View(product);
-        }
-
-        // GET: Product/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = db.Product.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "CategoryName", product.CategoryId);
-            ViewBag.ColorId = new SelectList(db.Color, "ColorId", "ColorName", product.ColorId);
-            ViewBag.GenderId = new SelectList(db.Gender, "GenderId", "GenderName", product.GenderId);
-            ViewBag.GenusId = new SelectList(db.Genus, "GenusId", "GenusName", product.GenusId);
-            return View(product);
-        }
-
-        // POST: Product/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductCode,Name,Explanation,Price,Stock,CategoryId,GenusId,GenderId,ColorId")] Product product)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "CategoryName", product.CategoryId);
-            ViewBag.ColorId = new SelectList(db.Color, "ColorId", "ColorName", product.ColorId);
-            ViewBag.GenderId = new SelectList(db.Gender, "GenderId", "GenderName", product.GenderId);
-            ViewBag.GenusId = new SelectList(db.Genus, "GenusId", "GenusName", product.GenusId);
-            return View(product);
-        }
-
-        // GET: Product/Delete/5
-        public ActionResult Delete(int? id)
+        //GET: Product/ProductDetail
+        public ActionResult ProductDetail(int? id)
         {
             if (id == null)
             {
@@ -121,24 +45,19 @@ namespace WebApplication1.Controllers
             return View(product);
         }
 
-        // POST: Product/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        // GET: Product/SearchProduct
+        public ActionResult SearchProduct(string p)
         {
-            Product product = db.Product.Find(id);
-            db.Product.Remove(product);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            var products = from d in db.Product select d;
+            if (!string.IsNullOrEmpty(p))
             {
-                db.Dispose();
+                products = products.Where(m => m.Name.Contains(p) || m.Explanation.Contains(p));
             }
-            base.Dispose(disposing);
+            else
+            {
+                ViewBag.Title = "Aradığınız ürün bulunamadı";
+            }
+            return View(products.ToList());
         }
     }
 }

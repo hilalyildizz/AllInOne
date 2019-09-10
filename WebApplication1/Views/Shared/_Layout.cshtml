@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@model List<Product>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <header class="navbar">
@@ -24,21 +24,26 @@
                 <div class="col-md-2 col-sm-4 col-xs-12 navbar-middle">
                     <ul class="nav navbar-link logo">
                         <li class="logo">
-                            <a href="@Url.Action("Ana Sayfa", "Index", "Home")" title="" class="links logo">
+                            <a href="@Url.Action("HomePage", "Home")" title="" class="links logo">
                                 <img class="logo" src="@Url.Content("~/logo.png")">
                             </a>
-                        </li>                        
+                        </li>
                     </ul>
-                </div>                
+                </div>
                 <div class="col-md-6 col-sm-4 col-xs-12 navbar-middle">
                     <form class="form-inline my-2 my-lg-0 input-group">
-                        <input class="form-control mr-sm-2 searchBar" type="search" placeholder="Ne aramıştınız ?" aria-label="Search">
-                        <button class="btn btn-outline-info my-2 my-sm-0 searchButton" type="submit">Ara</button>
+                        @using (Html.BeginForm("SearchProduct", "Product", FormMethod.Get))
+                        {
+                            <div class="form-control mr-sm-2 searchBar" type="search" placeholder="Ne aramıştınız ?" aria-label="Search">
+                                @Html.TextBox("search")
+                            </div>
+                            <input class="btn btn-outline-info my-2 my-sm-0 searchButton" type="submit" value="Ara" />
+                        }
                     </form>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 navbar-middle">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.Partial("_LoginPartial")</li>                        
+                        <li>@Html.Partial("_LoginPartial")</li>
                         <li class="basket">@Html.ActionLink("Sepetim", "Basket", "Home")</li>
                     </ul>
                 </div>
@@ -48,26 +53,26 @@
             <div class="container">
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <ul class="nav navbar-nav">
-                        <li class="navbar-link">@Html.ActionLink("Elektronik", "Electronic", "Category")</li>
+                        <li class="navbar-link">@Html.ActionLink("Elektronik", "ProductCategory", "Product", new { id = 1 }, null)</li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <ul class="nav navbar-nav">
-                        <li class="navbar-link">@Html.ActionLink("Giyim-Ayakkabı", "ClothingShoes", "Category")</li>
+                        <li class="navbar-link">@Html.ActionLink("Giyim-Ayakkabı", "ProductCategory", "Product", new { id = 2 }, null)</li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <ul class="nav navbar-nav">
-                        <li class="navbar-link">@Html.ActionLink("Ev-Yaşam", "HomeLife", "Category")</li>
+                        <li class="navbar-link">@Html.ActionLink("Ev-Yaşam", "ProductCategory", "Product", new { id = 3 }, null)</li>
                     </ul>
                 </div>
             </div>
-        </div>       
-    </header>    
+        </div>
+    </header>
 
     <div class="container">
         @RenderBody()
-    </div>    
+    </div>
 
     <footer>
         <div class="row footer-top">
@@ -81,7 +86,7 @@
                     <li class="navbar-link">@Html.ActionLink("Elektronik", "Electronic", "Category")</li>
                     <li class="navbar-link">@Html.ActionLink("Giyim-Ayakkabı", "ClothingShoes", "Category")</li>
                     <li class="navbar-link">@Html.ActionLink("Ev-Yaşam", "HomeLife", "Category")</li>
-                    <li class="navbar-link">@Html.ActionLink("UrunKontrol", "Index", "Product")</li>
+                    <li class="navbar-link">@Html.ActionLink("UrunKontrol", "Index", "Admin")</li>
                 </ul>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 segment-three sm-mb-30">
