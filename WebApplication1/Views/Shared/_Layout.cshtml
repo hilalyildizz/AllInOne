@@ -12,16 +12,13 @@
 <body>
     <header class="navbar">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 navbar-top">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item active languageSet">@Html.ActionLink("EN", "ChangeCulture", "Home", new { lang = "en", returnurl = this.Request.RawUrl }, null)</li>
-                        <li class="nav-item active languageSet">@Html.ActionLink("TR", "ChangeCulture", "Home", new { lang = "tr", returnurl = this.Request.RawUrl }, null)</li>
-                    </ul>
+            <div class="row navbar-top">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="nav right languageSet">@Html.ActionLink("EN ", "ChangeCulture", "Home", new { lang = "en", returnurl = this.Request.RawUrl }, null) | @Html.ActionLink(" TR", "ChangeCulture", "Home", new { lang = "tr", returnurl = this.Request.RawUrl }, null)</div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2 col-sm-4 col-xs-12 navbar-middle">
+            <div class="row navbar-middle">
+                <div class="col-md-2 col-sm-4 col-xs-12 ">
                     <ul class="nav navbar-link logo">
                         <li class="logo">
                             <a href="@Url.Action("HomePage", "Home")" title="" class="links logo">
@@ -32,43 +29,33 @@
                 </div>
                 <div class="col-md-6 col-sm-4 col-xs-12 navbar-middle">
                     <form class="form-inline my-2 my-lg-0 input-group">
-                        @using (Html.BeginForm("SearchProduct", "Product", FormMethod.Get))
-                        {
-                            <input class="form-control mr-sm-2 searchBar" type="text" name="search" placeholder="Ne aramıştınız ?">                                
-                            <input class="btn btn-outline-info my-2 my-sm-0 searchButton" type="submit" value="Ara"/>
-                        }
+                        <input class="form-control mr-sm-2 searchBar" type="text" name="search" placeholder="Ne aramıştınız ?">
+                        <input class="btn btn-outline-info my-2 my-sm-0 searchButton" type="submit" value="Ara" />
                     </form>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 navbar-middle">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.Partial("_LoginPartial")</li>
-                        <li class="basket">@Html.ActionLink("Sepetim", "Basket", "Home")</li>
-                    </ul>
+                    @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </div>
-        <div class="row navbar-end">
+        <div class="navbar-end">
             <div class="container">
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <ul class="nav navbar-nav">
-                        <li class="navbar-link">@Html.ActionLink("Elektronik", "ProductCategory", "Product", new { id = 1 }, null)</li>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <ul class="nav navbar-nav">
-                        <li class="navbar-link">@Html.ActionLink("Giyim-Ayakkabı", "ProductCategory", "Product", new { id = 2 }, null)</li>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <ul class="nav navbar-nav">
-                        <li class="navbar-link">@Html.ActionLink("Ev-Yaşam", "ProductCategory", "Product", new { id = 3 }, null)</li>
-                    </ul>
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12 navbarCategory">
+                        <div class="navbarCategoryLink">@Html.ActionLink("Elektronik", "ProductCategory", "Product", new { id = 1 }, null)</div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 navbarCategory">
+                        <div class="navbarCategoryLink">@Html.ActionLink("Giyim-Ayakkabı", "ProductCategory", "Product", new { id = 2 }, null)</div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 navbarCategory">
+                        <div class="navbarCategoryLink">@Html.ActionLink("Ev-Yaşam", "ProductCategory", "Product", new { id = 3 }, null)</div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="container">
+    <div>
         @RenderBody()
     </div>
 
@@ -76,15 +63,16 @@
         <div class="row footer-top">
             <div class="col-md-3 col-sm-6 col-xs-12 segment-one md-mb-30">
                 <h2>Hakkımızda</h2>
-                <p>Misyonumuz müşterilerimize teknoloji ile her zaman ve her yerde en iyi alışveriş deneyimini yaşatmak.Müşteri her zaman önceliğimiz!</p>
+                <p>Müşterilerimize teknoloji ile her zaman ve her yerde en iyi alışveriş deneyimini yaşatmak en önemli misyonumuz. Müşteri her zaman önceliğimiz !</p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 segment-two md-mb-30 sm-mb-30">
                 <h2>Link</h2>
                 <ul>
-                    <li class="navbar-link">@Html.ActionLink("Elektronik", "Electronic", "Category")</li>
-                    <li class="navbar-link">@Html.ActionLink("Giyim-Ayakkabı", "ClothingShoes", "Category")</li>
-                    <li class="navbar-link">@Html.ActionLink("Ev-Yaşam", "HomeLife", "Category")</li>
-                    <li class="navbar-link">@Html.ActionLink("UrunKontrol", "Index", "Admin")</li>
+                    <li class="navbar-link left">@Html.ActionLink("Elektronik", "Electronic", "Category")</li>
+                    <li class="navbar-link left">@Html.ActionLink("Giyim-Ayakkabı", "ClothingShoes", "Category")</li>
+                    <li class="navbar-link left">@Html.ActionLink("Ev-Yaşam", "HomeLife", "Category")</li>
+                    <li class="navbar-link left">@Html.ActionLink("Sepetim", "Basket", "Home")</li>
+                    <li class="navbar-link left">@Html.ActionLink("UrunKontrol", "Index", "Admin")</li>
                 </ul>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 segment-three sm-mb-30">

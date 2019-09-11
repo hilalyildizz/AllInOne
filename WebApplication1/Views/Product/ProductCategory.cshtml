@@ -6,9 +6,9 @@
     List<Color> renkler = db.Color.OrderBy(x => x.ColorName).ToList();
     int index = 0;
 }
-<div class="container">
+<div class="container productCategoryArea">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2 col-sm-6 col-xs-6 filterCardArea">
             <div class="filterCard">
                 <div class="filterName">
                     <p>Cinsiyet</p>
@@ -54,10 +54,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-10 productCardArea"  id="tbl">
+        <div class="col-md-10 col-sm-6 col-xs-6 row productCardArea">
             @foreach (var k in Model)
             {
-                <div class="col-md-4 productCard">
+                <div class="col-md-4 col-sm-6 col-xs-12 productCard">
                     <div class="productCardImage">
                         <div class="productCardMainImage" onclick="click_product(@(k.ProductId))">
                             <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
@@ -72,8 +72,7 @@
                     <div class="productCardInformation">
                         <div class="productCardName" onclick="click_product(@(k.ProductId))">@(k.Name)</div>
                         <div class="productCardDescription" onclick="click_product(@(k.ProductId))">@(k.Explanation)</div>
-                        <div class="productCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>
-                        <a href="#" class="productCardBuy">Sepete Ekle</a>
+                        <div class="productCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>                        
                     </div>
                 </div>
                 index++;

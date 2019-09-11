@@ -28,9 +28,14 @@ body {
 }
 
 /********************************************* N A V B A R ************************************************/
+.navbar{
+    padding: 0;
+    margin-bottom: 25px;
+}
 .navbar-top {
     max-height: 100%;
-    font-size: 11px;
+    width: 100%;
+    font-size: 13px;
     background-color: white;
     border-bottom: solid;
     border-bottom-color: dimgrey;
@@ -38,10 +43,13 @@ body {
 }
 .languageSet {
     padding: 0 0 0 0;
-    margin-right: 1px !important;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    margin-left: 96%;
 }
 .navbar-middle {
     height: 100%;
+    width: 100%;
     text-align: center !important;
     padding-right: 0;
     padding-left: 0;
@@ -63,8 +71,8 @@ div.col-md-6.navbar-middle {
 div.col-md-4.navbar-middle {
     width: 400px;
     height: 100%;
-    padding-top: 20px;
-    padding-bottom: 29px;
+    top: 35px;
+    padding-left: 165px;
     font-weight:600;
 }
 a.links.logo {
@@ -76,11 +84,13 @@ a.links.logo {
 }
 .searchBar {
     height:40px;
-    width: 500px !important;
+    width: 450px !important;
+    margin: 0 !important;
 }
 header > input.form-control.mr-sm-2.searchBar {
     height:40px;
     max-width:380px;
+    margin: 0 !important;
 }
 .searchButton {
     padding: 10px;
@@ -89,20 +99,19 @@ header > input.form-control.mr-sm-2.searchBar {
     text-align: center !important;
 }
 .regesterLink {
-    margin-left: 20px;
-    margin-right: 3px;
+    width: 80px;
+    margin-right: 5px;
+    flex-direction: unset;
 }
 .loginLink {
-    margin-left: 3px;
-    margin-right: 15px;
-}
-.basket {
-    margin-left: 23px;
-    margin-right: 20px;
+    width: 100px;
+    margin-left: 2px;
+    margin-right: 3px;
+    flex-direction: unset;
 }
 .navbar-end {
     height: 100%;
-    padding: 3px 0 2px 0;
+    width: 100%;
     text-align:center !important;
     color:white !important;
     font-size: 18px;
@@ -112,11 +121,21 @@ header > input.form-control.mr-sm-2.searchBar {
 div.row.navbar-end {
     margin: 0 0 0 0;
 }
-li.navbar-link{
-    left: 120px;
+.navbarCategory{
+    height: 60px;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.navbarCategoryLink {
+    height: 100%;
+    margin: 0;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    text-align: center;
 }
 div.nav {
-text-align: inherit;
+    text-align: inherit;
 }
 a, a:focus, a:hover{
     color: black;
@@ -125,41 +144,47 @@ a, a:focus, a:hover{
     background-color:white;
 }
 
-/********************************************* S L I D E R ************************************************/
+/*********************************************  H O M E  P A G E  ************************************************/
+.homePageArea{
+    padding: 0 300px 0 300px;
+    margin-bottom: 20px;
+
+}
 .carousel {
     position: relative;
-    width: 1170px;
+    width: 1200px;
     margin-top: 1px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     overflow: hidden;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.40);    
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.40);
 }
 .carousel li {
     display: inline-block;
-    width: 1170px;
-    height: 356px;
+    width: 1200px;
+    height: 365px;
     float: left;
     position: relative;
 }
 .carousel ul {
     position: relative;
     left: 0;
-    width: 9000px;
+    width: 8000px;
     list-style: none;
     transition: left .3s linear;
     -moz-transition: left .3s linear;
     -o-transition: left .3s linear;
     -webkit-transition: left .3s linear;
-    animation: slide-animation 5s infinite;
+    animation: slide-animation 15s infinite;
 }
 .carousel-container {
     margin: 0 0;
     padding: 0;
-    width: 1170px;
-    height: 356px;
+    width: 1200px;
+    height: 365px;
 }
 .carousel-container img {
-    width: 1170px;
+    width: 1200px;
+    height: 365px;
     padding: 0;
 }
 .carousel ul:hover {
@@ -167,12 +192,12 @@ a, a:focus, a:hover{
 }
 @keyframes slide-animation {
     20% {left: 0}
-    25% {left: -1170px}
-    45% {left: -1170px}
-    50% {left: -2340px}
-    70% {left: -2340px}
-    75% {left: -3680px}
-    95% {left: -3680px}
+    25% {left: -1200px}
+    45% {left: -1200px}
+    50% {left: -2400px}
+    70% {left: -2400px}
+    75% {left: -3600px}
+    95% {left: -3600px}
     100% {left: 0}
 }
 
@@ -290,19 +315,25 @@ a, a:focus, a:hover{
 
 
 /**************************************** P R O D U C T   F I L T E R   C A R D *********************************************/
+.filterCardArea {
+    width: 185px;
+    padding: 0 5px 5px 0;
+}
 .filterCard {
     height: 500px;
-    width: 190px;
-    padding: 8px 20px 8px 8px;
-    margin-right: 5px;
+    width: 175px;
+    padding: 8px 5px 8px 5px;
+    margin: 0;
     background-color: white;
 }
 .filterLine {
+    width: auto;
     font-family: 'MS Reference Sans Serif';
     font-weight: 500;
 }
 .filterName {
     height: 25px;
+    width: auto;
     padding: 5px;
     margin-bottom: 5px;
     font-weight: 600;
@@ -310,6 +341,7 @@ a, a:focus, a:hover{
 }
 .genderFilter {
     height: 80px;
+    width: auto;
     padding: 5px;
     margin-bottom: 8px;
     border-top: 0.5px solid lightgrey;
@@ -317,13 +349,15 @@ a, a:focus, a:hover{
 }
 .categoryFilter {
     height: 145px;
+    width: auto;
     padding: 7px;
     margin-bottom: 8px;
     border-top: 0.5px solid lightgrey;
     overflow: auto;
 }
 .colorFilter {
-    height: 140px;
+    height: 145px;
+    width: auto;
     padding: 5px;
     border-top: 0.5px solid lightgrey;
     overflow: auto;
@@ -334,13 +368,15 @@ a, a:focus, a:hover{
 
 /**************************************** P R O D U C T  C A R D *********************************************/
 .productCardArea {
-    padding: 0 0 0 15.7px;
+    height: auto;
+    max-width: 970px;
+    padding: 0 0 0 15px;
 }
 .productCard {
-    height: 650px;
-    width: 312px;
-    padding: 5px 4px 5px 4px;
-    margin: 0 3px 12px 4px;
+    max-height: 605px;
+    max-width: 300px;
+    margin: 0 7px 10px 0;
+    padding: 0;
     background-color: white;
 }
 .productCard:hover {
@@ -349,19 +385,22 @@ a, a:focus, a:hover{
     transition: 0.10s;
 }
 .productCardImage {
-    height: 440px;
+    height: auto;
+    width: auto;
     margin: 2px 0 0 0;
 }
 .productCardMainImage img {
-    margin: 0 10px 0 10px;
+    max-height: 420px;
+    margin: 0 10px 0 25px;
     object-fit: fill;
 }
 .resim-wrap {
-    height: 340px;
-    width: 270px;
+    height: 360px;
+    width: 260px;
 }
 .productCardImages {
     height: 95px;
+    width: auto;
     padding: 0 1px 0 1px;
     text-align: center;
     object-fit: fill;
@@ -378,14 +417,16 @@ a, a:focus, a:hover{
     border: 0.2px solid lightgrey;
 }
 .productCardInformation {
-    height: 195px;
+    height: auto;
+    width: auto;
     margin-top: 2px;
     margin: 3px 0 3px 0;
-    padding: 4px 5px 0 5px;
+    padding: 4px 5px 5px 5px;
     font-size: 17px;
 }
 .productCardName {
     height: auto;
+    width: auto;
     padding: 0 0 0 5px;
     font-size: 23px;
     color: rgb(53, 23, 53);
@@ -393,13 +434,15 @@ a, a:focus, a:hover{
 }
 .productCardDescription {
     height: auto;
+    width: auto;
     padding: 0 0 0 5px;
     font-size: 16px;
     opacity: 0.7;
     position: sticky;
 }
 .productCardPrice {
-    height: 25px;
+    height: auto;
+    width: auto;
     padding: 0 0 0 5px;
     margin-bottom: 10px;
     right: 20px;
@@ -407,22 +450,6 @@ a, a:focus, a:hover{
     font-size: 24px;
     position: sticky;
 }
-.productCardBuy {
-    height: 45px;
-    margin: 0 5px 0 5px;
-    padding-top: 10px;
-    text-align:center;
-    font-weight: 600;
-    display: block;
-    background: rgb(107, 58, 107);
-    color: #fff;
-    transition: 0.3s;
-    position: sticky;
-}
-.productCardBuy:hover {
-    background: #c4c4c4;
-}
-
 
 /******************************************** P R O D U C T  D E T A I L *******************************************/
 .productDetailArea {

@@ -15,8 +15,8 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li class="regesterLink">@Html.ActionLink("Kaydol", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li class="loginLink">@Html.ActionLink("Oturum aç", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    <div class="nav navbar-right">
+        <div class="regesterLink">@Html.ActionLink("Kaydol", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
+        <div class="loginLink">@Html.ActionLink("Oturum aç", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</div>
+    </div>
 }
