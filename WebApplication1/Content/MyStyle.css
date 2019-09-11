@@ -144,7 +144,7 @@ a, a:focus, a:hover{
     background-color:white;
 }
 
-/*********************************************  H O M E  P A G E  ************************************************/
+/*********************************************  S L I D E R  ************************************************/
 .homePageArea{
     padding: 0 300px 0 300px;
     margin-bottom: 20px;
@@ -200,8 +200,66 @@ a, a:focus, a:hover{
     95% {left: -3600px}
     100% {left: 0}
 }
+/*********************************************  P R O D U C T S E C T I O N  ************************************************/
+.buyukyer > img {
+    height: 500px;
+    width: 400px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
+.solresimwrap {
+    height: 500px;
+    width: 400px;
+}
 
+.yantaraf {
+    height: 500px;
+    width: 560px;
+    margin: 0;
+}
+
+.ustsatir {
+    width: 450px;
+    height: 250px;
+    margin: 0;
+}
+
+.giyimalanwrap {
+    width: 150px;
+    height: 200px;
+}
+
+.ayakkabicantawrap {
+    width: 150px;
+    height: 200px;
+}
+
+.mobilyalanwrap {
+    width: 150px;
+    height: 200px;
+}
+
+.altsatir {
+    width: 450px;
+    height: 250px;
+    margin: 0;
+}
+
+.teknolojialanwrap {
+    width: 150px;
+    height: 200px;
+}
+
+.evaletiwrap {
+    width: 150px;
+    height: 200px;
+}
+
+.kirtasiyewrap {
+    width: 150px;
+    height: 200px;
+}
 
 /********************************************** L O G I N ******************************************************/
 .loginCard {
