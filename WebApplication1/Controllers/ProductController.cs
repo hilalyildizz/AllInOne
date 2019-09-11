@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
             return View(products.ToList());
         }
 
-        //GET: Product/ProductFilter
+        // GET: Product/ProductFilter
         public ActionResult ProductFilter()
         {
             var filter = from d in db.Product select d;
@@ -30,7 +30,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        //GET: Product/ProductDetail
+        // GET: Product/ProductDetail
         public ActionResult ProductDetail(int? id)
         {
             if (id == null)
@@ -49,9 +49,9 @@ namespace WebApplication1.Controllers
         public ActionResult SearchProduct(string p)
         {
             var products = from d in db.Product select d;
-            if (!string.IsNullOrEmpty(p))
+            if (!string.IsNullOrEmpty(p.ToString()))
             {
-                products = products.Where(m => m.Name.Contains(p) || m.Explanation.Contains(p));
+                products = products.Where(m => m.Name.Contains(p.ToString()) || m.Explanation.Contains(p.ToString()));
             }
             else
             {

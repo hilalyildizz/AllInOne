@@ -34,10 +34,8 @@
                     <form class="form-inline my-2 my-lg-0 input-group">
                         @using (Html.BeginForm("SearchProduct", "Product", FormMethod.Get))
                         {
-                            <div class="form-control mr-sm-2 searchBar" type="search" placeholder="Ne aramıştınız ?" aria-label="Search">
-                                @Html.TextBox("search")
-                            </div>
-                            <input class="btn btn-outline-info my-2 my-sm-0 searchButton" type="submit" value="Ara" />
+                            <input class="form-control mr-sm-2 searchBar" type="text" name="search" placeholder="Ne aramıştınız ?">                                
+                            <input class="btn btn-outline-info my-2 my-sm-0 searchButton" type="submit" value="Ara"/>
                         }
                     </form>
                 </div>
