@@ -264,111 +264,110 @@ a, a:focus, a:hover{
 /********************************************** L O G I N ******************************************************/
 .loginCard {
     height: auto;
-    width: 550px;
+    max-width: 550px;
     margin: 15px 0 40px 0;
     padding: 15px;
-    right: 25%;
-    left: 25%;
-    background: rgba(0, 0, 0, 0.25);
+    left:25%;
+    background: white;
+    text-align:center;
 }
 .loginCard h3 {
     width: 100%;
     font-weight: 600;
     text-align: center;
-    position: relative;
     top: 20px;
     margin-bottom: 50px;
-    color: rgb(254, 200, 200);
+    color:purple;
+    position:relative;
 }
 .loginCard input {
     width: 80%;
-    left: 5%;
-    position: relative;
     padding: 10px;
     background: none;
     outline: none;
     border: none;
-    border-bottom: 1px solid white;
-    margin-bottom: 15px;
-    color: rgba(246, 201, 253, 0.67);
+    border-bottom: 1px solid purple;
+    color: purple;
+    margin-bottom: -15px;
+    text-align:center;
+    position:center;
 }
 .loginCard input:focus {
-    border-bottom: 1px solid rgb(181, 203, 243);
+    border-bottom: 1px solid black;
 }
 .loginCard label {
-    position: relative;
     display: block;   
     left: 29px;
     pointer-events: none;
-    color: white;
-}
-.loginCard button {
-    width: 65%;
-    left: 10%;
-    position: relative;
-    padding: 10px;
-    background: rgb(206, 141, 141);
-    border: none;
-    border-radius: 15px;
     color: black;
 }
+.loginCard button {
+    width: 50%;
+    left: 10%;
+    padding: 10px;
+    background: purple;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    position: center;
+}
 
-
-
+.checkbox{
+    text-align:left;
+}
+.newUser{
+    text-align:left;
+}
 
 /**************************************** R E G İ S T E R *********************************************/
 .registerCard {
     height: auto;
-    width: 550px;
+    max-width: 400px;
+    left:35%;
     margin: 15px 0 40px 0;
     padding: 15px;
-    right: 25%;
-    left: 25%;
-    background: rgba(0, 0, 0, 0.25);
+    background: white;
 }
 .registerCard h3 {
-    width: 100%;
+    width: 350px;
     font-weight: 600;
     text-align: center;
     position: relative;
     top: 20px;
     margin-bottom: 50px;
-    color: rgb(254, 200, 200);
+    color: purple;
 }
 
 .registerCard input {
-    width: 75%;
+    width: 350px;
     left: 5%;
-    position: relative;
     padding: 10px;
     background: none;
     outline: none;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid purple;
     margin-bottom: 15px;
     color: rgba(246, 201, 253, 0.67);
 }
 .registerCard input:focus {
-    border-bottom: 1px solid rgb(181, 203, 243);
+    border-bottom: 1px solid purple;
 }
 
 .registerCard label {
     position: relative;
     display: block;
-    left: 29px;
     pointer-events: none;
-    color: white;
+    color: black;
 }
 
 .registerCard button {
-    width: 65%;
+    width: 300px;
     left: 10%;
-    position: relative;
     padding: 10px;
-    background: rgb(206, 141, 141);
+    background: purple;
     border: none;
     border-radius: 15px;
-    color: black;
+    color: white;
 }
 
 
@@ -702,15 +701,18 @@ a, a:focus, a:hover{
 }
 .indexCreateButton {
     height: 40px;
-    width: 130px;
+    width: 160px;
     margin-bottom: 8px;
-    left: 815px;
+    margin-top:8px;
     background-color: lightcoral;
 }
 .indexCreateButton:hover {
     background: rgb(254, 200, 200);
 }
 /*********************************************B A S K E T************************************************/
+.basketProductRow{
+    background-color:white;
+}
 .basketArea {
     height: auto;
     width: 100%;
@@ -734,19 +736,18 @@ a, a:focus, a:hover{
 }
 
 .panelBody {
-    width: 800px;
+    width: 500px;
     height: auto;
-    margin: 0 10px 6px 0;
+    margin: 0 0px 6px 0;
     padding: 0;
     position: center;
-    background-color: #ececec;
+
 }
 
 .basketProduct {
     height: auto;
-    width: auto;
+    width: 670px;
     padding: 0;
-    background-color: white;
 }
 
 .basketProductImage {
@@ -767,7 +768,6 @@ a, a:focus, a:hover{
     width: 400px;
     padding: 3px 2px 5px 8px;
     text-align: left;
-    background-color: white;
 }
 
 .informationTitle {
@@ -776,6 +776,7 @@ a, a:focus, a:hover{
     margin-bottom: 3px;
     text-align: center;
     font-weight: 600;
+    background-color:white;
 }
 
 .basketProductName {
@@ -824,12 +825,21 @@ a, a:focus, a:hover{
     height: auto;
     width: 105px;
     background-color: white;
+    right: -30px;
 }
 
 .basketProductPrice {
     text-align: center;
 }
-
+.basketOptionArea {
+    height: auto;
+    width: 100%;
+}
+    .basketOptionArea{
+        background-color:white;
+    }
+    .buttonContinue {
+    }
 .continueShopping {
     color: white;
     background-color: rgb(107, 58, 107);
@@ -846,12 +856,14 @@ a, a:focus, a:hover{
     background-color: rgb(107, 58, 107);
     color: white;
 }
+.basketSummaryArea{
 
-.basketOptionArea {
-    height: auto;
-    width: 350px;
-    background-color: white;
+
 }
+.basketOrderSummary{
+
+}
+
 
 .productNumber {
     text-align: right;
