@@ -18,29 +18,22 @@
                 </div>
             </div>
             <div class="row navbar-middle">
-                <div class="col-md-2 col-sm-4 col-xs-12 ">
-                    <ul class="nav navbar-link logo">
-                        <li class="logo">
-                            <a href="@Url.Action("HomePage", "Home")" title="" class="links logo">
-                                <img class="logo" src="@Url.Content("~/logo.png")">
-                            </a>
-                        </li>
-                    </ul>
+                <div class="col-md-2 col-sm-4 col-xs-12 navbarMiddle-left">
+                    <a href="@Url.Action("HomePage", "Home")">
+                        <img class="logo" src="@Url.Content("~/logo.png")">
+                    </a>
                 </div>
-                <div class="col-md-6 col-sm-4 col-xs-12 navbar-middle">
+                <div class="col-md-6 col-sm-4 col-xs-12 navbarMiddle-center">
                     @using (Html.BeginForm("SearchProduct", "Product", FormMethod.Get))
                     {
                         <form class="form-inline my-2 my-lg-0 input-group">
-                            <input class="form-control mr-sm-2 searchBar" type="text" name="search" placeholder="Ne aramıştınız ?">
-                            @Html.TextBox("p")
-                            <input class="btn btn-outline-info my-2 my-sm-0 searchButton" type="submit" value="Ara" />
+                            @*<input class="form-control mr-sm-2 searchBar" type="text" name="search" placeholder="Ne aramıştınız ?">*@
+                            @Html.TextBox("p", null, new { @class = "form col-sm-4 col-xs-12 searchBar", @type = "text", @placeholder = "Ne aramıştınız ?"})
+                            <input class="btn btn-outline-info my-2 my-sm-0 searchButton fas fa-search" type="submit" value="Ara" />
                         </form>
                     }
-
-
-
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-12 navbar-middle">
+                <div class="col-md-4 col-sm-4 col-xs-12 navbarMiddle-right">
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>

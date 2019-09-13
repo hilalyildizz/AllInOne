@@ -57,45 +57,41 @@ body {
     background-color: white;
     
 }
-div.col-md-2.navbar-middle {
+.navbarMiddle-left {
     width: auto;
-    height: auto;
+    height: 100%;
+    padding: 0;
 }
-div.col-md-6.navbar-middle {
-    width: 585px;
+.navbarMiddle-center {
+    max-width: 585px;
     height: 100%;
     padding-top: 29px;
     padding-bottom: 29px;
     padding-left: 15px;
 }
-div.col-md-4.navbar-middle {
-    width: 400px;
+.navbarMiddle-right {
+    width: 100%;
     height: 100%;
-    top: 35px;
-    padding-left: 165px;
-    font-weight:600;
-}
-a.links.logo {
-    padding: 0;
+    bottom: 40%;
+    font-weight: 600;
+    background-color: lightblue;
 }
 .logo {
     height: 90px;
     width: 185px;
 }
 .searchBar {
-    height:40px;
-    width: 450px !important;
+    height:41px;
+    max-width: 400px !important;
     margin: 0 !important;
-}
-header > input.form-control.mr-sm-2.searchBar {
-    height:40px;
-    max-width:380px;
-    margin: 0 !important;
+    border-radius: 5px;
+    border-width: 0.7px 1px 1px 0.7px;
 }
 .searchButton {
-    padding: 10px;
     height: 41px;
     width: 60px;
+    padding: 10px;
+    margin: 0;
     text-align: center !important;
 }
 .regesterLink {
@@ -593,7 +589,7 @@ a, a:focus, a:hover{
     position: sticky;
 }
 
-/******************************************** P R O D U C T  D E T A I L *******************************************/
+/********************************************  P R O D U C T  D E T A I L  *******************************************/
 .productDetailArea {
     height: auto;
     margin: 10px 0 20px 0;
@@ -718,13 +714,14 @@ a, a:focus, a:hover{
     font-size: 15px;
     font-weight: 600;
     display: block;
-    background-color: rgba(85, 65, 122, 0.88);
+    background-color: rgb(23, 162, 184);
     transition: 0.3s;
     position: sticky;
     position: page;
 }
 .productDetailBuy:hover {
-    background: rgb(181, 203, 243);
+    color: black;
+    background: #ffffff;
 }
 .productDetailText {
     height: auto;
@@ -743,7 +740,7 @@ a, a:focus, a:hover{
 
 
 
-/************************************** P R O D U C T  C O N T R O L L E R ****************************************/
+/**************************************  P R O D U C T  C O N T R O L L E R  ****************************************/
 .listPage{
     right: 70px;
 }
@@ -794,9 +791,46 @@ a, a:focus, a:hover{
 .indexCreateButton:hover {
     background: rgb(254, 200, 200);
 }
-/*********************************************B A S K E T************************************************/
-.basketProductRow{
-    background-color:white;
+
+
+
+
+/*********************************************  U S E R  S E T T I N G S  ************************************************/
+
+.userNavbar{
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+    margin: 0;
+    top: 5%;
+    bottom: 5%;
+}
+.userNavbarName{
+    height: 100%;
+    width: 100%;
+    margin: 5px;
+    font-size: 12px;
+}
+.userNavbarBasket {
+    height: 100%;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(23, 162, 184);
+    transition: 0.3s;
+    position: sticky;
+    position: page;
+}
+.userNavbarBasket:hover {
+    color: black;
+    background: #ffffff;
+}
+
+
+
+/*********************************************  B A S K E T  ************************************************/
+.basketProductRow {
+    background-color: white;
 }
 .basketArea {
     height: auto;
@@ -804,7 +838,6 @@ a, a:focus, a:hover{
     padding: 0;
     background-color: #ececec;
 }
-
 .basketTitleArea {
     height: 40px;
     width: auto;
@@ -812,29 +845,24 @@ a, a:focus, a:hover{
     margin-bottom: 17px;
     background-color: rgb(107, 58, 107);
 }
-
 .basketTitle {
     text-align: left;
     font-weight: 700;
     color: white;
     font-size: 20px;
 }
-
 .panelBody {
     width: 500px;
     height: auto;
     margin: 0 0px 6px 0;
     padding: 0;
     position: center;
-
 }
-
 .basketProduct {
     height: auto;
     width: 670px;
     padding: 0;
 }
-
 .basketProductImage {
     height: 220px;
     width: 190px;
@@ -842,19 +870,16 @@ a, a:focus, a:hover{
     object-fit: fill;
     background-color: white;
 }
-
 .basketImageWrap {
     height: 220px;
     width: 190px;
 }
-
 .basketProductInformationArea {
     height: auto;
     width: 400px;
     padding: 3px 2px 5px 8px;
     text-align: left;
 }
-
 .informationTitle {
     height: auto;
     width: auto;
@@ -863,26 +888,22 @@ a, a:focus, a:hover{
     font-weight: 600;
     background-color:white;
 }
-
 .basketProductName {
     height: auto;
     width: auto;
     background-color: white;
     font-weight: bold;
 }
-
 .basketProductExplanation {
     height: auto;
     width: auto;
     background-color: white;
 }
-
 .basketProductCode {
     height: auto;
     width: auto;
     background-color: white;
 }
-
 .basketProductTextArea {
     height: auto;
     width: auto;
@@ -890,29 +911,24 @@ a, a:focus, a:hover{
     margin-top: 15px;
     font-size: small;
 }
-
 .basketProductText {
     font-weight: 700;
 }
-
 .basketProductPieceArea {
     width: 105px;
     height: auto;
     background-color: white;
 }
-
 .basketProductPieceDropDown {
     width: 75px;
     padding-left: 18px;
 }
-
 .basketProductPriceArea {
     height: auto;
     width: 105px;
     background-color: white;
     right: -30px;
 }
-
 .basketProductPrice {
     text-align: center;
 }
@@ -920,57 +936,50 @@ a, a:focus, a:hover{
     height: auto;
     width: 100%;
 }
-    .basketOptionArea{
-        background-color:white;
-    }
-    .buttonContinue {
-    }
+.basketOptionArea{
+    background-color:white;
+}
+.buttonContinue {
+}
 .continueShopping {
     color: white;
     background-color: rgb(107, 58, 107);
     position: absolute;
     left: 0px;
 }
-
 .orderSummary {
     font-weight: bold;
     margin-top: 40px;
 }
-
 .basketButton {
     background-color: rgb(107, 58, 107);
     color: white;
 }
-
 .productNumber {
     text-align: right;
 }
-
 .orderSum {
     font-weight: bold;
 }
-
 .orderPrice {
     text-align: right;
 }
-
 .cargoPrice {
     font-weight: bold;
 }
-
 .totalPriceTitle {
     font-weight: bold;
 }
-
 .totalPrice {
     text-align: right;
 }
-
 .basketConfirmButton {
     color: white;
     background-color: rgb(107, 58, 107);
 }
-/********************************************* F O O T E R ************************************************/
+
+
+/*********************************************  F O O T E R  ************************************************/
 footer {
     position: page;
     bottom: 0;
@@ -1092,8 +1101,7 @@ footer > h2 {
     max-width: 181px;
     margin-top:8px;
 }
-.footer-button {
-    background-color: rgb(181, 203, 243);
+.footer-button {    
     margin-top: 8px;
 }
 /* ------------ */

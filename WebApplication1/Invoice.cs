@@ -19,7 +19,7 @@ namespace WebApplication1
         public int CustomerId { get; set; }
         public int BasketId { get; set; }
     
-        public virtual Customer Customer { get; set; }
         public virtual Basket Basket { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

@@ -9,9 +9,9 @@
           <Key>
             <PropertyRef Name="BasketId" />
           </Key>
-          <Property Name="BasketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BasketId" Type="int" Nullable="false" />
           <Property Name="CustomerId" Type="int" Nullable="false" />
-          <Property Name="InvoiceId" Type="int" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
@@ -84,13 +84,6 @@
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="UrlId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -107,19 +100,6 @@
           </Key>
           <Property Name="UrlId" Type="int" Nullable="false" />
           <Property Name="Url" Type="varchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="56" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PasswordHash" Type="nvarchar" MaxLength="50" />
-          <Property Name="SecurityStamp" Type="nvarchar" MaxLength="50" />
-          <Property Name="Discriminator" Type="nvarchar" MaxLength="50" />
-          <Property Name="IsConfirmed" Type="bit" Nullable="false" />
-          <Property Name="IsLocked" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_Fatura_Musteri">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
@@ -251,10 +231,8 @@
           <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductImg" EntityType="Self.ProductImg" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Url" EntityType="Self.Url" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Fatura_Musteri" Association="Self.FK_Fatura_Musteri">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Invoice" EntitySet="Invoice" />
@@ -300,63 +278,114 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AllInOneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AllInOneEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Basket" EntityType="AllInOneModel.Basket" />
+          <EntitySet Name="Category" EntityType="AllInOneModel.Category" />
+          <EntitySet Name="Color" EntityType="AllInOneModel.Color" />
+          <EntitySet Name="Customer" EntityType="AllInOneModel.Customer" />
+          <EntitySet Name="Gender" EntityType="AllInOneModel.Gender" />
+          <EntitySet Name="Genus" EntityType="AllInOneModel.Genus" />
+          <EntitySet Name="Invoice" EntityType="AllInOneModel.Invoice" />
+          <EntitySet Name="Product" EntityType="AllInOneModel.Product" />
+          <EntitySet Name="ProductImg" EntityType="AllInOneModel.ProductImg" />
+          <EntitySet Name="sysdiagrams" EntityType="AllInOneModel.sysdiagrams" />
+          <EntitySet Name="Url" EntityType="AllInOneModel.Url" />
+          <AssociationSet Name="FK_Invoice_Basket" Association="AllInOneModel.FK_Invoice_Basket">
+            <End Role="Basket" EntitySet="Basket" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sepet_Musteri" Association="AllInOneModel.FK_Sepet_Musteri">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sepet_Urun" Association="AllInOneModel.FK_Sepet_Urun">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Kategori" Association="AllInOneModel.FK_Urun_Kategori">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Renk" Association="AllInOneModel.FK_Urun_Renk">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fatura_Musteri" Association="AllInOneModel.FK_Fatura_Musteri">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Cinsiyet" Association="AllInOneModel.FK_Urun_Cinsiyet">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Cins" Association="AllInOneModel.FK_Urun_Cins">
+            <End Role="Genus" EntitySet="Genus" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunResmi_Urun" Association="AllInOneModel.FK_UrunResmi_Urun">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductImg" EntitySet="ProductImg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunResmi_Url" Association="AllInOneModel.FK_UrunResmi_Url">
+            <End Role="Url" EntitySet="Url" />
+            <End Role="ProductImg" EntitySet="ProductImg" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Basket">
           <Key>
             <PropertyRef Name="BasketId" />
           </Key>
-          <Property Name="BasketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BasketId" Type="Int32" Nullable="false" />
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
-          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="ProductPiece" Type="Int32" Nullable="false" />
-          <Property Name="TotalPrice" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Sepet_Musteri" FromRole="Basket" ToRole="Customer" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Sepet_Urun" FromRole="Basket" ToRole="Product" />
           <NavigationProperty Name="Invoice" Relationship="AllInOneModel.FK_Invoice_Basket" FromRole="Basket" ToRole="Invoice" />
+          <NavigationProperty Name="Customer" Relationship="AllInOneModel.FK_Sepet_Musteri" FromRole="Basket" ToRole="Customer" />
+          <NavigationProperty Name="Product" Relationship="AllInOneModel.FK_Sepet_Urun" FromRole="Basket" ToRole="Product" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryId" />
           </Key>
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Urun_Kategori" FromRole="Category" ToRole="Product" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="AllInOneModel.FK_Urun_Kategori" FromRole="Category" ToRole="Product" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
             <PropertyRef Name="ColorId" />
           </Key>
           <Property Name="ColorId" Type="Int32" Nullable="false" />
-          <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Urun_Renk" FromRole="Color" ToRole="Product" />
+          <Property Name="ColorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="AllInOneModel.FK_Urun_Renk" FromRole="Color" ToRole="Product" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerId" />
           </Key>
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="GenderId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Basket" Relationship="Self.FK_Sepet_Musteri" FromRole="Customer" ToRole="Basket" />
-          <NavigationProperty Name="Invoice" Relationship="Self.FK_Fatura_Musteri" FromRole="Customer" ToRole="Invoice" />
+          <NavigationProperty Name="Basket" Relationship="AllInOneModel.FK_Sepet_Musteri" FromRole="Customer" ToRole="Basket" />
+          <NavigationProperty Name="Invoice" Relationship="AllInOneModel.FK_Fatura_Musteri" FromRole="Customer" ToRole="Invoice" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="GenderId" />
           </Key>
           <Property Name="GenderId" Type="Int32" Nullable="false" />
-          <Property Name="GenderName" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Urun_Cinsiyet" FromRole="Gender" ToRole="Product" />
+          <Property Name="GenderName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="AllInOneModel.FK_Urun_Cinsiyet" FromRole="Gender" ToRole="Product" />
         </EntityType>
         <EntityType Name="Genus">
           <Key>
             <PropertyRef Name="GenusId" />
           </Key>
           <Property Name="GenusId" Type="Int32" Nullable="false" />
-          <Property Name="GenusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Urun_Cins" FromRole="Genus" ToRole="Product" />
+          <Property Name="GenusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="AllInOneModel.FK_Urun_Cins" FromRole="Genus" ToRole="Product" />
         </EntityType>
         <EntityType Name="Invoice">
           <Key>
@@ -365,30 +394,30 @@
           <Property Name="InvoiceId" Type="Int32" Nullable="false" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Fatura_Musteri" FromRole="Invoice" ToRole="Customer" />
           <Property Name="BasketId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Basket" Relationship="AllInOneModel.FK_Invoice_Basket" FromRole="Invoice" ToRole="Basket" />
+          <NavigationProperty Name="Customer" Relationship="AllInOneModel.FK_Fatura_Musteri" FromRole="Invoice" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductId" />
           </Key>
           <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Explanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Explanation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="Double" Nullable="false" />
           <Property Name="Stock" Type="Int32" Nullable="false" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="GenusId" Type="Int32" Nullable="false" />
           <Property Name="GenderId" Type="Int32" Nullable="false" />
           <Property Name="ColorId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Basket" Relationship="Self.FK_Sepet_Urun" FromRole="Product" ToRole="Basket" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_Urun_Kategori" FromRole="Product" ToRole="Category" />
-          <NavigationProperty Name="Color" Relationship="Self.FK_Urun_Renk" FromRole="Product" ToRole="Color" />
-          <NavigationProperty Name="Gender" Relationship="Self.FK_Urun_Cinsiyet" FromRole="Product" ToRole="Gender" />
-          <NavigationProperty Name="Genus" Relationship="Self.FK_Urun_Cins" FromRole="Product" ToRole="Genus" />
-          <NavigationProperty Name="ProductImg" Relationship="Self.FK_UrunResmi_Urun" FromRole="Product" ToRole="ProductImg" />
+          <NavigationProperty Name="Basket" Relationship="AllInOneModel.FK_Sepet_Urun" FromRole="Product" ToRole="Basket" />
+          <NavigationProperty Name="Category" Relationship="AllInOneModel.FK_Urun_Kategori" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Color" Relationship="AllInOneModel.FK_Urun_Renk" FromRole="Product" ToRole="Color" />
+          <NavigationProperty Name="Gender" Relationship="AllInOneModel.FK_Urun_Cinsiyet" FromRole="Product" ToRole="Gender" />
+          <NavigationProperty Name="Genus" Relationship="AllInOneModel.FK_Urun_Cins" FromRole="Product" ToRole="Genus" />
+          <NavigationProperty Name="ProductImg" Relationship="AllInOneModel.FK_UrunResmi_Urun" FromRole="Product" ToRole="ProductImg" />
         </EntityType>
         <EntityType Name="ProductImg">
           <Key>
@@ -397,14 +426,14 @@
           <Property Name="ImageId" Type="Int32" Nullable="false" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="UrlId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_UrunResmi_Urun" FromRole="ProductImg" ToRole="Product" />
-          <NavigationProperty Name="Url" Relationship="Self.FK_UrunResmi_Url" FromRole="ProductImg" ToRole="Url" />
+          <NavigationProperty Name="Product" Relationship="AllInOneModel.FK_UrunResmi_Urun" FromRole="ProductImg" ToRole="Product" />
+          <NavigationProperty Name="Url" Relationship="AllInOneModel.FK_UrunResmi_Url" FromRole="ProductImg" ToRole="Url" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -415,191 +444,8 @@
             <PropertyRef Name="UrlId" />
           </Key>
           <Property Name="UrlId" Type="Int32" Nullable="false" />
-          <Property Name="Url1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ProductImg" Relationship="Self.FK_UrunResmi_Url" FromRole="Url" ToRole="ProductImg" />
-        </EntityType>
-        <Association Name="FK_Sepet_Musteri">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="Basket">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sepet_Urun">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductId" />
-            </Principal>
-            <Dependent Role="Basket">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Urun_Kategori">
-          <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Urun_Renk">
-          <End Role="Color" Type="Self.Color" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Color">
-              <PropertyRef Name="ColorId" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="ColorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Fatura_Musteri">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="Invoice">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Urun_Cinsiyet">
-          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Gender">
-              <PropertyRef Name="GenderId" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="GenderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Urun_Cins">
-          <End Role="Genus" Type="Self.Genus" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Genus">
-              <PropertyRef Name="GenusId" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="GenusId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UrunResmi_Urun">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="ProductImg" Type="Self.ProductImg" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductId" />
-            </Principal>
-            <Dependent Role="ProductImg">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UrunResmi_Url">
-          <End Role="Url" Type="Self.Url" Multiplicity="1" />
-          <End Role="ProductImg" Type="Self.ProductImg" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Url">
-              <PropertyRef Name="UrlId" />
-            </Principal>
-            <Dependent Role="ProductImg">
-              <PropertyRef Name="UrlId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="AllInOneEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Basket" EntityType="Self.Basket" />
-          <EntitySet Name="Category" EntityType="Self.Category" />
-          <EntitySet Name="Color" EntityType="Self.Color" />
-          <EntitySet Name="Customer" EntityType="Self.Customer" />
-          <EntitySet Name="Gender" EntityType="Self.Gender" />
-          <EntitySet Name="Genus" EntityType="Self.Genus" />
-          <EntitySet Name="Invoice" EntityType="Self.Invoice" />
-          <EntitySet Name="Product" EntityType="Self.Product" />
-          <EntitySet Name="ProductImg" EntityType="Self.ProductImg" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Url" EntityType="Self.Url" />
-          <AssociationSet Name="FK_Sepet_Musteri" Association="Self.FK_Sepet_Musteri">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Basket" EntitySet="Basket" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sepet_Urun" Association="Self.FK_Sepet_Urun">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Basket" EntitySet="Basket" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Urun_Kategori" Association="Self.FK_Urun_Kategori">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Urun_Renk" Association="Self.FK_Urun_Renk">
-            <End Role="Color" EntitySet="Color" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Fatura_Musteri" Association="Self.FK_Fatura_Musteri">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Invoice" EntitySet="Invoice" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Urun_Cinsiyet" Association="Self.FK_Urun_Cinsiyet">
-            <End Role="Gender" EntitySet="Gender" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Urun_Cins" Association="Self.FK_Urun_Cins">
-            <End Role="Genus" EntitySet="Genus" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UrunResmi_Urun" Association="Self.FK_UrunResmi_Urun">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductImg" EntitySet="ProductImg" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UrunResmi_Url" Association="Self.FK_UrunResmi_Url">
-            <End Role="Url" EntitySet="Url" />
-            <End Role="ProductImg" EntitySet="ProductImg" />
-          </AssociationSet>
-          <EntitySet Name="Role" EntityType="AllInOneModel.Role" />
-          <EntitySet Name="User" EntityType="AllInOneModel.User" />
-          <AssociationSet Name="FK_Invoice_Basket" Association="AllInOneModel.FK_Invoice_Basket">
-            <End Role="Basket" EntitySet="Basket" />
-            <End Role="Invoice" EntitySet="Invoice" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Discriminator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+          <Property Name="Url1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProductImg" Relationship="AllInOneModel.FK_UrunResmi_Url" FromRole="Url" ToRole="ProductImg" />
         </EntityType>
         <Association Name="FK_Invoice_Basket">
           <End Type="AllInOneModel.Basket" Role="Basket" Multiplicity="1" />
@@ -613,6 +459,114 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Sepet_Musteri">
+          <End Type="AllInOneModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="AllInOneModel.Basket" Role="Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sepet_Urun">
+          <End Type="AllInOneModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="AllInOneModel.Basket" Role="Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Kategori">
+          <End Type="AllInOneModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="AllInOneModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Renk">
+          <End Type="AllInOneModel.Color" Role="Color" Multiplicity="1" />
+          <End Type="AllInOneModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ColorId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fatura_Musteri">
+          <End Type="AllInOneModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="AllInOneModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Cinsiyet">
+          <End Type="AllInOneModel.Gender" Role="Gender" Multiplicity="1" />
+          <End Type="AllInOneModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Cins">
+          <End Type="AllInOneModel.Genus" Role="Genus" Multiplicity="1" />
+          <End Type="AllInOneModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genus">
+              <PropertyRef Name="GenusId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="GenusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UrunResmi_Urun">
+          <End Type="AllInOneModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="AllInOneModel.ProductImg" Role="ProductImg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="ProductImg">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UrunResmi_Url">
+          <End Type="AllInOneModel.Url" Role="Url" Multiplicity="1" />
+          <End Type="AllInOneModel.ProductImg" Role="ProductImg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Url">
+              <PropertyRef Name="UrlId" />
+            </Principal>
+            <Dependent Role="ProductImg">
+              <PropertyRef Name="UrlId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -622,53 +576,53 @@
           <EntitySetMapping Name="Basket">
             <EntityTypeMapping TypeName="AllInOneModel.Basket">
               <MappingFragment StoreEntitySet="Basket">
-                <ScalarProperty Name="BasketId" ColumnName="BasketId" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                </MappingFragment>
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="BasketId" ColumnName="BasketId" />
+              </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="AllInOneModel.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Color">
             <EntityTypeMapping TypeName="AllInOneModel.Color">
               <MappingFragment StoreEntitySet="Color">
-                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
                 <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customer">
             <EntityTypeMapping TypeName="AllInOneModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gender">
             <EntityTypeMapping TypeName="AllInOneModel.Gender">
               <MappingFragment StoreEntitySet="Gender">
-                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
                 <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Genus">
             <EntityTypeMapping TypeName="AllInOneModel.Genus">
               <MappingFragment StoreEntitySet="Genus">
-                <ScalarProperty Name="GenusId" ColumnName="GenusId" />
                 <ScalarProperty Name="GenusName" ColumnName="GenusName" />
+                <ScalarProperty Name="GenusId" ColumnName="GenusId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -676,75 +630,53 @@
             <EntityTypeMapping TypeName="AllInOneModel.Invoice">
               <MappingFragment StoreEntitySet="Invoice">
                 <ScalarProperty Name="BasketId" ColumnName="BasketId" />
-                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="AllInOneModel.Product">
               <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Explanation" ColumnName="Explanation" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="GenusId" ColumnName="GenusId" />
-                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
                 <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="GenusId" ColumnName="GenusId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Explanation" ColumnName="Explanation" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductImg">
             <EntityTypeMapping TypeName="AllInOneModel.ProductImg">
               <MappingFragment StoreEntitySet="ProductImg">
-                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="AllInOneModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Url">
             <EntityTypeMapping TypeName="AllInOneModel.Url">
               <MappingFragment StoreEntitySet="Url">
-                <ScalarProperty Name="UrlId" ColumnName="UrlId" />
                 <ScalarProperty Name="Url1" ColumnName="Url" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="AllInOneModel.Role">
-              <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="AllInOneModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
-                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
-                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UrlId" ColumnName="UrlId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

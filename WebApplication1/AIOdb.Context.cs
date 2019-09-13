@@ -36,7 +36,5 @@ namespace WebApplication1
         public virtual DbSet<ProductImg> ProductImg { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Url> Url { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<User> User { get; set; }
     }
 }

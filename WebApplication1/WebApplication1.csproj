@@ -231,17 +231,11 @@
       <DependentUpon>AIOdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Role.cs">
-      <DependentUpon>AIOdb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>AIOdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Url.cs">
-      <DependentUpon>AIOdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="User.cs">
       <DependentUpon>AIOdb.tt</DependentUpon>
     </Compile>
   </ItemGroup>

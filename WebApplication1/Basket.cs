@@ -25,9 +25,9 @@ namespace WebApplication1
         public int InvoiceId { get; set; }
         public int ProductId { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoice { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Product Product { get; set; }
     }
 }
