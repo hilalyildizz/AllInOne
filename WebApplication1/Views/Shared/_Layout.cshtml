@@ -28,10 +28,17 @@
                     </ul>
                 </div>
                 <div class="col-md-6 col-sm-4 col-xs-12 navbar-middle">
-                    <form class="form-inline my-2 my-lg-0 input-group">
-                        <input class="form-control mr-sm-2 searchBar" type="text" name="search" placeholder="Ne aramıştınız ?">
-                        <input class="btn btn-outline-info my-2 my-sm-0 searchButton" type="submit" value="Ara" />
-                    </form>
+                    @using (Html.BeginForm("SearchProduct", "Product", FormMethod.Get))
+                    {
+                        <form class="form-inline my-2 my-lg-0 input-group">
+                            <input class="form-control mr-sm-2 searchBar" type="text" name="search" placeholder="Ne aramıştınız ?">
+                            @Html.TextBox("p")
+                            <input class="btn btn-outline-info my-2 my-sm-0 searchButton" type="submit" value="Ara" />
+                        </form>
+                    }
+
+
+
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 navbar-middle">
                     @Html.Partial("_LoginPartial")
@@ -68,9 +75,9 @@
             <div class="col-md-3 col-sm-6 col-xs-12 segment-two md-mb-30 sm-mb-30">
                 <h2>Link</h2>
                 <ul>
-                    <li class="navbar-link left">@Html.ActionLink("Elektronik", "Electronic", "Category")</li>
-                    <li class="navbar-link left">@Html.ActionLink("Giyim-Ayakkabı", "ClothingShoes", "Category")</li>
-                    <li class="navbar-link left">@Html.ActionLink("Ev-Yaşam", "HomeLife", "Category")</li>
+                    <li class="navbar-link left">@Html.ActionLink("Elektronik", "ProductCategory", "Product", new { id = 1 }, null)</li>
+                    <li class="navbar-link left">@Html.ActionLink("Giyim-Ayakkabı", "ProductCategory", "Product", new { id = 2 }, null)</li>
+                    <li class="navbar-link left">@Html.ActionLink("Ev-Yaşam", "ProductCategory", "Product", new { id = 3 }, null)</li>
                     <li class="navbar-link left">@Html.ActionLink("Sepetim", "Basket", "Home")</li>
                     <li class="navbar-link left">@Html.ActionLink("UrunKontrol", "Index", "Admin")</li>
                 </ul>

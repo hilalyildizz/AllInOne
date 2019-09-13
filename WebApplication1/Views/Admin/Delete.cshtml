@@ -3,98 +3,99 @@
 @{
     ViewBag.Title = "Delete";
 }
+    <div class="container">
+        <div>
+            <h1>Sil</h1>
+            <h4>Bu ürünü silmek istediğinize emin misiniz?</h4>
+            <br />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductCode)
+                </dt>
 
-<div>
-    <h1>Sil</h1>
-    <h4>Bu ürünü silmek istediğinize emin misiniz?</h4>
-    <br/>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductCode)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductCode)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProductCode)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Explanation)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Explanation)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Explanation)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Explanation)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Stock)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Stock)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Stock)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Stock)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category.CategoryName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Category.CategoryName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category.CategoryName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Color.ColorName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Color.ColorName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Color.ColorName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Color.ColorName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Gender.GenderName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender.GenderName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Gender.GenderName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Gender.GenderName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Genus.GenusName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Genus.GenusName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Genus.GenusName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Genus.GenusName)
-        </dd>
+            </dl>
 
-    </dl>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Delete" class="btn btn-default pageButtonTop" />
+                    </div>
+                    <div class="col-md-offset-2 col-md-10 btn btn-default pageButtonBack">
+                        @Html.ActionLink("Listeye Geri Dön", "Index")
+                    </div>
+                </div>
 
-        <div class="form-actions no-color">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Delete" class="btn btn-default pageButtonTop" />
-            </div>
-            <div class="col-md-offset-2 col-md-10 btn btn-default pageButtonBack">
-                @Html.ActionLink("Listeye Geri Dön", "Index")
-            </div>
+            }
         </div>
-
-    }
-</div>
+    </div>
