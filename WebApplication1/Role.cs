@@ -12,14 +12,9 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Invoice
+    public partial class Role
     {
-        public int InvoiceId { get; set; }
-        public System.DateTime OrderDate { get; set; }
-        public int CustomerId { get; set; }
-        public int BasketId { get; set; }
-    
-        public virtual Customer Customer { get; set; }
-        public virtual Basket Basket { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
     }
 }

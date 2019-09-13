@@ -25,6 +25,9 @@
         <AssociationConnector Association="AllInOneModel.FK_Urun_Cins" ManuallyRouted="false" />
         <AssociationConnector Association="AllInOneModel.FK_UrunResmi_Urun" ManuallyRouted="false" />
         <AssociationConnector Association="AllInOneModel.FK_UrunResmi_Url" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AllInOneModel.Role" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AllInOneModel.User" Width="1.5" PointX="7.375" PointY="3.75" />
+        <AssociationConnector Association="AllInOneModel.FK_Invoice_Basket" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

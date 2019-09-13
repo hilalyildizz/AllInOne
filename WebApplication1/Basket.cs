@@ -14,14 +14,20 @@ namespace WebApplication1
     
     public partial class Basket
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Basket()
+        {
+            this.Invoice = new HashSet<Invoice>();
+        }
+    
         public int BasketId { get; set; }
         public int CustomerId { get; set; }
         public int InvoiceId { get; set; }
         public int ProductId { get; set; }
-        public int ProductPiece { get; set; }
-        public int TotalPrice { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Product Product { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoice { get; set; }
     }
 }

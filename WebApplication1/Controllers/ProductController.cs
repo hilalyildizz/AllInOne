@@ -59,5 +59,23 @@ namespace WebApplication1.Controllers
             }
             return View(products.ToList());
         }
+
+
+        [HttpGet]
+        public ActionResult Basket()
+        {            
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Basket (int p)
+        {
+           
+
+
+
+
+            return View();
+        }
     }
 }

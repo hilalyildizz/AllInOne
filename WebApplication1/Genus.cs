@@ -11,8 +11,7 @@ namespace WebApplication1
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Genus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,10 +19,8 @@ namespace WebApplication1
         {
             this.Product = new HashSet<Product>();
         }
-
-        [Display(Name = "Tür")]
+    
         public int GenusId { get; set; }
-        [Display(Name = "Tür")]
         public string GenusName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
