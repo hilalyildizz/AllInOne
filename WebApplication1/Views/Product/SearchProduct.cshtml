@@ -1,33 +1,34 @@
-﻿@model List<WebApplication1.Product>
+﻿@model List<Product>
 @{
     int index = 0;
         
 }
-<div class="row">
-    <div class="col-md-12 productCardArea">
-        @foreach (var k in Model)
-        {
-            <div class="col-md-3 productCard">
-                <div class="productCardImage">
-                    <div class="productCardMainImage" onclick="click_product(@(k.ProductId))">
-                        <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12  row searchProductCardArea">
+            @foreach (var k in Model)
+            {
+                <div class="col-md-4 searchProductCard">
+                    <div class="productCardImage">
+                        <div class="searchProductCardMainImage" onclick="click_product(@(k.ProductId))">
+                            <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
+                        </div>
+                        <div class="searchProductCardImages">
+                            @foreach (var r in k.ProductImg)
+                            {
+                                <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)'); " id="thumb_img" alt="">
+                            }
+                        </div>
                     </div>
-                    <div class="productCardImages">
-                        @foreach (var r in k.ProductImg)
-                        {
-                            <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)'); " id="thumb_img" alt="">
-                        }
+                    <div class="searchProductCardInformation">
+                        <div class="searchProductCardName" onclick="click_product(@(k.ProductId))">@(k.Name)</div>
+                        <div class="searchProductCardDescription" onclick="click_product(@(k.ProductId))">@(k.Explanation)</div>
+                        <div class="searchProductCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>                        
                     </div>
                 </div>
-                <div class="productCardInformation">
-                    <div class="productCardName" onclick="click_product(@(k.ProductId))">@(k.Name)</div>
-                    <div class="productCardDescription" onclick="click_product(@(k.ProductId))">@(k.Explanation)</div>
-                    <div class="productCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>
-                    <a href="#" class="productCardBuy">Sepete Ekle</a>
-                </div>
-            </div>
-            index++;
-        }
+                index++;
+            }
+        </div>
     </div>
 </div>
 

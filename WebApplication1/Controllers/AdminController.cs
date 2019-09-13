@@ -16,10 +16,20 @@ namespace WebApplication1.Controllers
         private AllInOneEntities db = new AllInOneEntities();
 
         // GET: Admin
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var product = db.Product.Include(p => p.Category).Include(p => p.Color).Include(p => p.Gender).Include(p => p.Genus);            
-            return View(product.ToList());
+            var products = from d in db.Product select d;
+            if (!string.IsNullOrEmpty(p))
+            {
+                products = products.Where(m => m.Name.Contains(p) || m.Explanation.Contains(p));
+            }
+
+            if(products.Count()==0)
+            {
+                ViewBag.Title = "Aradığınız ürün bulunamadı";
+            }
+
+            return View(products.ToList());
         }
 
         // GET: Admin/Details/5

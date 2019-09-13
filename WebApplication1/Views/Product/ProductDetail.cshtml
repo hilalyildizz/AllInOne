@@ -2,46 +2,47 @@
 @{
     int index = 0;     
 }
+    <div class="container">
+        <div class="row productDetailArea">
+            <div class="col-md-7 productDetailImage">
+                <div class="productDetailMainImage">
+                    <img src="@(Model.ProductImg.First().Url.Url1)" class="mainImgWrap" id="main_img@(index)" alt="">
+                </div>
+                <div class="productDetailImages">
+                    @foreach (var r in Model.ProductImg)
+                    {
+                        <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)');" id="thumb_img">
+                    }
+                </div>
+            </div>
+            <div class="col-md-5 productDetailInformation">
+                <p class="newarrival text-center productDetailStatus">YENİ</p>
+                <div class="productDetailName">@(Model.Name)</div>
+                <div class="productDetailDescription">@(Model.Explanation)</div>
+                <div class="productDetailCode">@(Model.ProductCode)</div>
 
-<div class="row productDetailArea">    
-        <div class="col-md-7 productDetailImage">
-            <div class="productDetailMainImage">
-                <img src="@(Model.ProductImg.First().Url.Url1)" class="mainImgWrap" id="main_img@(index)" alt="">
-            </div>            
-            <div class="productDetailImages"> 
-                @foreach (var r in Model.ProductImg)
-                {
-                <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)');" id="thumb_img">                
-                }
+                <div class="rating" onclick="votingMessage()">
+                    <input type="radio" name="star" id="star1"><label for="star1"></label>
+                    <input type="radio" name="star" id="star2"><label for="star2"></label>
+                    <input type="radio" name="star" id="star3"><label for="star3"></label>
+                    <input type="radio" name="star" id="star4"><label for="star4"></label>
+                    <input type="radio" name="star" id="star5"><label for="star5"></label>
+                </div>
+                <div class="productDetailPrice">@(Model.Price.ToString()) TL </div>
+                <div>
+                    <a href="#" class="productDetailBuy">Sepete Ekle</a>
+                </div>
+                <hr />
+                <div class="productDetailText">
+                    <h2>15 gün içinde ücretsiz iade.</h2>
+                    <h2>3 iş günü içinde kargoda!</h2>
+                </div>
+                <div class="kargoImg">
+                    <img class="kargoImgWrap" src="~/img/kargo.png" alt="" style="" />
+                </div>
             </div>
         </div>
-        <div class="col-md-5 productDetailInformation">
-            <p class="newarrival text-center productDetailStatus">YENİ</p>
-            <div class="productDetailName">@(Model.Name)</div>
-            <div class="productDetailDescription">@(Model.Explanation)</div>
-            <hr />
-            <hr />
-            <div class="rating" onclick="votingMessage()">
-                <input type="radio" name="star" id="star1"><label for="star1"></label>
-                <input type="radio" name="star" id="star2"><label for="star2"></label>
-                <input type="radio" name="star" id="star3"><label for="star3"></label>
-                <input type="radio" name="star" id="star4"><label for="star4"></label>
-                <input type="radio" name="star" id="star5"><label for="star5"></label>
-            </div>
-            <div class="productDetailPrice">@(Model.Price.ToString()) TL </div>
-            <div>
-                <a href="#" class="productDetailBuy">Sepete Ekle</a>
-            </div> 
-            <hr />
-            <div class="productDetailText">
-                <h2>15 gün içinde ücretsiz iade.</h2>
-                <h2>3 iş günü içinde kargoda!</h2>
-            </div>
-            <div class="kargoImg">
-                <img class="kargoImgWrap" src="~/img/kargo.png" alt="" style=""/>
-            </div>            
-        </div>
-</div>
+    </div>
 <script type="text/javascript">
     function change_img(a, mainctl) {
         $('#' + mainctl).attr('src', a.src)

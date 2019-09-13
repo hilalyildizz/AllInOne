@@ -1,8 +1,17 @@
-﻿@model IEnumerable<WebApplication1.Product>
+﻿@model List<Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = ViewBag.Title;
 }
+
+@using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+{
+    <p>
+        Aranacak Ürün Adı: @Html.TextBox("p")
+        <input type="submit" value="Ara"/>
+    </p>
+}
+
 <div class="listPage">
     <div class="pageTitle">Ürünler</div>
     <div class="col-md-offset-2 col-md-10 btn btn-default indexCreateButton">
@@ -69,7 +78,7 @@
                     @item.Stock.ToString()
                 </td>
                 <td>
-                    @item.Category.CategoryNam
+                    @item.Category.CategoryName
                 </td>
                 <td>
                     @item.Gender.GenderName

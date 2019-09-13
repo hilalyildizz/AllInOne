@@ -301,6 +301,11 @@ a, a:focus, a:hover{
     pointer-events: none;
     color: black;
 }
+.editLogin{
+    width:800px;
+    margin-bottom:20px;
+    margin-top:20px;
+}
 .loginCard button {
     width: 50%;
     left: 10%;
@@ -368,6 +373,86 @@ a, a:focus, a:hover{
     border: none;
     border-radius: 15px;
     color: white;
+}
+
+
+/**************************************** P R O D U C T   S E A R C H   C A R D *********************************************/
+.searchProductCardArea {
+    height: auto;
+    max-width: 970px;
+    left: 10%;
+    padding: 0 0 0 15px;
+}
+.searchProductCard {
+    max-height: 605px;
+    max-width: 300px;
+    margin: 0 18px 15px 0;
+    padding: 0;
+    background-color: white;
+}
+.productCardImage {
+    height: auto;
+    width: auto;
+    margin: 2px 0 0 0;
+}
+.searchProductCardMainImage {
+    max-height: 420px;
+    margin: 0 10px 0 25px;
+    object-fit: fill;
+}
+.resim-wrap {
+    height: 360px;
+    width: 260px;
+}
+.searchProductCardImages {
+    height: 95px;
+    width: auto;
+    padding: 0 1px 0 1px;
+}
+.searchProductCardImages img {
+    height: 95px;
+    width: 72px;
+    margin: 0 4px 0 4px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.searchProductCardImages img:hover {
+    border: 0.2px solid lightgrey;
+}
+.searchProductCardInformation {
+    height: auto;
+    width: auto;
+    margin-top: 2px;
+    margin: 3px 0 3px 0;
+    padding: 4px 5px 5px 5px;
+    font-size: 17px;
+}
+.searchProductCardName {
+    height: auto;
+    width: auto;
+    padding: 0 0 0 5px;
+    font-size: 23px;
+    color: rgb(53, 23, 53);
+    position: sticky;
+}
+.searchProductCardDescription {
+    height: auto;
+    width: auto;
+    padding: 0 0 0 5px;
+    font-size: 16px;
+    opacity: 0.7;
+    position: sticky;
+}
+.searchProductCardPrice {
+    height: auto;
+    width: auto;
+    padding: 0 0 0 5px;
+    margin-bottom: 10px;
+    right: 20px;
+    color: rgb(53, 23, 53);
+    font-size: 24px;
+    position: sticky;
 }
 
 
@@ -683,7 +768,7 @@ a, a:focus, a:hover{
     width: 50px;
 }
 .pageButtonBack {
-    height: 40px;
+    height: 60px;
     width: 140px;
     text-align: center;
     top: -10px;
@@ -856,14 +941,6 @@ a, a:focus, a:hover{
     background-color: rgb(107, 58, 107);
     color: white;
 }
-.basketSummaryArea{
-
-
-}
-.basketOrderSummary{
-
-}
-
 
 .productNumber {
     text-align: right;
