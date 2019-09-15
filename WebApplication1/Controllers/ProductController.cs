@@ -6,6 +6,8 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 using WebApplication1;
 using WebApplication1.Models;
 
@@ -17,7 +19,8 @@ namespace WebApplication1.Controllers
 
         // GET: Product/ProductCategory
         public ActionResult ProductCategory(int id)
-        {            
+        {           
+
             var products = from s in db.Product select s;
             products = products.Where(x => x.CategoryId == id);
             

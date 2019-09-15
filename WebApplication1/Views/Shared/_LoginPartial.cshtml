@@ -18,6 +18,10 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <div class="dropdown-item">@Html.ActionLink(User.Identity.GetUserName(), "Ayarlar", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</div>
+                        @if (User.Identity.GetUserName().Contains("setyazilim"))
+                        {
+                            <div class="dropdown-item">@Html.ActionLink("Tüm ürünler", "Index", "Admin")</div>
+                        }
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Oturumu kapat</a>
                     </div>
