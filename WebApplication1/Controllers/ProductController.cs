@@ -62,7 +62,13 @@ namespace WebApplication1.Controllers
             return View(products.ToList());
         }
 
-        public ActionResult Basket() =>View(db.Basket.ToList().Last().BasketProducts.ToList());
+        public ActionResult Basket()
+        {
+            var userId = User.Identity.GetUserId();
+            var basket = db.Basket.Where(x => x.UserId == userId).ToList().LastOrDefault();
+
+            return View(basket != null ? basket.BasketProducts.ToList() : null);
+        }
 
         public async Task<ActionResult> AddToBasket(int id)
         {
@@ -72,10 +78,11 @@ namespace WebApplication1.Controllers
                 return HttpNotFound();
             }
 
-            var basket = db.Basket.ToList();
+            var userId = User.Identity.GetUserId();
+            var basket = db.Basket.Where(x => x.UserId == userId).ToList();
             if (basket == null || !basket.Any())
             {
-                db.Basket.Add(new Basket { UserId = User.Identity.GetUserId() });
+                db.Basket.Add(new Basket { UserId = userId });
                 await db.SaveChangesAsync();
             }
 
