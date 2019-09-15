@@ -72,6 +72,11 @@ namespace WebApplication1.Controllers
 
         public async Task<ActionResult> AddToBasket(int id)
         {
+            if (User.Identity.GetUserId() == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            
             var product = db.Product.Find(id);
             if (product == null)
             {
@@ -99,7 +104,7 @@ namespace WebApplication1.Controllers
                         ProductCount = 1
                     });
                 await db.SaveChangesAsync();
-            }
+            }            
 
             return RedirectToAction(nameof(ProductDetail), new { id = product.ProductId });
         }
@@ -135,9 +140,23 @@ namespace WebApplication1.Controllers
             return RedirectToAction(nameof(Basket));
         }
 
-        public ActionResult Invoice() {
-            
-            return View();
+        public async Task<ActionResult> Invoice()
+        {
+            var userId = User.Identity.GetUserId();
+            var basket = db.Basket.Where(x => x.UserId == userId).ToList().Last();
+            var products = basket.BasketProducts.ToList();
+            if (basket != null && basket.BasketProducts.Any())
+            {
+                // Add a new basket
+                db.Basket.Add(new Basket { UserId = userId });
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                return RedirectToAction(nameof(Basket));
+            }
+
+            return View(db.BasketProducts.Where(bp => bp.BasketId == basket.BasketId).ToList());
         }
     }
 }
