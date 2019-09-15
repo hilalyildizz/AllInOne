@@ -86,7 +86,7 @@ namespace WebApplication1.Controllers
                 await db.SaveChangesAsync();
             }
 
-            var lastBasket = db.Basket.ToList().LastOrDefault();
+            var lastBasket = db.Basket.Where(x => x.UserId == userId).ToList().LastOrDefault();
             var basketProduct = db.BasketProducts.ToList()
                 .FirstOrDefault(bp => bp.BasketId == lastBasket.BasketId && bp.ProductId == product.ProductId);
             if (basketProduct == null)
@@ -112,7 +112,7 @@ namespace WebApplication1.Controllers
                 return HttpNotFound();
             }
 
-            basketProduct.ProductCount = index;
+            basketProduct.ProductCount = index + 1;
             await db.SaveChangesAsync();
 
             return RedirectToAction(nameof(Basket));
