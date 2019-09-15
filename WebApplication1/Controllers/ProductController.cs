@@ -134,5 +134,10 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction(nameof(Basket));
         }
+
+        public ActionResult Invoice() {
+            
+            return View();
+        }
     }
 }

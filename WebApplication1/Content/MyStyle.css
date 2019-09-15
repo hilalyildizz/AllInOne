@@ -978,6 +978,72 @@ a, a:focus, a:hover{
     background-color: rgb(107, 58, 107);
 }
 
+/*********************************************  I N V O I C E  ************************************************/
+
+.cardBolum {
+    height: 120px;
+}
+
+.faturaBilgi {
+    text-align: right;
+}
+
+.faturaNo {
+    font-weight: bold;
+}
+
+.generalInfo {
+    height: 50px;
+}
+
+.receiverInfo {
+    font-weight: bold;
+}
+
+.paymentDetail {
+    font-weight: bold;
+}
+
+.orderType {
+    text-align: right;
+}
+
+.subTable {
+    background: rgb(133, 29, 124);
+    color: white;
+}
+
+.grandTotal {
+    text-align: right;
+}
+
+.toplamTutar {
+    text-align: right;
+}
+
+.fiyatRenk {
+    font-weight: light;
+}
+
+.cargoPriceArea {
+    text-align: right;
+}
+
+.cargoPrice {
+    font-weight: light;
+}
+
+.genelToplamAlan {
+    text-align: right;
+}
+
+.genelToplamRenk {
+    font-weight: light;
+}
+
+
+
+
 
 /*********************************************  F O O T E R  ************************************************/
 footer {
