@@ -117,5 +117,22 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction(nameof(Basket));
         }
+
+        public async Task<ActionResult> RemoveFromBasket(int id)
+        {
+            var product = db.Product.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+
+            var userId = User.Identity.GetUserId();
+            var basket = db.Basket.Where(x => x.UserId == userId).ToList().Last();
+            var basketProduct = db.BasketProducts.ToList().First(bp => bp.BasketId == basket.BasketId && bp.ProductId == product.ProductId);
+            db.BasketProducts.Remove(basketProduct);
+            await db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Basket));
+        }
     }
 }

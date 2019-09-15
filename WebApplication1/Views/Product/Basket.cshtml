@@ -30,6 +30,11 @@
                                     <div class="basketProductName">@item.Product.Name</div>
                                     <div class="basketProductExplanation">@item.Product.Explanation</div>
                                     <div class="basketProductCode">@item.Product.ProductCode</div>
+                                    <div>
+                                        <button class="btn glyphicon glyphicon-trash">
+                                            @Html.ActionLink("Sil", "RemoveFromBasket", "Product", new { id = item.ProductId }, null)
+                                        </button>
+                                    </div>
 
                                     <div class="basketProductTextArea">
                                         <div>
