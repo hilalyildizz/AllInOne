@@ -17,7 +17,7 @@ namespace WebApplication1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Basket = new HashSet<Basket>();
+            this.BasketProducts = new HashSet<BasketProducts>();
             this.ProductImg = new HashSet<ProductImg>();
         }
     
@@ -33,7 +33,7 @@ namespace WebApplication1
         public int ColorId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Basket> Basket { get; set; }
+        public virtual ICollection<BasketProducts> BasketProducts { get; set; }
         public virtual Category Category { get; set; }
         public virtual Color Color { get; set; }
         public virtual Gender Gender { get; set; }

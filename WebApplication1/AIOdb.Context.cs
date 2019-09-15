@@ -26,6 +26,7 @@ namespace WebApplication1
         }
     
         public virtual DbSet<Basket> Basket { get; set; }
+        public virtual DbSet<BasketProducts> BasketProducts { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Color> Color { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }

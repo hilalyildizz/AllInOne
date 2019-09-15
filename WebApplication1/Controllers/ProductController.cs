@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1;
@@ -60,22 +62,53 @@ namespace WebApplication1.Controllers
             return View(products.ToList());
         }
 
+        public ActionResult Basket() =>View(db.Basket.ToList().Last().BasketProducts.ToList());
 
-        [HttpGet]
-        public ActionResult Basket()
-        {            
-            return View();
+        public async Task<ActionResult> AddToBasket(int id)
+        {
+            var product = db.Product.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+
+            var basket = db.Basket.ToList();
+            if (basket == null || !basket.Any())
+            {
+                db.Basket.Add(new Basket { UserId = User.Identity.GetUserId() });
+                await db.SaveChangesAsync();
+            }
+
+            var lastBasket = db.Basket.ToList().LastOrDefault();
+            var basketProduct = db.BasketProducts.ToList()
+                .FirstOrDefault(bp => bp.BasketId == lastBasket.BasketId && bp.ProductId == product.ProductId);
+            if (basketProduct == null)
+            {
+                lastBasket.BasketProducts.Add(
+                    new BasketProducts
+                    {
+                        BasketId = lastBasket.BasketId,
+                        ProductId = product.ProductId,
+                        ProductCount = 1
+                    });
+                await db.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(ProductDetail), new { id = product.ProductId });
         }
 
-        [HttpPost]
-        public ActionResult Basket (int p)
+        public async Task<ActionResult> ChangeProductCount(int basketProductId, int index)
         {
-           
+            var basketProduct = db.BasketProducts.Find(basketProductId);
+            if (basketProduct == null)
+            {
+                return HttpNotFound();
+            }
 
+            basketProduct.ProductCount = index;
+            await db.SaveChangesAsync();
 
-
-
-            return View();
+            return RedirectToAction(nameof(Basket));
         }
     }
 }

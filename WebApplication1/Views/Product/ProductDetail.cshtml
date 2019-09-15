@@ -30,7 +30,7 @@
                 </div>
                 <div class="productDetailPrice">@(Model.Price.ToString()) TL </div>
                 <div>
-                    <a href="#" class="productDetailBuy">Sepete Ekle</a>
+                    <button class="productDetailBuy" onclick="basketMessage()">@Html.ActionLink("Sepete EKle", "AddToBasket", "Product", new { id = Model.ProductId }, null)</button>
                 </div>
                 <hr />
                 <div class="productDetailText">
@@ -49,5 +49,8 @@
     } 
     function votingMessage() {
         alert('Oyunuz için teşekkürler !!');
+    }
+    function basketMessage() {
+        alert('Ürün sepetinize eklendi !');
     }
 </script>
