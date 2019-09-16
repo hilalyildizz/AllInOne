@@ -1,5 +1,8 @@
 ﻿@model List<WebApplication1.Product>
 @{
+    ViewBag.title = "All in One";
+}
+@{
     AllInOneEntities db = new AllInOneEntities();
     List<Gender> cinsiyetler = db.Gender.OrderBy(x => x.GenderName).ToList();
     List<Genus> cinsler = db.Genus.OrderBy(x => x.GenusName).ToList();
@@ -30,7 +33,7 @@
                 <div class="categoryFilter">
                     <div class="overflow-auto">
                         @foreach (var b in cinsler)
-                        {                                
+                        {
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox">
                                 <label class="form-check-label filterLine" for="defaultCheck1">@(b.GenusName)</label>
@@ -72,12 +75,12 @@
                     <div class="productCardInformation">
                         <div class="productCardName" onclick="click_product(@(k.ProductId))">@(k.Name)</div>
                         <div class="productCardDescription" onclick="click_product(@(k.ProductId))">@(k.Explanation)</div>
-                        <div class="productCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>                        
+                        <div class="productCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>
                     </div>
                 </div>
                 index++;
             }
-        </div>        
+        </div>
     </div>
 </div>
 
