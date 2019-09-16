@@ -1,87 +1,90 @@
 ﻿@using Microsoft.AspNet.Identity
 @model List<BasketProducts>
-@{ 
+@{
+    ViewBag.title = "Fatura";
+}
+@{
     var index = 1;
 }
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <div class="card ">
+        <div class="col-md-12">
+            <div class="card invoiceArea">
                 <div class="card-body p-0">
-                    
-                        <div class="row p-5 cardBolum">
-                            <div class="col-md-6">
-                                <img src="~/logo.png">
-                            </div>
-                            <div class="col-md-6 faturaBilgi">
-                                <p class="mb-1 faturaNo">Fatura 12683</p>
-                                <p class="text-muted">15.09.2019</p>
-                            </div>
+
+                    <div class="row p-5 cardBolum">
+                        <div class="col-md-6">
+                            <img src="~/logo.png">
                         </div>
-                        <hr class="my-5">
-                        <div class="row pb-5 p-5">
-                            <div class="col-md-6">
-                                <p class="mb-4 receiverInfo">Alıcı Bilgisi</p>
-                                <p class="mb-2">@User.Identity.GetUserName()</p>
-                            </div>
-                            <div class="col-md-6 orderType">
-                                <p class="mb-4 paymentDetail">Ödeme Detayı</p>
-                                <p class="mb-1"><span class="text-muted">Sipariş No: </span> 1425782</p>
-                                <p class="mb-1"><span class="text-muted">Ödeme Tipi: </span> Kredi Kartı</p>
-                                <p class="mb-1"><span class="text-muted">İsim: </span> @User.Identity.GetUserName()</p>
-                            </div>
+                        <div class="col-md-6 faturaBilgi">
+                            <p class="mb-1 faturaNo">Fatura 12683</p>
+                            <p class="text-muted">15.09.2019</p>
                         </div>
-                        <div class="row p-5">
-                            <div class="col-md-12">
-                                <table class="table">
-                                    <thead>
+                    </div>
+                    <hr class="my-5">
+                    <div class="row pb-5 p-5">
+                        <div class="col-md-6">
+                            <p class="mb-4 receiverInfo">Alıcı Bilgisi</p>
+                            <p class="mb-2">@User.Identity.GetUserName()</p>
+                        </div>
+                        <div class="col-md-6 orderType">
+                            <p class="mb-4 paymentDetail">Ödeme Detayı</p>
+                            <p class="mb-1"><span class="text-muted">Sipariş No: </span> 1425782</p>
+                            <p class="mb-1"><span class="text-muted">Ödeme Tipi: </span> Kredi Kartı</p>
+                            <p class="mb-1"><span class="text-muted">İsim: </span> @User.Identity.GetUserName()</p>
+                        </div>
+                    </div>
+                    <div class="row p-5">
+                        <div class="col-md-12 invoiceProductList">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Adet</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Ürün İsmi</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Açıklama</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Adet</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Ücret</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Toplam</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
                                         <tr>
-                                            <th class="border-0 text-uppercase small font-weight-bold">Adet</th>
-                                            <th class="border-0 text-uppercase small font-weight-bold">Ürün İsmi</th>
-                                            <th class="border-0 text-uppercase small font-weight-bold">Açıklama</th>
-                                            <th class="border-0 text-uppercase small font-weight-bold">Adet</th>
-                                            <th class="border-0 text-uppercase small font-weight-bold">Ücret</th>
-                                            <th class="border-0 text-uppercase small font-weight-bold">Toplam</th>
+                                            <td>@index</td>
+                                            <td>@item.Product.Name</td>
+                                            <td>@item.Product.Explanation</td>
+                                            <td>@item.ProductCount</td>
+                                            <td>@item.Product.Price TL</td>
+                                            <td>@(item.Product.Price * item.ProductCount) TL</td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in Model)
-                                        {
-                                            <tr>
-                                                <td>@index</td>
-                                                <td>@item.Product.Name</td>
-                                                <td>@item.Product.Explanation</td>
-                                                <td>@item.ProductCount</td>
-                                                <td>@item.Product.Price TL</td>
-                                                <td>@(item.Product.Price * item.ProductCount) TL</td>
-                                            </tr>
-                                            index++;
-                                        }
-                                    </tbody>
-                                    </table>
-                            </div>
+                                        index++;
+                                    }
+                                </tbody>
+                            </table>
                         </div>
-                    
-                @{
-                    var productSum = Model.Sum(m => m.Product.Price * m.ProductCount);
-                    var cargoPrice = 0;
-                }
-                <div class="d-flex flex-row-reverse subTable">
-                    <div class="py-3 px-5 toplamTutar">
-                        <div class="mb-2">Genel Toplam</div>
-                        <div class="h2 fiyatRenk">@productSum TL</div>
                     </div>
-                    <div class="py-3 px-5 cargoPriceArea">
-                        <div class="mb-2">Kargo Ücreti</div>
-                        <div class="h2 cargoPrice">@cargoPrice</div>
-                    </div>
-                    @{ var totalPriceArea = productSum + cargoPrice; }
-                    <div class="py-3 px-5 genelToplamAlan">
-                        <div class="mb-2">Toplam Tutar</div>
-                        <div class="h2 genelToplamRenk">@totalPriceArea</div>
+
+                    @{
+                        var productSum = Model.Sum(m => m.Product.Price * m.ProductCount);
+                        var cargoPrice = 0;
+                    }
+                    <div class="d-flex flex-row-reverse subTable">
+                        <div class="py-3 px-5 toplamTutar">
+                            <div class="mb-2">Genel Toplam</div>
+                            <div class="h2 fiyatRenk">@productSum TL</div>
+                        </div>
+                        <div class="py-3 px-5 cargoPriceArea">
+                            <div class="mb-2">Kargo Ücreti</div>
+                            <div class="h2 cargoPrice">@cargoPrice</div>
+                        </div>
+                        @{ var totalPriceArea = productSum + cargoPrice; }
+                        <div class="py-3 px-5 genelToplamAlan">
+                            <div class="mb-2">Toplam Tutar</div>
+                            <div class="h2 genelToplamRenk">@totalPriceArea</div>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,9 @@
 ﻿@using Microsoft.AspNet.Identity
 @model WebApplication1.Product
 @{
+    ViewBag.title = "Ürün Detay";
+}
+@{
     int index = 0;
 }
 <div class="container">
@@ -34,7 +37,7 @@
                 <div id="dialog" title="Basic dialog">
                     <p>Ürününüz sepete eklenmiştir !</p>
                 </div>
-                <button id="opener" class="productDetailBuy" onclick="addToBasketAlert()">@Html.ActionLink("Sepete EKle", "AddToBasket", "Product", new { id = Model.ProductId }, null)</button>
+                <button id="opener" class="productDetailBuy" onclick="addToBasketAlert()">@Html.ActionLink("Sepete Ekle", "AddToBasket", "Product", new { id = Model.ProductId }, null)</button>
             </div>
             <hr />
             <div class="productDetailText">

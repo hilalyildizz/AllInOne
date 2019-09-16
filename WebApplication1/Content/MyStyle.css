@@ -74,7 +74,7 @@ body {
     height: 100%;
     bottom: 40%;
     font-weight: 600;
-    background-color: lightblue;
+    background-color: white;
 }
 .logo {
     height: 90px;
@@ -122,6 +122,7 @@ div.row.navbar-end {
     width: 100%;
     margin: 0 !important;
     padding: 0 !important;
+    top:15px;
 }
 .navbarCategoryLink {
     height: 100%;
@@ -132,6 +133,7 @@ div.row.navbar-end {
 }
 div.nav {
     text-align: inherit;
+    margin-top:30px;
 }
 a, a:focus, a:hover{
     color: black;
@@ -197,6 +199,9 @@ a, a:focus, a:hover{
     100% {left: 0}
 }
 /*********************************************  P R O D U C T S E C T I O N  ************************************************/
+.subPictures{
+    background-color:white;
+}
 .buyukyer > img {
     height: 500px;
     width: 400px;
@@ -222,18 +227,18 @@ a, a:focus, a:hover{
 }
 
 .giyimalanwrap {
-    width: 150px;
-    height: 200px;
+    width: 230px;
+    height: 210px;
 }
 
 .ayakkabicantawrap {
-    width: 150px;
-    height: 200px;
+    width: 230px;
+    height: 210px;
 }
 
 .mobilyalanwrap {
-    width: 150px;
-    height: 200px;
+    width: 230px;
+    height: 210px;
 }
 
 .altsatir {
@@ -243,18 +248,18 @@ a, a:focus, a:hover{
 }
 
 .teknolojialanwrap {
-    width: 150px;
-    height: 200px;
+    width: 230px;
+    height: 210px;
 }
 
 .evaletiwrap {
-    width: 150px;
-    height: 200px;
+    width: 230px;
+    height: 210px;
 }
 
 .kirtasiyewrap {
-    width: 150px;
-    height: 200px;
+    width: 215px;
+    height: 210px;
 }
 
 /********************************************** L O G I N ******************************************************/
@@ -348,7 +353,7 @@ a, a:focus, a:hover{
     border: none;
     border-bottom: 1px solid purple;
     margin-bottom: 15px;
-    color: rgba(246, 201, 253, 0.67);
+    color: black;
 }
 .registerCard input:focus {
     border-bottom: 1px solid purple;
@@ -706,21 +711,20 @@ a, a:focus, a:hover{
     position: page;
 }
 .productDetailBuy {
-    height: 50px;
-    margin-bottom: 7px;
-    padding-top: 15px;
+    height: 40px;
+    margin-top:10px;
+    margin-bottom: 10px;
     color: white;
     text-align: center;
     font-size: 15px;
     font-weight: 600;
     display: block;
-    background-color: rgb(23, 162, 184);
+    background-color: purple;
     transition: 0.3s;
-    position: sticky;
     position: page;
 }
 .productDetailBuy:hover {
-    color: black;
+    color: white;
     background: #ffffff;
 }
 .productDetailText {
@@ -816,10 +820,14 @@ a, a:focus, a:hover{
     color: white;
     text-align: center;
     font-size: 15px;
-    background-color: rgb(23, 162, 184);
+    background-color: #A7C9C9;
     transition: 0.3s;
-    position: sticky;
-    position: page;
+    position: center;
+    padding-top: 10px;
+}
+.navbarBasketLink {
+   
+    font-weight: 900;
 }
 .userNavbarBasket:hover {
     color: black;
@@ -829,6 +837,7 @@ a, a:focus, a:hover{
 
 
 /*********************************************  B A S K E T  ************************************************/
+
 .basketProductRow {
     background-color: white;
 }
@@ -852,23 +861,24 @@ a, a:focus, a:hover{
     font-size: 20px;
 }
 .panelBody {
-    width: 500px;
+    width: 550px;
     height: auto;
     margin: 0 0px 6px 0;
     padding: 0;
     position: center;
+    left:20px;
 }
 .basketProduct {
     height: auto;
-    width: 670px;
+    max-width: 700px;
+    margin-bottom: 10px;
     padding: 0;
 }
 .basketProductImage {
     height: 220px;
-    width: 190px;
-    padding: 0;
+    max-width: 198px;
+    padding: 3px;
     object-fit: fill;
-    background-color: white;
 }
 .basketImageWrap {
     height: 220px;
@@ -876,7 +886,7 @@ a, a:focus, a:hover{
 }
 .basketProductInformationArea {
     height: auto;
-    width: 400px;
+    max-width: 270px;
     padding: 3px 2px 5px 8px;
     text-align: left;
 }
@@ -886,7 +896,7 @@ a, a:focus, a:hover{
     margin-bottom: 3px;
     text-align: center;
     font-weight: 600;
-    background-color:white;
+    background-color: white;
 }
 .basketProductName {
     height: auto;
@@ -915,31 +925,40 @@ a, a:focus, a:hover{
     font-weight: 700;
 }
 .basketProductPieceArea {
-    width: 105px;
+    max-width: 80px;
     height: auto;
+    padding: 0;
+    margin: 0;
     background-color: white;
 }
 .basketProductPieceDropDown {
-    width: 75px;
-    padding-left: 18px;
+    width: 60px;
+    margin-right: 8px;
+    padding-left: 15px;
 }
 .basketProductPriceArea {
     height: auto;
-    width: 105px;
-    background-color: white;
-    right: -30px;
+    width: 150px;
+    padding: 0;
+    margin: 0;
+}
+.basketProductTotalPriceArea {
+    height: auto;
+    max-width: 100px;
+    padding: 0;
+    margin:0;
 }
 .basketProductPrice {
+    height: auto;
+    width: 60px;
+    margin: 0;
+    align-items: center;
     text-align: center;
 }
 .basketOptionArea {
     height: auto;
     width: 100%;
-}
-.basketOptionArea{
-    background-color:white;
-}
-.buttonContinue {
+    background-color: white;
 }
 .continueShopping {
     color: white;
@@ -979,7 +998,9 @@ a, a:focus, a:hover{
 }
 
 /*********************************************  I N V O I C E  ************************************************/
-
+.invoiceArea{
+    margin-bottom: 30px;
+}
 .cardBolum {
     height: 120px;
 }
@@ -1008,11 +1029,15 @@ a, a:focus, a:hover{
     text-align: right;
 }
 
+.invoiceProductList{
+    min-height: 120px;
+    margin-bottom: 100px;
+}
 .subTable {
     background: rgb(133, 29, 124);
     color: white;
+    margin-bottom:30px;
 }
-
 .grandTotal {
     text-align: right;
 }

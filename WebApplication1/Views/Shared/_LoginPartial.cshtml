@@ -10,7 +10,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6 userNavbarBasket">
-                    <a class="navbar-link">@Html.ActionLink("Sepetim", "Basket", "Product")</a>
+                    <a class="navbar-link" href="@Url.Action("Basket", "Product", new { @class = "navbarBasketLink"})">Sepetim</a>
                 </div>
                 <div class="col-md-6 dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
