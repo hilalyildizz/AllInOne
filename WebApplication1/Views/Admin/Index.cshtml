@@ -3,21 +3,24 @@
 @{
     ViewBag.Title = ViewBag.Title;
 }
-
-@using (Html.BeginForm("Index", "Admin", FormMethod.Get))
-{
-    <p>
-        Aranacak Ürün Adı: @Html.TextBox("p")
-        <input type="submit" value="Ara"/>
-    </p>
-}
-
 <div class="listPage">
     <div class="pageTitle">Ürünler</div>
-    <div class="col-md-offset-2 col-md-10 btn btn-default indexCreateButton">
-        @Html.ActionLink("Yeni Ürün Ekle", "Create")
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="adminPanelSearch">
+                @using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+                {
+                    <p>
+                        Aranacak Ürün Adı: @Html.TextBox("p")
+                        <input type="submit" value="Ara" />
+                    </p>
+                }
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="btn btn-default right indexCreateButton">@Html.ActionLink("Yeni Ürün Ekle", "Create")</div>
+        </div>
     </div>
-
     <table class="table">
         <tr>
             <th></th>
