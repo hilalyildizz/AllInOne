@@ -33,7 +33,7 @@ body {
     margin-bottom: 25px;
 }
 .navbar-top {
-    max-height: 100%;
+    max-height: 80%;
     width: 100%;
     font-size: 13px;
     background-color: white;
@@ -97,11 +97,12 @@ body {
 .regesterLink {
     width: 80px;
     margin-right: 5px;
+    margin-left: 80px;
     flex-direction: unset;
 }
 .loginLink {
     width: 100px;
-    margin-left: 2px;
+    margin-left: 52px;
     margin-right: 3px;
     flex-direction: unset;
 }
@@ -143,10 +144,10 @@ a, a:focus, a:hover{
 }
 
 /*********************************************  S L I D E R  ************************************************/
-.homePageArea{
+.homePageArea {
+    width: 1200px;
     padding: 0 300px 0 300px;
     margin-bottom: 20px;
-
 }
 .carousel {
     position: relative;
@@ -198,76 +199,61 @@ a, a:focus, a:hover{
     95% {left: -3600px}
     100% {left: 0}
 }
-/*********************************************  P R O D U C T S E C T I O N  ************************************************/
-.subPictures{
-    background-color:white;
+
+
+
+/*********************************************  P R O D U C T  S E C T I O N  ************************************************/
+.productSectionArea {
+    position: relative;
+    width: 1200px;
+    height: 100%;
+    margin: 10px 0 15px 0;
+    padding: 0 !important;
 }
-.buyukyer > img {
-    height: 500px;
-    width: 400px;
+.leftArea {
+    height: 540px;
+    width: 480px;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: fill;
+}
+.leftImgWrap {
+    height: 540px;
+    width: 500px;
+}
+.rightArea {
+    height: 540px;
+    width: 710px;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: white;
+}
+.sectionOne,
+.sectionTwo {
+    height: 270px;
+    width: 710px;
     margin: 0 !important;
     padding: 0 !important;
 }
-
-.solresimwrap {
-    height: 500px;
-    width: 400px;
+.sectionImg {
+    max-height: 270px;
+    max-width: 235px;
+    padding: 0 !important;
+    margin: 0 !important;
+    object-fit: fill;
+}
+.sectionImgWrap {
+    max-height: 265px;
+    max-width: 231px;
 }
 
-.yantaraf {
-    height: 500px;
-    width: 560px;
-    margin: 0;
-}
-
-.ustsatir {
-    width: 450px;
-    height: 250px;
-    margin: 0;
-}
-
-.giyimalanwrap {
-    width: 230px;
-    height: 210px;
-}
-
-.ayakkabicantawrap {
-    width: 230px;
-    height: 210px;
-}
-
-.mobilyalanwrap {
-    width: 230px;
-    height: 210px;
-}
-
-.altsatir {
-    width: 450px;
-    height: 250px;
-    margin: 0;
-}
-
-.teknolojialanwrap {
-    width: 230px;
-    height: 210px;
-}
-
-.evaletiwrap {
-    width: 230px;
-    height: 210px;
-}
-
-.kirtasiyewrap {
-    width: 215px;
-    height: 210px;
-}
 
 /********************************************** L O G I N ******************************************************/
 .loginCard {
     height: auto;
-    max-width: 550px;
+    max-width: 500px;
     margin: 15px 0 40px 0;
-    padding: 15px;
+    padding: 15px 0 15px 15px;
     left:25%;
     background: white;
     text-align:center;
@@ -282,7 +268,7 @@ a, a:focus, a:hover{
     position:relative;
 }
 .loginCard input {
-    width: 80%;
+    width: 100%;
     padding: 10px;
     background: none;
     outline: none;
@@ -290,36 +276,45 @@ a, a:focus, a:hover{
     border-bottom: 1px solid purple;
     color: purple;
     margin-bottom: -15px;
-    text-align:center;
-    position:center;
+    text-align: center;
+    position: center;
 }
 .loginCard input:focus {
     border-bottom: 1px solid black;
 }
 .loginCard label {
+    height: 100%;
+    margin-left: 25px;
+    text-align: left;
     display: block;   
-    left: 29px;
     pointer-events: none;
     color: black;
 }
 .editLogin{
-    width:800px;
-    margin-bottom:20px;
-    margin-top:20px;
+    width: 100%;
+    margin: 25px 0 20px 0;
 }
 .loginCard button {
     width: 50%;
-    left: 10%;
+    left: 15%;
     padding: 10px;
+    margin: 5px 0 8px 0;
     background: purple;
     border: none;
     border-radius: 15px;
     color: white;
     position: center;
 }
-
-.checkbox{
-    text-align:left;
+.rememberFormGroup {
+    height: 100%;
+    width: 100%;
+    margin: 35px 0 15px 0;
+}
+.loginRemember {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: black;
 }
 .newUser{
     text-align:left;
@@ -327,9 +322,9 @@ a, a:focus, a:hover{
 
 /**************************************** R E G İ S T E R *********************************************/
 .registerCard {
-    height: auto;
-    max-width: 400px;
-    left:35%;
+    height: 100%;
+    max-width: 430px;
+    left: 30%;
     margin: 15px 0 40px 0;
     padding: 15px;
     background: white;
@@ -343,9 +338,8 @@ a, a:focus, a:hover{
     margin-bottom: 50px;
     color: purple;
 }
-
 .registerCard input {
-    width: 350px;
+    width: 100%;
     left: 5%;
     padding: 10px;
     background: none;
@@ -358,31 +352,43 @@ a, a:focus, a:hover{
 .registerCard input:focus {
     border-bottom: 1px solid purple;
 }
-
 .registerCard label {
     position: relative;
     display: block;
     pointer-events: none;
     color: black;
 }
-
 .registerCard button {
-    width: 300px;
-    left: 10%;
+    width: 50%;
     padding: 10px;
+    margin: 5px 0 8px 90px;
     background: purple;
     border: none;
     border-radius: 15px;
     color: white;
+    position: center;
 }
 
 
 /**************************************** P R O D U C T   S E A R C H   C A R D *********************************************/
 .searchProductCardArea {
     height: auto;
-    max-width: 970px;
-    left: 10%;
-    padding: 0 0 0 15px;
+    width: 970px;
+    left: 9%;
+    right: 9%;
+}
+.noSearchProduct{
+    height: 400px;
+    max-width: 950px;
+    margin: 0 0 15px 0;  
+    padding-top: 160px;
+    align-content: center;
+    background-color: white;
+}
+.noSearchProduct > p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;   
 }
 .searchProductCard {
     max-height: 605px;
@@ -843,8 +849,7 @@ a, a:focus, a:hover{
     position: center;
     padding-top: 10px;
 }
-.navbarBasketLink {
-   
+.navbarBasketLink {   
     font-weight: 900;
 }
 .userNavbarBasket:hover {
@@ -878,64 +883,72 @@ a, a:focus, a:hover{
     color: white;
     font-size: 20px;
 }
+.noBasketProduct {
+    height: 300px;
+    width: 100%;
+    margin: 0 0 15px 0;
+    padding-top: 150px;
+    align-content: center;
+    background-color: white;
+}
+.noBasketProduct > p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
 .panelBody {
-    width: 550px;
+    width: auto;
     height: auto;
-    margin: 0 0px 6px 0;
+    margin: 0 0 100px 0;
     padding: 0;
     position: center;
-    left:20px;
 }
 .basketProduct {
     height: auto;
-    max-width: 700px;
-    margin-bottom: 10px;
-    padding: 0;
+    max-width: 820px;
+    margin-right: 30px;
+    margin-bottom: 10px;    
+    padding: 4px 0 0 0;
+    background-color: white;
 }
 .basketProductImage {
-    height: 220px;
-    max-width: 198px;
-    padding: 3px;
+    max-height: 250px;
+    max-width: 235px;
     object-fit: fill;
 }
 .basketImageWrap {
-    height: 220px;
-    width: 190px;
+    height: 250px;
+    width: 235px;
 }
 .basketProductInformationArea {
     height: auto;
-    max-width: 270px;
+    max-width: 310px;
     padding: 3px 2px 5px 8px;
     text-align: left;
 }
 .informationTitle {
     height: auto;
-    width: auto;
+    width: 100%;
     margin-bottom: 3px;
     text-align: center;
     font-weight: 600;
-    background-color: white;
 }
 .basketProductName {
     height: auto;
     width: auto;
-    background-color: white;
     font-weight: bold;
 }
 .basketProductExplanation {
     height: auto;
     width: auto;
-    background-color: white;
 }
 .basketProductCode {
     height: auto;
     width: auto;
-    background-color: white;
 }
 .basketProductTextArea {
     height: auto;
     width: auto;
-    background-color: white;
     margin-top: 15px;
     font-size: small;
 }
@@ -943,83 +956,106 @@ a, a:focus, a:hover{
     font-weight: 700;
 }
 .basketProductPieceArea {
-    max-width: 80px;
+    max-width: 130px;
     height: auto;
     padding: 0;
     margin: 0;
-    background-color: white;
 }
 .basketProductPieceDropDown {
     width: 60px;
     margin-right: 8px;
+    margin-left: 8px;
+    margin-top: 8px;
     padding-left: 15px;
 }
 .basketProductPriceArea {
     height: auto;
-    width: 150px;
+    width: 185px;
     padding: 0;
     margin: 0;
-}
-.basketProductTotalPriceArea {
-    height: auto;
-    max-width: 100px;
-    padding: 0;
-    margin:0;
 }
 .basketProductPrice {
     height: auto;
-    width: 60px;
+    width: 80px;
     margin: 0;
-    align-items: center;
+    padding-top: 8px;
+    text-align: center;
+}
+.basketProductTotalPriceArea {
+    height: auto;
+    max-width: 300px;
+    padding: 0;
+    margin:0;
+}
+.basketProductTotalPrice {
+    height: auto;
+    width: 130px;
+    margin: 0;
+    padding-top: 8px;
     text-align: center;
 }
 .basketOptionArea {
     height: auto;
-    width: 100%;
-    background-color: white;
+    max-width: 400px;
+    margin: 0 !important;
+    padding: 0;    
 }
-.continueShopping {
-    color: white;
-    background-color: rgb(107, 58, 107);
-    position: absolute;
-    left: 0px;
+.buttonContinueArea,
+.confirmCartButton {
+    height: auto;
+    width: auto;
+    margin: 0;
 }
-.orderSummary {
-    font-weight: bold;
-    margin-top: 40px;
-}
-.basketButton {
-    background-color: rgb(107, 58, 107);
-    color: white;
-}
-.productNumber {
-    text-align: right;
-}
-.orderSum {
-    font-weight: bold;
-}
-.orderPrice {
-    text-align: right;
-}
-.cargoPrice {
-    font-weight: bold;
-}
-.totalPriceTitle {
-    font-weight: bold;
-}
-.totalPrice {
-    text-align: right;
-}
+.continueShopping,
 .basketConfirmButton {
+    height: auto;
+    width: 100%;
     color: white;
+    margin: 0;
     background-color: rgb(107, 58, 107);
 }
+.basketSummaryArea {
+    height: auto;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 6px 8px 6px 5px;
+    background-color: white;
+    position: center;
+}
+.basketOrderSummary {
+    height: auto;
+    width: auto;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid lightgrey;
+}
+.orderSummary,
+.orderSum,
+.cargoPrice,
+.totalPriceTitle {
+    height: auto;
+    width: 100%;
+    margin-left: 4px;
+    font-weight: bold;
+}
+.productNumber,
+.productNumber,
+.orderPrice,
+.totalPrice {
+    height: auto;
+    width: 100%;
+    margin-right: 5px;
+    text-align: right;
+}
+
+
 
 /*********************************************  I N V O I C E  ************************************************/
 .invoiceArea{
     margin-bottom: 30px;
 }
-.cardBolum {
+.invoiceHead {
     height: 120px;
 }
 
@@ -1029,6 +1065,9 @@ a, a:focus, a:hover{
 
 .faturaNo {
     font-weight: bold;
+}
+.cardBolum{
+    border-bottom: 1px solid lightgrey;
 }
 
 .generalInfo {

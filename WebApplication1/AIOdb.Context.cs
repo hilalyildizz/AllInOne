@@ -10,6 +10,7 @@
 namespace WebApplication1
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -24,12 +25,11 @@ namespace WebApplication1
         {
             throw new UnintentionalCodeFirstException();
         }
-    
-        public virtual DbSet<Basket> Basket { get; set; }
+        
+        public virtual DbSet<Basket> Basket { get; set; }        
         public virtual DbSet<BasketProducts> BasketProducts { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Color> Color { get; set; }
-        public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Genus> Genus { get; set; }
         public virtual DbSet<Invoice> Invoice { get; set; }

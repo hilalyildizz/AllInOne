@@ -16,10 +16,9 @@ namespace WebApplication1
     {
         public int InvoiceId { get; set; }
         public System.DateTime OrderDate { get; set; }
-        public int CustomerId { get; set; }
         public int BasketId { get; set; }
+        public int CustomerId { get; set; }
     
         public virtual Basket Basket { get; set; }
-        public virtual Customer Customer { get; set; }
     }
 }

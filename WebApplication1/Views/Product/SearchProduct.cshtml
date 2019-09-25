@@ -9,27 +9,36 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12  row searchProductCardArea">
-            @foreach (var k in Model)
+            @if (Model.Count == 0)
             {
-                <div class="col-md-4 searchProductCard">
-                    <div class="productCardImage">
-                        <div class="searchProductCardMainImage" onclick="click_product(@(k.ProductId))">
-                            <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
-                        </div>
-                        <div class="searchProductCardImages">
-                            @foreach (var r in k.ProductImg)
-                            {
-                                <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)'); " id="thumb_img" alt="">
-                            }
-                        </div>
-                    </div>
-                    <div class="searchProductCardInformation">
-                        <div class="searchProductCardName" onclick="click_product(@(k.ProductId))">@(k.Name)</div>
-                        <div class="searchProductCardDescription" onclick="click_product(@(k.ProductId))">@(k.Explanation)</div>
-                        <div class="searchProductCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>
-                    </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 noSearchProduct">
+                    <p>Aradığınız Ürün Bulunamadı</p>
                 </div>
-                index++;
+            }
+            else
+            { 
+                foreach (var k in Model)
+                {
+                    <div class="col-md-4 searchProductCard">
+                        <div class="productCardImage">
+                            <div class="searchProductCardMainImage" onclick="click_product(@(k.ProductId))">
+                                <img src="@(k.ProductImg.First().Url.Url1)" class="resim-wrap" id="main_img@(index)" alt="">
+                            </div>
+                            <div class="searchProductCardImages">
+                                @foreach (var r in k.ProductImg)
+                                {
+                                    <img src="@(r.Url.Url1)" onclick="change_img(this,'main_img@(index)'); " id="thumb_img" alt="">
+                                }
+                            </div>
+                        </div>
+                        <div class="searchProductCardInformation">
+                            <div class="searchProductCardName" onclick="click_product(@(k.ProductId))">@(k.Name)</div>
+                            <div class="searchProductCardDescription" onclick="click_product(@(k.ProductId))">@(k.Explanation)</div>
+                            <div class="searchProductCardPrice" onclick="click_product(@(k.ProductId))">@(k.Price) TL</div>
+                        </div>
+                    </div>
+                    index++;
+                }
             }
         </div>
     </div>

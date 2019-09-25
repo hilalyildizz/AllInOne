@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,7 +26,6 @@
                     @using (Html.BeginForm("SearchProduct", "Product", FormMethod.Get))
                     {
                         <form class="form-inline my-2 my-lg-0 input-group">
-                            @*<input class="form-control mr-sm-2 searchBar" type="text" name="search" placeholder="Ne aramıştınız ?">*@
                             @Html.TextBox("p", null, new { @class = "form col-sm-4 col-xs-12 searchBar", @type = "text", @placeholder = "Ne aramıştınız ?"})
                             <input class="btn btn-outline-info my-2 my-sm-0 searchButton fas fa-search" type="submit" value="Ara" />
                         </form>
@@ -91,7 +89,7 @@
                 </form>
             </div>
         </div>
-        <p class="footer-bottom footer-bottom-text">All Right reserved by &copy;CHOY.2019</p>
+        <p class="footer-bottom footer-bottom-text">All Right reserved by &copy;AllInOne.2019</p>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

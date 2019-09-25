@@ -10,18 +10,16 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card invoiceArea">
-                <div class="card-body p-0">
-
+                <div class="card-body p-0">                    
                     <div class="row p-5 cardBolum">
                         <div class="col-md-6">
                             <img src="~/logo.png">
                         </div>
                         <div class="col-md-6 faturaBilgi">
-                            <p class="mb-1 faturaNo">Fatura 12683</p>
-                            <p class="text-muted">15.09.2019</p>
+                            <p class="mb-1 faturaNo">Fatura No: @DateTime.Now.Millisecond</p>
+                            <p class="text-muted">29/08/2019<p>
                         </div>
                     </div>
-                    <hr class="my-5">
                     <div class="row pb-5 p-5">
                         <div class="col-md-6">
                             <p class="mb-4 receiverInfo">Alıcı Bilgisi</p>
@@ -29,7 +27,7 @@
                         </div>
                         <div class="col-md-6 orderType">
                             <p class="mb-4 paymentDetail">Ödeme Detayı</p>
-                            <p class="mb-1"><span class="text-muted">Sipariş No: </span> 1425782</p>
+                            <p class="mb-1"><span class="text-muted">Sipariş No: </span>@DateTime.Now.Second</p>
                             <p class="mb-1"><span class="text-muted">Ödeme Tipi: </span> Kredi Kartı</p>
                             <p class="mb-1"><span class="text-muted">İsim: </span> @User.Identity.GetUserName()</p>
                         </div>
@@ -39,11 +37,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="border-0 text-uppercase small font-weight-bold">Adet</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">No</th>
                                         <th class="border-0 text-uppercase small font-weight-bold">Ürün İsmi</th>
                                         <th class="border-0 text-uppercase small font-weight-bold">Açıklama</th>
                                         <th class="border-0 text-uppercase small font-weight-bold">Adet</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">Ücret</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Fİyat</th>
                                         <th class="border-0 text-uppercase small font-weight-bold">Toplam</th>
                                     </tr>
                                 </thead>
@@ -55,16 +53,15 @@
                                             <td>@item.Product.Name</td>
                                             <td>@item.Product.Explanation</td>
                                             <td>@item.ProductCount</td>
-                                            <td>@item.Product.Price TL</td>
-                                            <td>@(item.Product.Price * item.ProductCount) TL</td>
+                                            <td>@item.Product.Price</td>
+                                            <td>@(item.Product.Price * item.ProductCount)</td>
                                         </tr>
                                         index++;
                                     }
-                                </tbody>
+                                    </tbody>
                             </table>
                         </div>
                     </div>
-
                     @{
                         var productSum = Model.Sum(m => m.Product.Price * m.ProductCount);
                         var cargoPrice = 0;
@@ -81,7 +78,7 @@
                         @{ var totalPriceArea = productSum + cargoPrice; }
                         <div class="py-3 px-5 genelToplamAlan">
                             <div class="mb-2">Toplam Tutar</div>
-                            <div class="h2 genelToplamRenk">@totalPriceArea</div>
+                            <div class="h2 genelToplamRenk">@totalPriceArea TL</div>
                         </div>
                     </div>
                 </div>

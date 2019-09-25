@@ -19,8 +19,7 @@ namespace WebApplication1.Controllers
 
         // GET: Product/ProductCategory
         public ActionResult ProductCategory(int id)
-        {           
-
+        {
             var products = from s in db.Product select s;
             products = products.Where(x => x.CategoryId == id);
             
@@ -31,7 +30,6 @@ namespace WebApplication1.Controllers
         public ActionResult ProductFilter()
         {
             var filter = from d in db.Product select d;
-
             return View();
         }
 

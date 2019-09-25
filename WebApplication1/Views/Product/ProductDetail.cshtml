@@ -5,6 +5,7 @@
 }
 @{
     int index = 0;
+    var user = User.Identity.GetUserId();
 }
 <div class="container">
     <div class="row productDetailArea">
@@ -34,10 +35,9 @@
             </div>
             <div class="productDetailPrice">@(Model.Price.ToString()) TL </div>
             <div>
-                <div id="dialog" title="Basic dialog">
-                    <p>Ürününüz sepete eklenmiştir !</p>
-                </div>
-                <button id="opener" class="productDetailBuy" onclick="addToBasketAlert()">@Html.ActionLink("Sepete Ekle", "AddToBasket", "Product", new { id = Model.ProductId }, null)</button>
+                <button id="opener" class="productDetailBuy">
+                    @Html.ActionLink("Sepete Ekle", "AddToBasket", "Product", new { id = Model.ProductId }, null)
+                </button>
             </div>
             <hr />
             <div class="productDetailText">
@@ -56,24 +56,5 @@
     }
     function votingMessage() {
         alert('Oyunuz için teşekkürler !!');
-    }
-    function addToBasketAlert() {
-        $(function () {
-            $("#dialog").dialog({
-                autoOpen: false,
-                show: {
-                    effect: "blind",
-                    duration: 1000
-                },
-                hide: {
-                    effect: "explode",
-                    duration: 1000
-                }
-            });
-
-            $("#opener").on("click", function () {
-                $("#dialog").dialog("open");
-            });
-        });
     }
 </script>

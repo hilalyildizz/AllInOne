@@ -77,7 +77,7 @@ namespace WebApplication1.Controllers
             ViewBag.GenusId = new SelectList(db.Genus, "GenusId", "GenusName", product.GenusId);
             return View(product);
         }
-
+        
         // GET: Admin/Edit/5
         public ActionResult Edit(int? id)
         {

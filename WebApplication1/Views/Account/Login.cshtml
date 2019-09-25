@@ -14,35 +14,35 @@
                         <h3>GİRİŞ YAP</h3>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group editLogin">
-                            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                            <div class="col-md-11">
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group editLogin">
-                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                            <div class="col-md-11">
                                 @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class="checkbox">
-                                    @Html.CheckBoxFor(m => m.RememberMe)
-                                    @Html.LabelFor(m => m.RememberMe)
-                                </div>
+                        <div class="row rememberFormGroup">
+                            <div class="col-md-3 loginRemember">
+                                @Html.LabelFor(m => m.RememberMe, new { @class = "loginRemember" })                                
+                            </div>
+                            <div class="col-md-1 loginRemember">
+                                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "loginRemember" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <button type="submit" value="Oturum aç" class="btn btn-default">Giriş </button>
+                            <div class="col-md-12">
+                                <button type="submit" value="Oturum aç" class="btn btn-default">Giriş</button>
                             </div>
                         </div>
                         <p class="newUser">
                             Yeni kullanıcı olarak
-                            @Html.ActionLink("kaydol.", "Register")
+                            @Html.ActionLink("kaydol", "Register")
                         </p>
                         @* Parola sıfırlama işlevi için hesabınızı onayladığınızda bu seçeneği etkinleştirin
                         <p>
